@@ -1,0 +1,50 @@
+#### gpg pkg
+- name: Ensure GPG package is installed
+  become: yes
+  ansible.builtin.apt:
+    name: gpg
+    state: present
+    update_cache: yes
+
+- name: Ensure /etc/apt/keyrings directory exists
+  become: yes
+  ansible.builtin.file:
+    path: /etc/apt/keyrings
+    state: directory
+    mode: '0755'
+
+
+#### docker repo
+- name: Add Docker GPG key
+  become: yes
+  ansible.builtin.apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+
+- name: Add Docker repository
+  become: yes
+  ansible.builtin.apt_repository:
+    repo: "deb https://download.docker.com/linux/ubuntu {{ ansible_lsb.codename | lower }} stable"
+    state: present
+
+
+#### kube repo
+- name: Download Kubernetes GPG key and save it as a keyring
+  become: yes
+  ansible.builtin.get_url:
+    url: https://pkgs.k8s.io/core:/stable:/v{{ k8s_version }}/deb/Release.key
+    dest: /tmp/kubernetes-release.key
+    mode: '0644'
+
+- name: Convert GPG key to keyring format
+  become: yes
+  ansible.builtin.command:
+    cmd: gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg /tmp/kubernetes-release.key
+    creates: /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+
+- name: Add Kubernetes repository to APT sources
+  become: yes
+  ansible.builtin.copy:
+    dest: /etc/apt/sources.list.d/kubernetes.list
+    content: 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v{{ k8s_version }}/deb/ /'
+    mode: '0644'

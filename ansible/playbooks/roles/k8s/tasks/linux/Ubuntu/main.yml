@@ -1,0 +1,13 @@
+---
+
+- name: Include Ubuntu repos tasks
+  import_tasks: setup_repo.yml
+
+- name: Include Ubuntu package install
+  import_tasks: install_packages.yml
+  when: vars['install_packages']
+
+- name: Include containerd cgroup config
+  import_tasks: containerd_config.yml
+
+...

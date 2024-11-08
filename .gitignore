@@ -1,0 +1,4 @@
+.vagrant/
+files/ansible/cache/
+files/keys/*
+.Vagrantfile.swp/

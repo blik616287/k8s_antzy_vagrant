@@ -1,0 +1,8 @@
+---
+
+install_packages: false
+pod_cidr: "10.0.0.0/8"
+k8s_admin_token: "abcdef.0123456789abcdef"
+k8s_version: "1.31"
+
+...

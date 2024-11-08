@@ -1,0 +1,25 @@
+---
+- name: Gather facts and set bootstrap variable
+  hosts: "{{ ansible_limit | default('all') }}"
+  gather_facts: yes
+  tasks:
+    - name: Set cacheable fact for the first controller node
+      set_fact:
+        bootstrap: "{{ ansible_play_hosts_all | map('extract', hostvars) | selectattr('k8s_role', 'eq', 'controller') | map(attribute='inventory_hostname') | list | first }}"
+      delegate_to: localhost
+      run_once: yes
+    - name: Add the bootstrap host to a group
+      add_host:
+        name: "{{ bootstrap }}"
+        groups: bootstrap_group
+      run_once: yes
+      delegate_to: localhost
+
+- name: Bootstrap controller
+  hosts: bootstrap_group
+  tasks:
+    - name: Bootstrap actions
+      include_role:
+        name: k8s
+
+...

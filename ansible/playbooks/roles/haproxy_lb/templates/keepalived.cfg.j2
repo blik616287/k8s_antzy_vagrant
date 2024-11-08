@@ -1,0 +1,31 @@
+{%- set hosts = play_hosts | list -%}
+{%- set first_host = hosts[0] -%}
+global_defs {
+    enable_script_security
+    script_user root
+}
+
+vrrp_script chk_haproxy {
+    script "/usr/bin/pidof haproxy"
+    interval 2
+    weight 2
+}
+
+vrrp_instance VI_1 {
+    interface {{ listen_nic }}
+{% if inventory_hostname == first_host %}
+    state MASTER
+    priority 150
+{% else %}
+    state BACKUP
+    priority 100
+{% endif %}
+    advert_int 1
+    virtual_router_id 111
+    virtual_ipaddress { 
+        {{ lb_vip }}/32 dev {{ listen_nic }}
+    }
+    track_script { 
+        chk_haproxy 
+    }
+}

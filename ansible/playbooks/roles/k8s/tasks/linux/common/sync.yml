@@ -1,0 +1,21 @@
+---
+
+- name: Set join_token fact
+  set_fact:
+    join_token: "{{ hostvars[bootstrap_node]['join_token'] }}"
+    cacheable: true
+  when: "'join_token' not in hostvars[inventory_hostname]"
+
+- name: Set cert_hash fact
+  set_fact:
+    cert_hash: "{{ hostvars[bootstrap_node]['cert_hash'] }}"
+    cacheable: true
+  when: "'cert_hash' not in hostvars[inventory_hostname]"
+
+- name: Set cert_key fact
+  set_fact:
+    cert_key: "{{ hostvars[bootstrap_node]['cert_key'] }}"
+    cacheable: true
+  when: "'cert_key' not in hostvars[inventory_hostname]"
+
+...

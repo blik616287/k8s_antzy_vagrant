@@ -1,0 +1,19 @@
+---
+
+- name: Install packages
+  become: yes
+  apt:
+    name: "{{ packages }}"
+    state: present
+    update_cache: yes
+
+- name: Hold the kubelet, kubeadm, and kubectl packages
+  become: true
+  ansible.builtin.shell: |
+    echo "{{ item }} hold" | dpkg --set-selections
+  loop:
+    - kubelet
+    - kubeadm
+    - kubectl
+
+...

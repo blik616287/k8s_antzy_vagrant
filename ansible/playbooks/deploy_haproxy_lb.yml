@@ -1,0 +1,10 @@
+---
+
+- name: Deploy haproxy and keepalived
+  hosts: all
+  tasks:
+    - name: Bootstrap node geth
+      include_role:
+        name: haproxy_lb
+
+...

@@ -1,0 +1,30 @@
+---
+
+- name: Include vars if file exists
+  include_vars:
+    file: "{{ item }}"
+  with_items:
+    - "linux/default.yml"
+    - "linux/{{ ansible_distribution }}/default.yml"
+    - "linux/{{ ansible_distribution }}/{{ ansible_distribution_version }}.yml"
+  ignore_errors: yes
+
+- name: Check if the OS is Ubuntu
+  set_fact:
+    is_ubuntu: "{{ ansible_distribution == 'Ubuntu' }}"
+  when: ansible_distribution == 'Ubuntu'
+
+- name: Include Ubuntu tasks
+  include_tasks: "linux/Ubuntu/main.yml"
+  when: is_ubuntu
+
+- name: Prepratory steps for K8s includes sysctls
+  import_tasks: "linux/common/prep_configure.yml"
+
+- name: Initial start of kubelet service
+  import_tasks: "linux/common/start_kubelet.yml"
+
+- name: Bootstrap controllers
+  import_tasks: "linux/common/bootstrap.yml"
+
+...

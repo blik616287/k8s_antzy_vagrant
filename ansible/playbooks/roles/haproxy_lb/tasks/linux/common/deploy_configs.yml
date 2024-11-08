@@ -1,0 +1,15 @@
+---
+
+- name: Template the HAProxy configuration file
+  become: yes
+  template:
+    src: haproxy.cfg.j2
+    dest: /etc/haproxy/haproxy.cfg
+
+- name: Template the keepalive.d configuration file
+  become: yes
+  template:
+    src: keepalived.cfg.j2
+    dest: /etc/keepalived/keepalived.conf
+
+...

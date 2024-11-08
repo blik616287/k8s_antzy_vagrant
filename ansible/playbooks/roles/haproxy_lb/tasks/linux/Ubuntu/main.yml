@@ -1,0 +1,10 @@
+---
+
+- name: Include Ubuntu apt update tasks
+  import_tasks: update.yml
+
+- name: Include Ubuntu package install
+  import_tasks: install_packages.yml
+  when: vars['install_packages']
+
+...

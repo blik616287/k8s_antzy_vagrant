@@ -1,0 +1,17 @@
+---
+
+install_packages: true
+packages:
+  - apt-transport-https
+  - open-iscsi
+  - nfs-common
+  - curl
+  - gpg
+  - net-tools
+  - containerd.io
+  - kubelet
+  - kubeadm
+  - kubectl
+k8s_version: "1.31"
+
+...

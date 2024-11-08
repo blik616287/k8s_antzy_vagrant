@@ -1,0 +1,13 @@
+---
+
+- name: Sync actions
+  hosts: all
+  tasks:
+    - name: Sync facts
+      include_role:
+        name: k8s
+        tasks_from: linux/common/sync.yml
+      vars:
+        bootstrap_node: "192.168.57.13"
+
+...

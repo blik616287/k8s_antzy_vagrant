@@ -1,0 +1,15 @@
+---
+
+dependencies: []
+galaxy_info:
+  author: blik
+  description: k8s deployment
+  company: "ISC"
+  license: "GPL2"
+  min_ansible_version: 2.4
+  platforms:
+  - name: Ubuntu
+    versions:
+      - jammy
+
+...

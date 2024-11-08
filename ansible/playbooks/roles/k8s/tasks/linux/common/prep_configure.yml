@@ -1,0 +1,46 @@
+- name: Ensure swap is turned off
+  become: yes
+  ansible.builtin.shell:
+    cmd: swapoff -a
+  changed_when: false
+
+- name: Ensure swap is disabled in /etc/fstab
+  become: yes
+  ansible.builtin.replace:
+    path: /etc/fstab
+    regexp: '^\s*([^#\n]+swap[^\n]*)\s*$'
+    replace: '# \1'
+
+- name: Load the br_netfilter module
+  become: yes
+  ansible.builtin.modprobe:
+    name: br_netfilter
+    state: present
+
+- name: Load the overlay module
+  become: yes
+  ansible.builtin.modprobe:
+    name: overlay
+    state: present
+
+- name: Persist br_netfilter module in /etc/modules-load.d/k8s.conf
+  become: yes
+  ansible.builtin.copy:
+    dest: /etc/modules-load.d/k8s.conf
+    content: |
+      br_netfilter
+      overlay
+    mode: '0644'
+
+- name: Set sysctl parameters for Kubernetes networking
+  become: yes
+  ansible.builtin.sysctl:
+    name: "{{ item.key }}"
+    value: "{{ item.value }}"
+    state: present
+    sysctl_set: yes
+    reload: yes
+  loop:
+    - { key: 'net.ipv4.ip_forward', value: '1' }
+    - { key: 'net.bridge.bridge-nf-call-ip6tables', value: '1' }
+    - { key: 'net.bridge.bridge-nf-call-iptables', value: '1' }

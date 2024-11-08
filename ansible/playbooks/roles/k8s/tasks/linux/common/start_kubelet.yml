@@ -1,0 +1,16 @@
+---
+
+- name: Ensure kubelet service is enabled and started
+  become: yes
+  ansible.builtin.systemd:
+    name: kubelet
+    enabled: true
+    state: started
+
+#- name: Pull required Kubernetes images with kubeadm
+#  become: yes
+#  ansible.builtin.command: kubeadm config images pull
+#  register: kubeadm_pull
+#  changed_when: "'already pulled' not in kubeadm_pull.stdout"
+
+...
