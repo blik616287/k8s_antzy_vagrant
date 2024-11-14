@@ -145,15 +145,11 @@
     state: directory
     mode: '0755'
 
-- name: Ensure /run/flannel/subnet.env file exists with correct content
+- name: Drop the /run/flannel/subnet.env file from template
   become: yes
-  ansible.builtin.copy:
+  ansible.builtin.template:
+    src: flannel/subnet.env.j2
     dest: /run/flannel/subnet.env
-    content: |
-      FLANNEL_NETWORK=10.244.0.0/16
-      FLANNEL_SUBNET=10.244.0.1/24
-      FLANNEL_MTU=1450
-      FLANNEL_IPMASQ=true
     mode: '0644'
 
 
