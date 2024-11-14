@@ -138,6 +138,13 @@
     - cert_hash is not defined
     - cert_key is not defined
 
+- name: Ensure /run/flannel directory exists
+  become: yes
+  ansible.builtin.file:
+    path: /run/flannel
+    state: directory
+    mode: '0755'
+
 - name: Ensure /run/flannel/subnet.env file exists with correct content
   become: yes
   ansible.builtin.copy:
