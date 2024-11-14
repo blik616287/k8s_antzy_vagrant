@@ -88,9 +88,8 @@ Vagrant.configure("2") do |config|
         hostnamectl set-hostname #{vm_config[:name]}
         #### run ansible plays
         apt update && apt install ansible -y        
-        cd /vagrant/files/ansible
+        cd /vagrant/ansible
         rm -rf cache
-        source load_environment.sh
         ansible-playbook playbooks/deploy_haproxy_lb.yml -l load_balancers
         ansible-playbook playbooks/deploy_k8s.yml -l k8s_cluster
       SHELL
