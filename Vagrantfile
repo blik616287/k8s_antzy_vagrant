@@ -51,7 +51,7 @@ Vagrant.configure("2") do |config|
   #######################################
 
   vm_orchestrator = [
-    { name: 'orca-mgmt', role: 'load_balancer', ip: '192.168.57.100' }
+    { name: 'orca-mgmt', role: 'config', ip: '192.168.57.100' }
   ]
     
   vm_orchestrator.each do |vm_config|
