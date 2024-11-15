@@ -1,5 +1,10 @@
 ---
 
+lb_vip: "192.168.57.201"
+listen_nic: "enp0s8"
+install_packages: true
+pod_cidr: "10.224.0.0/16"
+k8s_admin_token: "abcdef.0123456789abcdef"
 k8s_version: "1.31"
 
 ...

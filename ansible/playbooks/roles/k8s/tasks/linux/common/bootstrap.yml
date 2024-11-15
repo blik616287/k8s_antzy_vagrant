@@ -139,16 +139,16 @@
     - cert_hash is not defined
     - cert_key is not defined
 
-- name: Copy plugin files from the role's files directory to /opt/k8s_deploy/plugins
+- name: Render all plugin template files to /opt/k8s_deploy/plugins
   become: yes
-  ansible.builtin.copy:
+  ansible.builtin.template:
     src: "{{ item }}"
-    dest: /opt/k8s_deploy/plugins/{{ item | basename }}
+    dest: /opt/k8s_deploy/plugins/{{ item | basename }}"
     owner: root
     group: root
     mode: '0750'
   with_fileglob:
-    - "{{ role_path }}/files/plugins/*"
+    - "{{ role_path }}/templates/plugins/*"
   loop_control:
     label: "{{ item }}"
   when:
@@ -156,6 +156,24 @@
     - join_token is not defined
     - cert_hash is not defined
     - cert_key is not defined
+
+#- name: Copy plugin files from the role's files directory to /opt/k8s_deploy/plugins
+#  become: yes
+#  ansible.builtin.copy:
+#    src: "{{ item }}"
+#    dest: /opt/k8s_deploy/plugins/{{ item | basename }}
+#    owner: root
+#    group: root
+#    mode: '0750'
+#  with_fileglob:
+#    - "{{ role_path }}/files/plugins/*"
+#  loop_control:
+#    label: "{{ item }}"
+#  when:
+#    - inventory_hostname in k8s_controller_nodes
+#    - join_token is not defined
+#    - cert_hash is not defined
+#    - cert_key is not defined
 
 - name: Apply all YAML files in /opt/k8s_deploy/plugins using kubectl
   become: yes
@@ -227,5 +245,20 @@
     cert_key: "{{ cert_key_output.stdout }}"
     cacheable: yes
   when: cert_key is not defined
+
+
+#### set node ip
+- name: Render kubeadm-flags.env template
+  become: yes
+  template:
+    src: kubelet/kubeadm-flags.env.j2
+    dest: /var/lib/kubelet/kubeadm-flags.env
+    owner: root
+    group: root
+    mode: '0644'
+  notify: Restart kubelet
+
+- name: Flush handlers
+  meta: flush_handlers
 
 ...
