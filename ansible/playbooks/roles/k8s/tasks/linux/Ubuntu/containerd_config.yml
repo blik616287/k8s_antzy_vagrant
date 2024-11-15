@@ -1,36 +1,28 @@
 ---
 
-- name: Generate the default containerd config and save it to a file
-  become: yes
-  ansible.builtin.command:
-    cmd: containerd config default
-  register: containerd_config
-
-- name: Save the containerd config to /etc/containerd/config.toml
-  become: yes
-  ansible.builtin.copy:
-    content: "{{ containerd_config.stdout }}"
-    dest: /etc/containerd/config.toml
-    mode: '0644'
-
-- name: Update SystemdCgroup in containerd config
-  become: yes
-  ansible.builtin.lineinfile:
-    path: /etc/containerd/config.toml
-    regexp: '^SystemdCgroup = false'
-    line: 'SystemdCgroup = true'
-
-- name: Restart containerd service
+#### disable apparmor
+- name: Stop apparmor service
   become: yes
   ansible.builtin.systemd:
-    name: containerd
-    state: restarted
-    enabled: yes
-  when: containerd_restarted is not defined
+    name: apparmor
+    state: stopped
 
-- name: Set fact to indicate containerd was restarted
-  set_fact:
-    containerd_restarted: true
-    cacheable: yes
+- name: Disable apparmor service
+  become: yes
+  ansible.builtin.systemd:
+    name: apparmor
+    enabled: no
+
+
+#### force systemd cgroup usage 
+- name: Render containerd/config.toml.2 template
+  become: yes
+  template:
+    src: containerd/config.toml.j2
+    dest: /etc/containerd/config.toml
+    owner: root
+    group: root
+    mode: '0644'
+  notify: Restart containerd
 
 ...

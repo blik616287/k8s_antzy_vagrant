@@ -17,6 +17,7 @@
 
 - name: Bootstrap controller
   hosts: bootstrap_group
+  force_handlers: true
   tasks:
     - name: Bootstrap actions
       include_role:

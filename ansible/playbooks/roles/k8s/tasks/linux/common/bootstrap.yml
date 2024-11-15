@@ -59,6 +59,16 @@
 
 
 #### if a controller has not been bootstrapped and cached, then configure the node as a bootstrap node
+- name: Render kubeadm init command for debugging
+  debug:
+    msg: |
+      kubeadm init \
+        --pod-network-cidr={{ pod_cidr | default(pod_cidr) }} \
+        --apiserver-advertise-address={{ ipaddr }} \
+        --control-plane-endpoint={{ lb_vip | default(lb_vip) }} \
+        --token {{ k8s_admin_token | default(k8s_admin_token) }} \
+        --upload-certs | tee /var/log/kubeadm.log
+
 - name: Run kubeadm init if and only if bootstrap facts not present
   become: yes
   ansible.builtin.shell: |
@@ -76,6 +86,28 @@
     - join_token is not defined
     - cert_hash is not defined
     - cert_key is not defined
+
+
+#### set node ip
+- name: Render kubeadm-flags.env template
+  become: yes
+  template:
+    src: kubelet/kubeadm-flags.env.j2
+    dest: /var/lib/kubelet/kubeadm-flags.env
+    owner: root
+    group: root
+    mode: '0644'
+  notify: Restart kubelet
+
+- name: Mark handler notified
+  set_fact:
+    handler_notified: true
+  when: ansible_run_tags == [] or 'handler' not in ansible_run_tags
+
+- name: Wait for 1 minute if handler is notified
+  pause:
+    minutes: 1
+  when: handler_notified | default(false)
 
 
 #### set root kubectl admin privledges on controllers

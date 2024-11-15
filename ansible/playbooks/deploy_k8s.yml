@@ -17,6 +17,7 @@
 
 - name: Bootstrap controller
   hosts: bootstrap_group
+  force_handlers: true
   tasks:
     - name: Bootstrap actions
       include_role:
@@ -34,6 +35,7 @@
 
 - name: Join to cluster
   hosts: all
+  force_handlers: true
   tasks:
     - name: Deploy k8s cluster
       include_role:
