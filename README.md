@@ -22,10 +22,10 @@ vagrant destroy -f
 ```
 
 # todo:
-~~1) testing fix for flannel subnet issue~~
-2) molecule role tests
-3) dashboard
-4) istio
-5) grafana
-6) slinky
-7) ldap -- possible implementation idea in mind
+~~testing fix for flannel subnet issue~~
+1) molecule role tests
+2) dashboard
+3) istio
+4) grafana
+5) slinky
+6) ldap -- possible implementation idea in mind
