@@ -1,4 +1,5 @@
 ---
+
 - name: Gather facts and set bootstrap variable
   hosts: "{{ ansible_limit | default('all') }}"
   gather_facts: yes

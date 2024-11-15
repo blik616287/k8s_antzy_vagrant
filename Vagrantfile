@@ -90,8 +90,8 @@ Vagrant.configure("2") do |config|
         apt update && apt install ansible -y        
         cd /vagrant/ansible
         rm -rf cache
-        ansible-playbook playbooks/deploy_haproxy_lb.yml -l load_balancers
-        ansible-playbook playbooks/deploy_k8s.yml -l k8s_cluster
+        #ansible-playbook playbooks/deploy_haproxy_lb.yml -l load_balancers
+        #ansible-playbook playbooks/deploy_k8s.yml -l k8s_cluster
       SHELL
 
       vm.vm.provision "shell", inline: <<-SHELL

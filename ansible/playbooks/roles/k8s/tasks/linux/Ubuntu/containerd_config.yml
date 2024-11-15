@@ -15,14 +15,19 @@
 
 
 #### force systemd cgroup usage 
-- name: Render containerd/config.toml.2 template
+- name: Render containerd/config.toml template
   become: yes
-  template:
+  ansible.builtin.template:
     src: containerd/config.toml.j2
     dest: /etc/containerd/config.toml
     owner: root
     group: root
     mode: '0644'
-  notify: Restart containerd
+  notify:
+    - Start containerd
+    - Restart containerd
+
+- name: Flush handlers
+  meta: flush_handlers
 
 ...

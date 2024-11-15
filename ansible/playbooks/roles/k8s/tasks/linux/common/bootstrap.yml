@@ -99,6 +99,9 @@
     mode: '0644'
   notify: Restart kubelet
 
+- name: Flush handlers
+  meta: flush_handlers
+
 - name: Mark handler notified
   set_fact:
     handler_notified: true
