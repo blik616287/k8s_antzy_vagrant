@@ -1,0 +1,15 @@
+---
+
+- name: Stop the UFW service
+  become: yes
+  ansible.builtin.systemd:
+    name: ufw
+    state: stopped
+
+- name: Disable the UFW service
+  become: yes
+  ansible.builtin.systemd:
+    name: ufw
+    enabled: false
+
+...

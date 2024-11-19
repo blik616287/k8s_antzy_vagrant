@@ -10,4 +10,7 @@
 - name: Include containerd cgroup config
   import_tasks: containerd_config.yml
 
+- name: Include disable ufw
+  import_tasks: disable_ufw.yml
+
 ...

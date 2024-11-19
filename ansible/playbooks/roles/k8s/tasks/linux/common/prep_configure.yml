@@ -1,3 +1,5 @@
+---
+
 - name: Ensure swap is turned off
   become: yes
   ansible.builtin.shell:
@@ -44,3 +46,12 @@
     - { key: 'net.ipv4.ip_forward', value: '1' }
     - { key: 'net.bridge.bridge-nf-call-ip6tables', value: '1' }
     - { key: 'net.bridge.bridge-nf-call-iptables', value: '1' }
+
+- name: Add NAT masquerade rule for interface enp0s8
+  become: yes
+  ansible.builtin.command:
+    cmd: iptables -t nat -A POSTROUTING -o enp0s8 -j MASQUERADE
+  args:
+    warn: false
+
+...

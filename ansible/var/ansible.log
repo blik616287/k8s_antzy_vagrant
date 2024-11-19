@@ -10336,3 +10336,1239 @@ only.
 2024-11-16 01:45:46,929 p=11782 u=root n=ansible | 192.168.57.16              : ok=40   changed=21   unreachable=0    failed=0    skipped=12   rescued=0    ignored=0   
 2024-11-16 01:45:46,930 p=11782 u=root n=ansible | 192.168.57.17              : ok=40   changed=21   unreachable=0    failed=0    skipped=12   rescued=0    ignored=0   
 2024-11-16 01:45:46,930 p=11782 u=root n=ansible | 192.168.57.18              : ok=40   changed=20   unreachable=0    failed=0    skipped=12   rescued=0    ignored=0   
+2024-11-18 17:29:08,896 p=11597 u=root n=ansible | PLAY [Deploy haproxy and keepalived] *******************************************
+2024-11-18 17:29:08,913 p=11597 u=root n=ansible | TASK [Gathering Facts] *********************************************************
+2024-11-18 17:29:11,358 p=11597 u=root n=ansible | ok: [192.168.57.12]
+2024-11-18 17:29:11,409 p=11597 u=root n=ansible | ok: [192.168.57.11]
+2024-11-18 17:29:11,423 p=11597 u=root n=ansible | TASK [Bootstrap node geth] *****************************************************
+2024-11-18 17:29:11,479 p=11597 u=root n=ansible | TASK [haproxy_lb : Include vars if file exists] ********************************
+2024-11-18 17:29:11,543 p=11597 u=root n=ansible | ok: [192.168.57.11] => (item=linux/default.yml)
+2024-11-18 17:29:11,544 p=11597 u=root n=ansible | ok: [192.168.57.11] => (item=linux/Ubuntu/default.yml)
+2024-11-18 17:29:11,544 p=11597 u=root n=ansible | ok: [192.168.57.11] => (item=linux/Ubuntu/22.04.yml)
+2024-11-18 17:29:11,558 p=11597 u=root n=ansible | ok: [192.168.57.12] => (item=linux/default.yml)
+2024-11-18 17:29:11,563 p=11597 u=root n=ansible | ok: [192.168.57.12] => (item=linux/Ubuntu/default.yml)
+2024-11-18 17:29:11,570 p=11597 u=root n=ansible | ok: [192.168.57.12] => (item=linux/Ubuntu/22.04.yml)
+2024-11-18 17:29:11,575 p=11597 u=root n=ansible | TASK [haproxy_lb : Check if the OS is Ubuntu] **********************************
+2024-11-18 17:29:11,601 p=11597 u=root n=ansible | ok: [192.168.57.12]
+2024-11-18 17:29:11,604 p=11597 u=root n=ansible | ok: [192.168.57.11]
+2024-11-18 17:29:11,608 p=11597 u=root n=ansible | TASK [haproxy_lb : Include Ubuntu tasks] ***************************************
+2024-11-18 17:29:11,657 p=11597 u=root n=ansible | included: /vagrant/ansible/playbooks/roles/haproxy_lb/tasks/linux/Ubuntu/main.yml for 192.168.57.11, 192.168.57.12
+2024-11-18 17:29:11,664 p=11597 u=root n=ansible | TASK [haproxy_lb : Update apt cache] *******************************************
+2024-11-18 17:29:14,546 p=11597 u=root n=ansible | changed: [192.168.57.12]
+2024-11-18 17:29:15,022 p=11597 u=root n=ansible | changed: [192.168.57.11]
+2024-11-18 17:29:15,033 p=11597 u=root n=ansible | TASK [haproxy_lb : Install packages] *******************************************
+2024-11-18 17:29:22,019 p=11597 u=root n=ansible | changed: [192.168.57.12]
+2024-11-18 17:29:22,971 p=11597 u=root n=ansible | changed: [192.168.57.11]
+2024-11-18 17:29:22,981 p=11597 u=root n=ansible | TASK [haproxy_lb : Template the HAProxy configuration file] ********************
+2024-11-18 17:29:26,127 p=11597 u=root n=ansible | changed: [192.168.57.12]
+2024-11-18 17:29:26,132 p=11597 u=root n=ansible | changed: [192.168.57.11]
+2024-11-18 17:29:26,139 p=11597 u=root n=ansible | TASK [haproxy_lb : Template the keepalive.d configuration file] ****************
+2024-11-18 17:29:29,434 p=11597 u=root n=ansible | changed: [192.168.57.11]
+2024-11-18 17:29:29,491 p=11597 u=root n=ansible | changed: [192.168.57.12]
+2024-11-18 17:29:29,503 p=11597 u=root n=ansible | TASK [haproxy_lb : Start haproxy] **********************************************
+2024-11-18 17:29:31,544 p=11597 u=root n=ansible | changed: [192.168.57.12]
+2024-11-18 17:29:31,647 p=11597 u=root n=ansible | changed: [192.168.57.11]
+2024-11-18 17:29:31,656 p=11597 u=root n=ansible | TASK [haproxy_lb : Start keepalive.d] ******************************************
+2024-11-18 17:29:33,535 p=11597 u=root n=ansible | changed: [192.168.57.11]
+2024-11-18 17:29:33,536 p=11597 u=root n=ansible | changed: [192.168.57.12]
+2024-11-18 17:29:33,547 p=11597 u=root n=ansible | PLAY RECAP *********************************************************************
+2024-11-18 17:29:33,547 p=11597 u=root n=ansible | 192.168.57.11              : ok=10   changed=6    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2024-11-18 17:29:33,547 p=11597 u=root n=ansible | 192.168.57.12              : ok=10   changed=6    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2024-11-18 17:29:33,957 p=11775 u=root n=ansible | PLAY [Gather facts and set bootstrap variable] *********************************
+2024-11-18 17:29:33,967 p=11775 u=root n=ansible | TASK [Gathering Facts] *********************************************************
+2024-11-18 17:29:36,256 p=11775 u=root n=ansible | ok: [192.168.57.16]
+2024-11-18 17:29:36,372 p=11775 u=root n=ansible | ok: [192.168.57.14]
+2024-11-18 17:29:36,383 p=11775 u=root n=ansible | ok: [192.168.57.15]
+2024-11-18 17:29:36,388 p=11775 u=root n=ansible | ok: [192.168.57.17]
+2024-11-18 17:29:36,455 p=11775 u=root n=ansible | ok: [192.168.57.13]
+2024-11-18 17:29:39,254 p=11775 u=root n=ansible | ok: [192.168.57.18]
+2024-11-18 17:29:39,266 p=11775 u=root n=ansible | TASK [Set cacheable fact for the first controller node] ************************
+2024-11-18 17:29:39,303 p=11775 u=root n=ansible | ok: [192.168.57.13]
+2024-11-18 17:29:39,315 p=11775 u=root n=ansible | TASK [Add the bootstrap host to a group] ***************************************
+2024-11-18 17:29:39,326 p=11775 u=root n=ansible | changed: [192.168.57.13]
+2024-11-18 17:29:39,337 p=11775 u=root n=ansible | PLAY [Bootstrap controller] ****************************************************
+2024-11-18 17:29:39,341 p=11775 u=root n=ansible | TASK [Gathering Facts] *********************************************************
+2024-11-18 17:29:42,542 p=11775 u=root n=ansible | ok: [192.168.57.13]
+2024-11-18 17:29:42,561 p=11775 u=root n=ansible | TASK [Bootstrap actions] *******************************************************
+2024-11-18 17:29:42,661 p=11775 u=root n=ansible | TASK [k8s : Include vars if file exists] ***************************************
+2024-11-18 17:29:42,695 p=11775 u=root n=ansible | ok: [192.168.57.13] => (item=linux/default.yml)
+2024-11-18 17:29:42,697 p=11849 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/default.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2024-11-18 17:29:42,701 p=11775 u=root n=ansible | ok: [192.168.57.13] => (item=linux/Ubuntu/default.yml)
+2024-11-18 17:29:42,705 p=11849 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/22.04.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2024-11-18 17:29:42,709 p=11775 u=root n=ansible | ok: [192.168.57.13] => (item=linux/Ubuntu/22.04.yml)
+2024-11-18 17:29:42,719 p=11775 u=root n=ansible | TASK [k8s : Check if the OS is Ubuntu] *****************************************
+2024-11-18 17:29:42,740 p=11775 u=root n=ansible | ok: [192.168.57.13]
+2024-11-18 17:29:42,749 p=11775 u=root n=ansible | TASK [k8s : Include Ubuntu tasks] **********************************************
+2024-11-18 17:29:42,800 p=11775 u=root n=ansible | included: /vagrant/ansible/playbooks/roles/k8s/tasks/linux/Ubuntu/main.yml for 192.168.57.13
+2024-11-18 17:29:42,817 p=11775 u=root n=ansible | TASK [k8s : Ensure GPG package is installed] ***********************************
+2024-11-18 17:29:46,883 p=11775 u=root n=ansible | ok: [192.168.57.13]
+2024-11-18 17:29:46,891 p=11775 u=root n=ansible | TASK [k8s : Ensure /etc/apt/keyrings directory exists] *************************
+2024-11-18 17:29:48,627 p=11775 u=root n=ansible | ok: [192.168.57.13]
+2024-11-18 17:29:48,638 p=11775 u=root n=ansible | TASK [k8s : Add Docker GPG key] ************************************************
+2024-11-18 17:29:51,001 p=11775 u=root n=ansible | changed: [192.168.57.13]
+2024-11-18 17:29:51,011 p=11775 u=root n=ansible | TASK [k8s : Add Docker repository] *********************************************
+2024-11-18 17:29:57,255 p=11775 u=root n=ansible | changed: [192.168.57.13]
+2024-11-18 17:29:57,268 p=11775 u=root n=ansible | TASK [k8s : Download Kubernetes GPG key and save it as a keyring] **************
+2024-11-18 17:29:59,774 p=11775 u=root n=ansible | changed: [192.168.57.13]
+2024-11-18 17:29:59,783 p=11775 u=root n=ansible | TASK [k8s : Convert GPG key to keyring format] *********************************
+2024-11-18 17:30:01,666 p=11775 u=root n=ansible | changed: [192.168.57.13]
+2024-11-18 17:30:01,674 p=11775 u=root n=ansible | TASK [k8s : Add Kubernetes repository to APT sources] **************************
+2024-11-18 17:30:04,899 p=11775 u=root n=ansible | changed: [192.168.57.13]
+2024-11-18 17:30:04,908 p=11775 u=root n=ansible | TASK [k8s : Install packages] **************************************************
+2024-11-18 17:30:25,611 p=11775 u=root n=ansible | changed: [192.168.57.13]
+2024-11-18 17:30:25,617 p=11775 u=root n=ansible | TASK [k8s : Hold the kubelet, kubeadm, and kubectl packages] *******************
+2024-11-18 17:30:27,449 p=11775 u=root n=ansible | changed: [192.168.57.13] => (item=kubelet)
+2024-11-18 17:30:29,227 p=11775 u=root n=ansible | changed: [192.168.57.13] => (item=kubeadm)
+2024-11-18 17:30:30,835 p=11775 u=root n=ansible | changed: [192.168.57.13] => (item=kubectl)
+2024-11-18 17:30:30,840 p=11775 u=root n=ansible | TASK [k8s : Stop apparmor service] *********************************************
+2024-11-18 17:30:32,792 p=11775 u=root n=ansible | changed: [192.168.57.13]
+2024-11-18 17:30:32,801 p=11775 u=root n=ansible | TASK [k8s : Disable apparmor service] ******************************************
+2024-11-18 17:30:35,330 p=11775 u=root n=ansible | changed: [192.168.57.13]
+2024-11-18 17:30:35,343 p=11775 u=root n=ansible | TASK [k8s : Render containerd/config.toml template] ****************************
+2024-11-18 17:30:38,249 p=11775 u=root n=ansible | changed: [192.168.57.13]
+2024-11-18 17:30:38,256 p=11775 u=root n=ansible | RUNNING HANDLER [k8s : Start containerd] ***************************************
+2024-11-18 17:30:39,849 p=11775 u=root n=ansible | ok: [192.168.57.13]
+2024-11-18 17:30:39,850 p=11775 u=root n=ansible | RUNNING HANDLER [k8s : Restart containerd] *************************************
+2024-11-18 17:30:41,514 p=11775 u=root n=ansible | changed: [192.168.57.13]
+2024-11-18 17:30:41,522 p=11775 u=root n=ansible | TASK [k8s : Ensure swap is turned off] *****************************************
+2024-11-18 17:30:43,132 p=11775 u=root n=ansible | ok: [192.168.57.13]
+2024-11-18 17:30:43,144 p=11775 u=root n=ansible | TASK [k8s : Ensure swap is disabled in /etc/fstab] *****************************
+2024-11-18 17:30:44,664 p=11775 u=root n=ansible | ok: [192.168.57.13]
+2024-11-18 17:30:44,675 p=11775 u=root n=ansible | TASK [k8s : Load the br_netfilter module] **************************************
+2024-11-18 17:30:46,233 p=11775 u=root n=ansible | changed: [192.168.57.13]
+2024-11-18 17:30:46,240 p=11775 u=root n=ansible | TASK [k8s : Load the overlay module] *******************************************
+2024-11-18 17:30:47,731 p=11775 u=root n=ansible | ok: [192.168.57.13]
+2024-11-18 17:30:47,740 p=11775 u=root n=ansible | TASK [k8s : Persist br_netfilter module in /etc/modules-load.d/k8s.conf] *******
+2024-11-18 17:30:50,511 p=11775 u=root n=ansible | changed: [192.168.57.13]
+2024-11-18 17:30:50,519 p=11775 u=root n=ansible | TASK [k8s : Set sysctl parameters for Kubernetes networking] *******************
+2024-11-18 17:30:52,316 p=11775 u=root n=ansible | changed: [192.168.57.13] => (item={'key': 'net.ipv4.ip_forward', 'value': '1'})
+2024-11-18 17:30:53,683 p=11775 u=root n=ansible | changed: [192.168.57.13] => (item={'key': 'net.bridge.bridge-nf-call-ip6tables', 'value': '1'})
+2024-11-18 17:30:55,177 p=11775 u=root n=ansible | changed: [192.168.57.13] => (item={'key': 'net.bridge.bridge-nf-call-iptables', 'value': '1'})
+2024-11-18 17:30:55,184 p=11775 u=root n=ansible | TASK [k8s : Ensure kubelet service is enabled and started] *********************
+2024-11-18 17:30:56,861 p=11775 u=root n=ansible | changed: [192.168.57.13]
+2024-11-18 17:30:56,873 p=11775 u=root n=ansible | TASK [k8s : Set controller nodes facts] ****************************************
+2024-11-18 17:30:56,900 p=11775 u=root n=ansible | ok: [192.168.57.13]
+2024-11-18 17:30:56,907 p=11775 u=root n=ansible | TASK [k8s : Set computer node facts] *******************************************
+2024-11-18 17:30:56,926 p=11775 u=root n=ansible | ok: [192.168.57.13]
+2024-11-18 17:30:56,931 p=11775 u=root n=ansible | TASK [k8s : Determine the IP address for the target interface] *****************
+2024-11-18 17:30:56,948 p=11775 u=root n=ansible | ok: [192.168.57.13]
+2024-11-18 17:30:56,954 p=11775 u=root n=ansible | TASK [k8s : Check if the admin file exists] ************************************
+2024-11-18 17:30:58,539 p=11775 u=root n=ansible | ok: [192.168.57.13]
+2024-11-18 17:30:58,549 p=11775 u=root n=ansible | TASK [k8s : Run join controllers to cluster] ***********************************
+2024-11-18 17:30:58,567 p=11775 u=root n=ansible | skipping: [192.168.57.13]
+2024-11-18 17:30:58,575 p=11775 u=root n=ansible | TASK [k8s : Run join compute to cluster] ***************************************
+2024-11-18 17:30:58,588 p=11775 u=root n=ansible | skipping: [192.168.57.13]
+2024-11-18 17:30:58,595 p=11775 u=root n=ansible | TASK [k8s : Run kubeadm init if and only if bootstrap facts not present] *******
+2024-11-18 17:31:44,182 p=11775 u=root n=ansible | changed: [192.168.57.13]
+2024-11-18 17:31:44,192 p=11775 u=root n=ansible | TASK [k8s : Render kubeadm-flags.env template] *********************************
+2024-11-18 17:31:47,110 p=11775 u=root n=ansible | changed: [192.168.57.13]
+2024-11-18 17:31:47,119 p=11775 u=root n=ansible | RUNNING HANDLER [k8s : Restart kubelet] ****************************************
+2024-11-18 17:31:48,933 p=11775 u=root n=ansible | changed: [192.168.57.13]
+2024-11-18 17:31:48,942 p=11775 u=root n=ansible | TASK [k8s : Add KUBECONFIG to root's bashrc] ***********************************
+2024-11-18 17:31:50,728 p=11775 u=root n=ansible | changed: [192.168.57.13]
+2024-11-18 17:31:50,737 p=11775 u=root n=ansible | TASK [k8s : Ensure /opt/k8s_deploy/plugins directory exists with correct permissions] ***
+2024-11-18 17:31:52,456 p=11775 u=root n=ansible | changed: [192.168.57.13]
+2024-11-18 17:31:52,463 p=11775 u=root n=ansible | TASK [k8s : Render all plugin template files to /opt/k8s_deploy/plugins] *******
+2024-11-18 17:31:55,292 p=11775 u=root n=ansible | changed: [192.168.57.13] => (item=01_flannel.yml.j2)
+2024-11-18 17:31:55,302 p=11775 u=root n=ansible | TASK [k8s : Apply all YAML files in /opt/k8s_deploy/plugins using kubectl] *****
+2024-11-18 17:31:57,299 p=11775 u=root n=ansible | changed: [192.168.57.13]
+2024-11-18 17:31:57,307 p=11775 u=root n=ansible | TASK [k8s : Ensure /run/flannel directory exists] ******************************
+2024-11-18 17:31:58,866 p=11775 u=root n=ansible | changed: [192.168.57.13]
+2024-11-18 17:31:58,871 p=11775 u=root n=ansible | TASK [k8s : Drop the /run/flannel/subnet.env file from template] ***************
+2024-11-18 17:32:01,920 p=11775 u=root n=ansible | changed: [192.168.57.13]
+2024-11-18 17:32:01,928 p=11775 u=root n=ansible | TASK [k8s : Set and cache join_token fact] *************************************
+2024-11-18 17:32:03,792 p=11775 u=root n=ansible | ok: [192.168.57.13]
+2024-11-18 17:32:03,800 p=11775 u=root n=ansible | TASK [k8s : Cache join_token] **************************************************
+2024-11-18 17:32:03,822 p=11775 u=root n=ansible | ok: [192.168.57.13]
+2024-11-18 17:32:03,829 p=11775 u=root n=ansible | TASK [k8s : Set and cache cert_hash fact] **************************************
+2024-11-18 17:32:05,568 p=11775 u=root n=ansible | ok: [192.168.57.13]
+2024-11-18 17:32:05,579 p=11775 u=root n=ansible | TASK [k8s : Cache cert_hash] ***************************************************
+2024-11-18 17:32:05,602 p=11775 u=root n=ansible | ok: [192.168.57.13]
+2024-11-18 17:32:05,607 p=11775 u=root n=ansible | TASK [k8s : Set and cache cert_key fact] ***************************************
+2024-11-18 17:32:07,163 p=11775 u=root n=ansible | ok: [192.168.57.13]
+2024-11-18 17:32:07,171 p=11775 u=root n=ansible | TASK [k8s : Cache cert_key] ****************************************************
+2024-11-18 17:32:07,196 p=11775 u=root n=ansible | ok: [192.168.57.13]
+2024-11-18 17:32:07,204 p=11775 u=root n=ansible | TASK [k8s : Restart kubelet] ***************************************************
+2024-11-18 17:32:09,045 p=11775 u=root n=ansible | changed: [192.168.57.13]
+2024-11-18 17:32:09,061 p=11775 u=root n=ansible | PLAY [Sync actions] ************************************************************
+2024-11-18 17:32:09,067 p=11775 u=root n=ansible | TASK [Gathering Facts] *********************************************************
+2024-11-18 17:32:11,289 p=11775 u=root n=ansible | ok: [192.168.57.13]
+2024-11-18 17:32:11,519 p=11775 u=root n=ansible | ok: [192.168.57.15]
+2024-11-18 17:32:11,762 p=11775 u=root n=ansible | ok: [192.168.57.16]
+2024-11-18 17:32:11,794 p=11775 u=root n=ansible | ok: [192.168.57.17]
+2024-11-18 17:32:11,936 p=11775 u=root n=ansible | ok: [192.168.57.14]
+2024-11-18 17:32:13,556 p=11775 u=root n=ansible | ok: [192.168.57.18]
+2024-11-18 17:32:13,566 p=11775 u=root n=ansible | TASK [Sync facts] **************************************************************
+2024-11-18 17:32:13,666 p=11775 u=root n=ansible | TASK [k8s : Set join_token fact] ***********************************************
+2024-11-18 17:32:13,695 p=11775 u=root n=ansible | skipping: [192.168.57.13]
+2024-11-18 17:32:13,753 p=11775 u=root n=ansible | ok: [192.168.57.14]
+2024-11-18 17:32:13,757 p=11775 u=root n=ansible | ok: [192.168.57.15]
+2024-11-18 17:32:13,774 p=11775 u=root n=ansible | ok: [192.168.57.16]
+2024-11-18 17:32:13,782 p=11775 u=root n=ansible | ok: [192.168.57.17]
+2024-11-18 17:32:13,784 p=11775 u=root n=ansible | ok: [192.168.57.18]
+2024-11-18 17:32:13,790 p=11775 u=root n=ansible | TASK [k8s : Set cert_hash fact] ************************************************
+2024-11-18 17:32:13,815 p=11775 u=root n=ansible | skipping: [192.168.57.13]
+2024-11-18 17:32:13,848 p=11775 u=root n=ansible | ok: [192.168.57.14]
+2024-11-18 17:32:13,873 p=11775 u=root n=ansible | ok: [192.168.57.15]
+2024-11-18 17:32:13,880 p=11775 u=root n=ansible | ok: [192.168.57.17]
+2024-11-18 17:32:13,886 p=11775 u=root n=ansible | ok: [192.168.57.16]
+2024-11-18 17:32:13,890 p=11775 u=root n=ansible | ok: [192.168.57.18]
+2024-11-18 17:32:13,897 p=11775 u=root n=ansible | TASK [k8s : Set cert_key fact] *************************************************
+2024-11-18 17:32:13,920 p=11775 u=root n=ansible | skipping: [192.168.57.13]
+2024-11-18 17:32:13,946 p=11775 u=root n=ansible | ok: [192.168.57.14]
+2024-11-18 17:32:13,984 p=11775 u=root n=ansible | ok: [192.168.57.17]
+2024-11-18 17:32:13,986 p=11775 u=root n=ansible | ok: [192.168.57.15]
+2024-11-18 17:32:13,993 p=11775 u=root n=ansible | ok: [192.168.57.16]
+2024-11-18 17:32:14,009 p=11775 u=root n=ansible | ok: [192.168.57.18]
+2024-11-18 17:32:14,021 p=11775 u=root n=ansible | PLAY [Join to cluster] *********************************************************
+2024-11-18 17:32:14,028 p=11775 u=root n=ansible | TASK [Gathering Facts] *********************************************************
+2024-11-18 17:32:15,948 p=11775 u=root n=ansible | ok: [192.168.57.14]
+2024-11-18 17:32:16,091 p=11775 u=root n=ansible | ok: [192.168.57.13]
+2024-11-18 17:32:16,169 p=11775 u=root n=ansible | ok: [192.168.57.15]
+2024-11-18 17:32:16,278 p=11775 u=root n=ansible | ok: [192.168.57.16]
+2024-11-18 17:32:16,308 p=11775 u=root n=ansible | ok: [192.168.57.17]
+2024-11-18 17:32:17,859 p=11775 u=root n=ansible | ok: [192.168.57.18]
+2024-11-18 17:32:17,877 p=11775 u=root n=ansible | TASK [Deploy k8s cluster] ******************************************************
+2024-11-18 17:32:18,004 p=11775 u=root n=ansible | TASK [k8s : Include vars if file exists] ***************************************
+2024-11-18 17:32:18,055 p=11775 u=root n=ansible | ok: [192.168.57.13] => (item=linux/default.yml)
+2024-11-18 17:32:18,056 p=12426 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/default.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2024-11-18 17:32:18,076 p=12426 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/22.04.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2024-11-18 17:32:18,088 p=11775 u=root n=ansible | ok: [192.168.57.13] => (item=linux/Ubuntu/default.yml)
+2024-11-18 17:32:18,089 p=12430 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/default.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2024-11-18 17:32:18,090 p=11775 u=root n=ansible | ok: [192.168.57.13] => (item=linux/Ubuntu/22.04.yml)
+2024-11-18 17:32:18,095 p=12427 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/default.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2024-11-18 17:32:18,098 p=11775 u=root n=ansible | ok: [192.168.57.14] => (item=linux/default.yml)
+2024-11-18 17:32:18,099 p=11775 u=root n=ansible | ok: [192.168.57.16] => (item=linux/default.yml)
+2024-11-18 17:32:18,099 p=11775 u=root n=ansible | ok: [192.168.57.16] => (item=linux/Ubuntu/default.yml)
+2024-11-18 17:32:18,100 p=12430 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/22.04.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2024-11-18 17:32:18,106 p=11775 u=root n=ansible | ok: [192.168.57.17] => (item=linux/default.yml)
+2024-11-18 17:32:18,106 p=11775 u=root n=ansible | ok: [192.168.57.14] => (item=linux/Ubuntu/default.yml)
+2024-11-18 17:32:18,107 p=11775 u=root n=ansible | ok: [192.168.57.16] => (item=linux/Ubuntu/22.04.yml)
+2024-11-18 17:32:18,109 p=12431 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/default.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2024-11-18 17:32:18,112 p=11775 u=root n=ansible | ok: [192.168.57.15] => (item=linux/default.yml)
+2024-11-18 17:32:18,112 p=11775 u=root n=ansible | ok: [192.168.57.17] => (item=linux/Ubuntu/default.yml)
+2024-11-18 17:32:18,115 p=12431 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/22.04.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2024-11-18 17:32:18,116 p=12428 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/default.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2024-11-18 17:32:18,118 p=11775 u=root n=ansible | ok: [192.168.57.17] => (item=linux/Ubuntu/22.04.yml)
+2024-11-18 17:32:18,121 p=11775 u=root n=ansible | ok: [192.168.57.15] => (item=linux/Ubuntu/default.yml)
+2024-11-18 17:32:18,121 p=12427 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/22.04.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2024-11-18 17:32:18,128 p=11775 u=root n=ansible | ok: [192.168.57.14] => (item=linux/Ubuntu/22.04.yml)
+2024-11-18 17:32:18,130 p=12428 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/22.04.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2024-11-18 17:32:18,133 p=11775 u=root n=ansible | ok: [192.168.57.15] => (item=linux/Ubuntu/22.04.yml)
+2024-11-18 17:32:18,137 p=11775 u=root n=ansible | ok: [192.168.57.18] => (item=linux/default.yml)
+2024-11-18 17:32:18,139 p=12434 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/default.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2024-11-18 17:32:18,142 p=11775 u=root n=ansible | ok: [192.168.57.18] => (item=linux/Ubuntu/default.yml)
+2024-11-18 17:32:18,147 p=12434 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/22.04.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2024-11-18 17:32:18,149 p=11775 u=root n=ansible | ok: [192.168.57.18] => (item=linux/Ubuntu/22.04.yml)
+2024-11-18 17:32:18,155 p=11775 u=root n=ansible | TASK [k8s : Check if the OS is Ubuntu] *****************************************
+2024-11-18 17:32:18,188 p=11775 u=root n=ansible | ok: [192.168.57.13]
+2024-11-18 17:32:18,203 p=11775 u=root n=ansible | ok: [192.168.57.14]
+2024-11-18 17:32:18,212 p=11775 u=root n=ansible | ok: [192.168.57.15]
+2024-11-18 17:32:18,213 p=11775 u=root n=ansible | ok: [192.168.57.16]
+2024-11-18 17:32:18,221 p=11775 u=root n=ansible | ok: [192.168.57.17]
+2024-11-18 17:32:18,230 p=11775 u=root n=ansible | ok: [192.168.57.18]
+2024-11-18 17:32:18,237 p=11775 u=root n=ansible | TASK [k8s : Include Ubuntu tasks] **********************************************
+2024-11-18 17:32:18,333 p=11775 u=root n=ansible | included: /vagrant/ansible/playbooks/roles/k8s/tasks/linux/Ubuntu/main.yml for 192.168.57.13, 192.168.57.14, 192.168.57.15, 192.168.57.16, 192.168.57.17, 192.168.57.18
+2024-11-18 17:32:18,385 p=11775 u=root n=ansible | TASK [k8s : Ensure GPG package is installed] ***********************************
+2024-11-18 17:32:22,287 p=11775 u=root n=ansible | ok: [192.168.57.17]
+2024-11-18 17:32:22,376 p=11775 u=root n=ansible | ok: [192.168.57.15]
+2024-11-18 17:32:22,487 p=11775 u=root n=ansible | ok: [192.168.57.14]
+2024-11-18 17:32:22,594 p=11775 u=root n=ansible | ok: [192.168.57.16]
+2024-11-18 17:32:24,251 p=11775 u=root n=ansible | ok: [192.168.57.13]
+2024-11-18 17:32:25,464 p=11775 u=root n=ansible | ok: [192.168.57.18]
+2024-11-18 17:32:25,478 p=11775 u=root n=ansible | TASK [k8s : Ensure /etc/apt/keyrings directory exists] *************************
+2024-11-18 17:32:26,945 p=11775 u=root n=ansible | ok: [192.168.57.13]
+2024-11-18 17:32:27,000 p=11775 u=root n=ansible | ok: [192.168.57.14]
+2024-11-18 17:32:27,068 p=11775 u=root n=ansible | ok: [192.168.57.17]
+2024-11-18 17:32:27,107 p=11775 u=root n=ansible | ok: [192.168.57.15]
+2024-11-18 17:32:27,254 p=11775 u=root n=ansible | ok: [192.168.57.16]
+2024-11-18 17:32:28,497 p=11775 u=root n=ansible | ok: [192.168.57.18]
+2024-11-18 17:32:28,505 p=11775 u=root n=ansible | TASK [k8s : Add Docker GPG key] ************************************************
+2024-11-18 17:32:30,791 p=11775 u=root n=ansible | ok: [192.168.57.13]
+2024-11-18 17:32:30,906 p=11775 u=root n=ansible | changed: [192.168.57.15]
+2024-11-18 17:32:30,959 p=11775 u=root n=ansible | changed: [192.168.57.17]
+2024-11-18 17:32:30,961 p=11775 u=root n=ansible | changed: [192.168.57.14]
+2024-11-18 17:32:31,267 p=11775 u=root n=ansible | changed: [192.168.57.16]
+2024-11-18 17:32:32,772 p=11775 u=root n=ansible | changed: [192.168.57.18]
+2024-11-18 17:32:32,782 p=11775 u=root n=ansible | TASK [k8s : Add Docker repository] *********************************************
+2024-11-18 17:32:34,500 p=11775 u=root n=ansible | ok: [192.168.57.13]
+2024-11-18 17:32:42,083 p=11775 u=root n=ansible | changed: [192.168.57.15]
+2024-11-18 17:32:42,433 p=11775 u=root n=ansible | changed: [192.168.57.16]
+2024-11-18 17:32:43,284 p=11775 u=root n=ansible | changed: [192.168.57.17]
+2024-11-18 17:32:43,303 p=11775 u=root n=ansible | changed: [192.168.57.14]
+2024-11-18 17:32:43,959 p=11775 u=root n=ansible | changed: [192.168.57.18]
+2024-11-18 17:32:43,969 p=11775 u=root n=ansible | TASK [k8s : Download Kubernetes GPG key and save it as a keyring] **************
+2024-11-18 17:32:45,752 p=11775 u=root n=ansible | changed: [192.168.57.14]
+2024-11-18 17:32:45,772 p=11775 u=root n=ansible | changed: [192.168.57.15]
+2024-11-18 17:32:45,877 p=11775 u=root n=ansible | changed: [192.168.57.17]
+2024-11-18 17:32:46,086 p=11775 u=root n=ansible | ok: [192.168.57.13]
+2024-11-18 17:32:46,252 p=11775 u=root n=ansible | changed: [192.168.57.16]
+2024-11-18 17:32:47,461 p=11775 u=root n=ansible | changed: [192.168.57.18]
+2024-11-18 17:32:47,472 p=11775 u=root n=ansible | TASK [k8s : Convert GPG key to keyring format] *********************************
+2024-11-18 17:32:48,959 p=11775 u=root n=ansible | ok: [192.168.57.13]
+2024-11-18 17:32:49,043 p=11775 u=root n=ansible | changed: [192.168.57.14]
+2024-11-18 17:32:49,155 p=11775 u=root n=ansible | changed: [192.168.57.15]
+2024-11-18 17:32:49,291 p=11775 u=root n=ansible | changed: [192.168.57.16]
+2024-11-18 17:32:49,300 p=11775 u=root n=ansible | changed: [192.168.57.17]
+2024-11-18 17:32:50,531 p=11775 u=root n=ansible | changed: [192.168.57.18]
+2024-11-18 17:32:50,544 p=11775 u=root n=ansible | TASK [k8s : Add Kubernetes repository to APT sources] **************************
+2024-11-18 17:32:53,127 p=11775 u=root n=ansible | ok: [192.168.57.13]
+2024-11-18 17:32:53,622 p=11775 u=root n=ansible | changed: [192.168.57.14]
+2024-11-18 17:32:53,681 p=11775 u=root n=ansible | changed: [192.168.57.17]
+2024-11-18 17:32:53,767 p=11775 u=root n=ansible | changed: [192.168.57.15]
+2024-11-18 17:32:53,861 p=11775 u=root n=ansible | changed: [192.168.57.16]
+2024-11-18 17:32:55,883 p=11775 u=root n=ansible | changed: [192.168.57.18]
+2024-11-18 17:32:55,892 p=11775 u=root n=ansible | TASK [k8s : Install packages] **************************************************
+2024-11-18 17:33:00,456 p=11775 u=root n=ansible | ok: [192.168.57.13]
+2024-11-18 17:33:33,019 p=11775 u=root n=ansible | changed: [192.168.57.15]
+2024-11-18 17:33:34,374 p=11775 u=root n=ansible | changed: [192.168.57.14]
+2024-11-18 17:33:35,468 p=11775 u=root n=ansible | changed: [192.168.57.18]
+2024-11-18 17:33:35,554 p=11775 u=root n=ansible | changed: [192.168.57.16]
+2024-11-18 17:33:35,601 p=11775 u=root n=ansible | changed: [192.168.57.17]
+2024-11-18 17:33:35,610 p=11775 u=root n=ansible | TASK [k8s : Hold the kubelet, kubeadm, and kubectl packages] *******************
+2024-11-18 17:33:40,126 p=11775 u=root n=ansible | changed: [192.168.57.15] => (item=kubelet)
+2024-11-18 17:33:40,127 p=11775 u=root n=ansible | changed: [192.168.57.16] => (item=kubelet)
+2024-11-18 17:33:40,129 p=11775 u=root n=ansible | changed: [192.168.57.14] => (item=kubelet)
+2024-11-18 17:33:40,130 p=11775 u=root n=ansible | changed: [192.168.57.13] => (item=kubelet)
+2024-11-18 17:33:40,134 p=11775 u=root n=ansible | changed: [192.168.57.17] => (item=kubelet)
+2024-11-18 17:33:40,134 p=11775 u=root n=ansible | changed: [192.168.57.15] => (item=kubeadm)
+2024-11-18 17:33:40,136 p=11775 u=root n=ansible | changed: [192.168.57.17] => (item=kubeadm)
+2024-11-18 17:33:40,137 p=11775 u=root n=ansible | changed: [192.168.57.14] => (item=kubeadm)
+2024-11-18 17:33:40,138 p=11775 u=root n=ansible | changed: [192.168.57.13] => (item=kubeadm)
+2024-11-18 17:33:40,140 p=11775 u=root n=ansible | changed: [192.168.57.16] => (item=kubeadm)
+2024-11-18 17:33:40,140 p=11775 u=root n=ansible | changed: [192.168.57.15] => (item=kubectl)
+2024-11-18 17:33:40,278 p=11775 u=root n=ansible | changed: [192.168.57.14] => (item=kubectl)
+2024-11-18 17:33:40,342 p=11775 u=root n=ansible | changed: [192.168.57.17] => (item=kubectl)
+2024-11-18 17:33:40,364 p=11775 u=root n=ansible | changed: [192.168.57.16] => (item=kubectl)
+2024-11-18 17:33:40,380 p=11775 u=root n=ansible | changed: [192.168.57.13] => (item=kubectl)
+2024-11-18 17:33:41,613 p=11775 u=root n=ansible | changed: [192.168.57.18] => (item=kubelet)
+2024-11-18 17:33:43,139 p=11775 u=root n=ansible | changed: [192.168.57.18] => (item=kubeadm)
+2024-11-18 17:33:44,697 p=11775 u=root n=ansible | changed: [192.168.57.18] => (item=kubectl)
+2024-11-18 17:33:44,707 p=11775 u=root n=ansible | TASK [k8s : Stop apparmor service] *********************************************
+2024-11-18 17:33:46,312 p=11775 u=root n=ansible | changed: [192.168.57.15]
+2024-11-18 17:33:46,328 p=11775 u=root n=ansible | changed: [192.168.57.17]
+2024-11-18 17:33:46,342 p=11775 u=root n=ansible | changed: [192.168.57.14]
+2024-11-18 17:33:46,359 p=11775 u=root n=ansible | changed: [192.168.57.16]
+2024-11-18 17:33:46,554 p=11775 u=root n=ansible | ok: [192.168.57.13]
+2024-11-18 17:33:47,851 p=11775 u=root n=ansible | changed: [192.168.57.18]
+2024-11-18 17:33:47,860 p=11775 u=root n=ansible | TASK [k8s : Disable apparmor service] ******************************************
+2024-11-18 17:33:49,482 p=11775 u=root n=ansible | ok: [192.168.57.13]
+2024-11-18 17:33:50,017 p=11775 u=root n=ansible | changed: [192.168.57.14]
+2024-11-18 17:33:50,203 p=11775 u=root n=ansible | changed: [192.168.57.16]
+2024-11-18 17:33:50,221 p=11775 u=root n=ansible | changed: [192.168.57.15]
+2024-11-18 17:33:50,361 p=11775 u=root n=ansible | changed: [192.168.57.17]
+2024-11-18 17:33:51,707 p=11775 u=root n=ansible | changed: [192.168.57.18]
+2024-11-18 17:33:51,721 p=11775 u=root n=ansible | TASK [k8s : Render containerd/config.toml template] ****************************
+2024-11-18 17:33:54,046 p=11775 u=root n=ansible | ok: [192.168.57.13]
+2024-11-18 17:33:54,501 p=11775 u=root n=ansible | changed: [192.168.57.14]
+2024-11-18 17:33:54,551 p=11775 u=root n=ansible | changed: [192.168.57.15]
+2024-11-18 17:33:54,668 p=11775 u=root n=ansible | changed: [192.168.57.17]
+2024-11-18 17:33:54,671 p=11775 u=root n=ansible | changed: [192.168.57.16]
+2024-11-18 17:33:56,848 p=11775 u=root n=ansible | changed: [192.168.57.18]
+2024-11-18 17:33:56,857 p=11775 u=root n=ansible | RUNNING HANDLER [k8s : Start containerd] ***************************************
+2024-11-18 17:33:58,420 p=11775 u=root n=ansible | ok: [192.168.57.14]
+2024-11-18 17:33:58,485 p=11775 u=root n=ansible | ok: [192.168.57.15]
+2024-11-18 17:33:58,491 p=11775 u=root n=ansible | ok: [192.168.57.16]
+2024-11-18 17:33:58,530 p=11775 u=root n=ansible | ok: [192.168.57.18]
+2024-11-18 17:33:58,732 p=11775 u=root n=ansible | ok: [192.168.57.17]
+2024-11-18 17:33:58,734 p=11775 u=root n=ansible | RUNNING HANDLER [k8s : Restart containerd] *************************************
+2024-11-18 17:34:00,468 p=11775 u=root n=ansible | changed: [192.168.57.15]
+2024-11-18 17:34:00,478 p=11775 u=root n=ansible | changed: [192.168.57.14]
+2024-11-18 17:34:00,500 p=11775 u=root n=ansible | changed: [192.168.57.16]
+2024-11-18 17:34:00,517 p=11775 u=root n=ansible | changed: [192.168.57.18]
+2024-11-18 17:34:00,581 p=11775 u=root n=ansible | changed: [192.168.57.17]
+2024-11-18 17:34:00,592 p=11775 u=root n=ansible | TASK [k8s : Ensure swap is turned off] *****************************************
+2024-11-18 17:34:02,101 p=11775 u=root n=ansible | ok: [192.168.57.15]
+2024-11-18 17:34:02,146 p=11775 u=root n=ansible | ok: [192.168.57.13]
+2024-11-18 17:34:02,198 p=11775 u=root n=ansible | ok: [192.168.57.17]
+2024-11-18 17:34:02,207 p=11775 u=root n=ansible | ok: [192.168.57.14]
+2024-11-18 17:34:02,224 p=11775 u=root n=ansible | ok: [192.168.57.16]
+2024-11-18 17:34:03,683 p=11775 u=root n=ansible | ok: [192.168.57.18]
+2024-11-18 17:34:03,691 p=11775 u=root n=ansible | TASK [k8s : Ensure swap is disabled in /etc/fstab] *****************************
+2024-11-18 17:34:05,269 p=11775 u=root n=ansible | ok: [192.168.57.15]
+2024-11-18 17:34:05,279 p=11775 u=root n=ansible | ok: [192.168.57.16]
+2024-11-18 17:34:05,280 p=11775 u=root n=ansible | ok: [192.168.57.13]
+2024-11-18 17:34:05,284 p=11775 u=root n=ansible | ok: [192.168.57.14]
+2024-11-18 17:34:05,312 p=11775 u=root n=ansible | ok: [192.168.57.17]
+2024-11-18 17:34:07,037 p=11775 u=root n=ansible | ok: [192.168.57.18]
+2024-11-18 17:34:07,047 p=11775 u=root n=ansible | TASK [k8s : Load the br_netfilter module] **************************************
+2024-11-18 17:34:08,481 p=11775 u=root n=ansible | ok: [192.168.57.13]
+2024-11-18 17:34:08,484 p=11775 u=root n=ansible | changed: [192.168.57.15]
+2024-11-18 17:34:08,527 p=11775 u=root n=ansible | changed: [192.168.57.14]
+2024-11-18 17:34:08,577 p=11775 u=root n=ansible | changed: [192.168.57.16]
+2024-11-18 17:34:08,578 p=11775 u=root n=ansible | changed: [192.168.57.17]
+2024-11-18 17:34:10,161 p=11775 u=root n=ansible | changed: [192.168.57.18]
+2024-11-18 17:34:10,170 p=11775 u=root n=ansible | TASK [k8s : Load the overlay module] *******************************************
+2024-11-18 17:34:11,616 p=11775 u=root n=ansible | ok: [192.168.57.15]
+2024-11-18 17:34:11,621 p=11775 u=root n=ansible | ok: [192.168.57.17]
+2024-11-18 17:34:11,628 p=11775 u=root n=ansible | ok: [192.168.57.14]
+2024-11-18 17:34:11,686 p=11775 u=root n=ansible | ok: [192.168.57.13]
+2024-11-18 17:34:11,687 p=11775 u=root n=ansible | ok: [192.168.57.16]
+2024-11-18 17:34:13,127 p=11775 u=root n=ansible | ok: [192.168.57.18]
+2024-11-18 17:34:13,137 p=11775 u=root n=ansible | TASK [k8s : Persist br_netfilter module in /etc/modules-load.d/k8s.conf] *******
+2024-11-18 17:34:15,544 p=11775 u=root n=ansible | ok: [192.168.57.13]
+2024-11-18 17:34:15,803 p=11775 u=root n=ansible | changed: [192.168.57.15]
+2024-11-18 17:34:15,888 p=11775 u=root n=ansible | changed: [192.168.57.17]
+2024-11-18 17:34:15,939 p=11775 u=root n=ansible | changed: [192.168.57.14]
+2024-11-18 17:34:15,987 p=11775 u=root n=ansible | changed: [192.168.57.16]
+2024-11-18 17:34:18,537 p=11775 u=root n=ansible | changed: [192.168.57.18]
+2024-11-18 17:34:18,543 p=11775 u=root n=ansible | TASK [k8s : Set sysctl parameters for Kubernetes networking] *******************
+2024-11-18 17:34:22,927 p=11775 u=root n=ansible | ok: [192.168.57.13] => (item={'key': 'net.ipv4.ip_forward', 'value': '1'})
+2024-11-18 17:34:22,932 p=11775 u=root n=ansible | changed: [192.168.57.15] => (item={'key': 'net.ipv4.ip_forward', 'value': '1'})
+2024-11-18 17:34:22,940 p=11775 u=root n=ansible | changed: [192.168.57.16] => (item={'key': 'net.ipv4.ip_forward', 'value': '1'})
+2024-11-18 17:34:22,941 p=11775 u=root n=ansible | changed: [192.168.57.17] => (item={'key': 'net.ipv4.ip_forward', 'value': '1'})
+2024-11-18 17:34:22,942 p=11775 u=root n=ansible | changed: [192.168.57.14] => (item={'key': 'net.ipv4.ip_forward', 'value': '1'})
+2024-11-18 17:34:22,943 p=11775 u=root n=ansible | ok: [192.168.57.13] => (item={'key': 'net.bridge.bridge-nf-call-ip6tables', 'value': '1'})
+2024-11-18 17:34:22,944 p=11775 u=root n=ansible | changed: [192.168.57.15] => (item={'key': 'net.bridge.bridge-nf-call-ip6tables', 'value': '1'})
+2024-11-18 17:34:22,944 p=11775 u=root n=ansible | changed: [192.168.57.16] => (item={'key': 'net.bridge.bridge-nf-call-ip6tables', 'value': '1'})
+2024-11-18 17:34:22,945 p=11775 u=root n=ansible | changed: [192.168.57.17] => (item={'key': 'net.bridge.bridge-nf-call-ip6tables', 'value': '1'})
+2024-11-18 17:34:22,945 p=11775 u=root n=ansible | changed: [192.168.57.14] => (item={'key': 'net.bridge.bridge-nf-call-ip6tables', 'value': '1'})
+2024-11-18 17:34:22,946 p=11775 u=root n=ansible | changed: [192.168.57.15] => (item={'key': 'net.bridge.bridge-nf-call-iptables', 'value': '1'})
+2024-11-18 17:34:22,949 p=11775 u=root n=ansible | ok: [192.168.57.13] => (item={'key': 'net.bridge.bridge-nf-call-iptables', 'value': '1'})
+2024-11-18 17:34:23,004 p=11775 u=root n=ansible | changed: [192.168.57.17] => (item={'key': 'net.bridge.bridge-nf-call-iptables', 'value': '1'})
+2024-11-18 17:34:23,121 p=11775 u=root n=ansible | changed: [192.168.57.16] => (item={'key': 'net.bridge.bridge-nf-call-iptables', 'value': '1'})
+2024-11-18 17:34:23,996 p=11775 u=root n=ansible | changed: [192.168.57.14] => (item={'key': 'net.bridge.bridge-nf-call-iptables', 'value': '1'})
+2024-11-18 17:34:24,363 p=11775 u=root n=ansible | changed: [192.168.57.18] => (item={'key': 'net.ipv4.ip_forward', 'value': '1'})
+2024-11-18 17:34:25,810 p=11775 u=root n=ansible | changed: [192.168.57.18] => (item={'key': 'net.bridge.bridge-nf-call-ip6tables', 'value': '1'})
+2024-11-18 17:34:27,378 p=11775 u=root n=ansible | changed: [192.168.57.18] => (item={'key': 'net.bridge.bridge-nf-call-iptables', 'value': '1'})
+2024-11-18 17:34:27,389 p=11775 u=root n=ansible | TASK [k8s : Ensure kubelet service is enabled and started] *********************
+2024-11-18 17:34:28,992 p=11775 u=root n=ansible | changed: [192.168.57.14]
+2024-11-18 17:34:29,003 p=11775 u=root n=ansible | ok: [192.168.57.13]
+2024-11-18 17:34:29,011 p=11775 u=root n=ansible | changed: [192.168.57.15]
+2024-11-18 17:34:29,028 p=11775 u=root n=ansible | changed: [192.168.57.17]
+2024-11-18 17:34:29,075 p=11775 u=root n=ansible | changed: [192.168.57.16]
+2024-11-18 17:34:30,940 p=11775 u=root n=ansible | changed: [192.168.57.18]
+2024-11-18 17:34:30,949 p=11775 u=root n=ansible | TASK [k8s : Set controller nodes facts] ****************************************
+2024-11-18 17:34:31,038 p=11775 u=root n=ansible | ok: [192.168.57.13]
+2024-11-18 17:34:31,057 p=11775 u=root n=ansible | ok: [192.168.57.15]
+2024-11-18 17:34:31,077 p=11775 u=root n=ansible | ok: [192.168.57.14]
+2024-11-18 17:34:31,111 p=11775 u=root n=ansible | ok: [192.168.57.16]
+2024-11-18 17:34:31,111 p=11775 u=root n=ansible | ok: [192.168.57.17]
+2024-11-18 17:34:31,119 p=11775 u=root n=ansible | ok: [192.168.57.18]
+2024-11-18 17:34:31,126 p=11775 u=root n=ansible | TASK [k8s : Set computer node facts] *******************************************
+2024-11-18 17:34:31,213 p=11775 u=root n=ansible | ok: [192.168.57.13]
+2024-11-18 17:34:31,231 p=11775 u=root n=ansible | ok: [192.168.57.14]
+2024-11-18 17:34:31,237 p=11775 u=root n=ansible | ok: [192.168.57.15]
+2024-11-18 17:34:31,248 p=11775 u=root n=ansible | ok: [192.168.57.16]
+2024-11-18 17:34:31,257 p=11775 u=root n=ansible | ok: [192.168.57.17]
+2024-11-18 17:34:31,279 p=11775 u=root n=ansible | ok: [192.168.57.18]
+2024-11-18 17:34:31,284 p=11775 u=root n=ansible | TASK [k8s : Determine the IP address for the target interface] *****************
+2024-11-18 17:34:31,331 p=11775 u=root n=ansible | ok: [192.168.57.14]
+2024-11-18 17:34:31,348 p=11775 u=root n=ansible | ok: [192.168.57.13]
+2024-11-18 17:34:31,349 p=11775 u=root n=ansible | ok: [192.168.57.15]
+2024-11-18 17:34:31,349 p=11775 u=root n=ansible | ok: [192.168.57.16]
+2024-11-18 17:34:31,359 p=11775 u=root n=ansible | ok: [192.168.57.17]
+2024-11-18 17:34:31,366 p=11775 u=root n=ansible | ok: [192.168.57.18]
+2024-11-18 17:34:31,373 p=11775 u=root n=ansible | TASK [k8s : Check if the admin file exists] ************************************
+2024-11-18 17:34:32,928 p=11775 u=root n=ansible | ok: [192.168.57.13]
+2024-11-18 17:34:32,969 p=11775 u=root n=ansible | ok: [192.168.57.17]
+2024-11-18 17:34:32,988 p=11775 u=root n=ansible | ok: [192.168.57.15]
+2024-11-18 17:34:33,000 p=11775 u=root n=ansible | ok: [192.168.57.14]
+2024-11-18 17:34:33,161 p=11775 u=root n=ansible | ok: [192.168.57.16]
+2024-11-18 17:34:34,592 p=11775 u=root n=ansible | ok: [192.168.57.18]
+2024-11-18 17:34:34,601 p=11775 u=root n=ansible | TASK [k8s : Run join controllers to cluster] ***********************************
+2024-11-18 17:34:34,620 p=11775 u=root n=ansible | skipping: [192.168.57.13]
+2024-11-18 17:34:34,676 p=11775 u=root n=ansible | skipping: [192.168.57.16]
+2024-11-18 17:34:34,682 p=11775 u=root n=ansible | skipping: [192.168.57.17]
+2024-11-18 17:34:34,687 p=11775 u=root n=ansible | skipping: [192.168.57.18]
+2024-11-18 17:34:58,892 p=11775 u=root n=ansible | changed: [192.168.57.14]
+2024-11-18 17:35:04,811 p=11775 u=root n=ansible | changed: [192.168.57.15]
+2024-11-18 17:35:04,821 p=11775 u=root n=ansible | TASK [k8s : Run join compute to cluster] ***************************************
+2024-11-18 17:35:04,846 p=11775 u=root n=ansible | skipping: [192.168.57.13]
+2024-11-18 17:35:04,864 p=11775 u=root n=ansible | skipping: [192.168.57.14]
+2024-11-18 17:35:04,877 p=11775 u=root n=ansible | skipping: [192.168.57.15]
+2024-11-18 17:35:08,515 p=11775 u=root n=ansible | changed: [192.168.57.17]
+2024-11-18 17:35:08,858 p=11775 u=root n=ansible | changed: [192.168.57.16]
+2024-11-18 17:35:08,965 p=11775 u=root n=ansible | changed: [192.168.57.18]
+2024-11-18 17:35:08,978 p=11775 u=root n=ansible | TASK [k8s : Run kubeadm init if and only if bootstrap facts not present] *******
+2024-11-18 17:35:09,028 p=11775 u=root n=ansible | skipping: [192.168.57.13]
+2024-11-18 17:35:09,051 p=11775 u=root n=ansible | skipping: [192.168.57.14]
+2024-11-18 17:35:09,078 p=11775 u=root n=ansible | skipping: [192.168.57.15]
+2024-11-18 17:35:09,099 p=11775 u=root n=ansible | skipping: [192.168.57.16]
+2024-11-18 17:35:09,101 p=11775 u=root n=ansible | skipping: [192.168.57.17]
+2024-11-18 17:35:09,112 p=11775 u=root n=ansible | skipping: [192.168.57.18]
+2024-11-18 17:35:09,125 p=11775 u=root n=ansible | TASK [k8s : Render kubeadm-flags.env template] *********************************
+2024-11-18 17:35:13,318 p=11775 u=root n=ansible | changed: [192.168.57.17]
+2024-11-18 17:35:13,561 p=11775 u=root n=ansible | ok: [192.168.57.13]
+2024-11-18 17:35:13,562 p=11775 u=root n=ansible | changed: [192.168.57.15]
+2024-11-18 17:35:13,596 p=11775 u=root n=ansible | changed: [192.168.57.14]
+2024-11-18 17:35:13,616 p=11775 u=root n=ansible | changed: [192.168.57.16]
+2024-11-18 17:35:16,942 p=11775 u=root n=ansible | changed: [192.168.57.18]
+2024-11-18 17:35:16,952 p=11775 u=root n=ansible | RUNNING HANDLER [k8s : Restart kubelet] ****************************************
+2024-11-18 17:35:19,777 p=11775 u=root n=ansible | changed: [192.168.57.15]
+2024-11-18 17:35:19,860 p=11775 u=root n=ansible | changed: [192.168.57.14]
+2024-11-18 17:35:19,952 p=11775 u=root n=ansible | changed: [192.168.57.17]
+2024-11-18 17:35:20,029 p=11775 u=root n=ansible | changed: [192.168.57.18]
+2024-11-18 17:35:20,067 p=11775 u=root n=ansible | changed: [192.168.57.16]
+2024-11-18 17:35:20,088 p=11775 u=root n=ansible | TASK [k8s : Add KUBECONFIG to root's bashrc] ***********************************
+2024-11-18 17:35:20,255 p=11775 u=root n=ansible | skipping: [192.168.57.16]
+2024-11-18 17:35:20,257 p=11775 u=root n=ansible | skipping: [192.168.57.17]
+2024-11-18 17:35:20,271 p=11775 u=root n=ansible | skipping: [192.168.57.18]
+2024-11-18 17:35:21,985 p=11775 u=root n=ansible | changed: [192.168.57.15]
+2024-11-18 17:35:21,991 p=11775 u=root n=ansible | ok: [192.168.57.13]
+2024-11-18 17:35:22,135 p=11775 u=root n=ansible | changed: [192.168.57.14]
+2024-11-18 17:35:22,149 p=11775 u=root n=ansible | TASK [k8s : Ensure /opt/k8s_deploy/plugins directory exists with correct permissions] ***
+2024-11-18 17:35:22,197 p=11775 u=root n=ansible | skipping: [192.168.57.13]
+2024-11-18 17:35:22,222 p=11775 u=root n=ansible | skipping: [192.168.57.14]
+2024-11-18 17:35:22,246 p=11775 u=root n=ansible | skipping: [192.168.57.15]
+2024-11-18 17:35:22,260 p=11775 u=root n=ansible | skipping: [192.168.57.16]
+2024-11-18 17:35:22,262 p=11775 u=root n=ansible | skipping: [192.168.57.17]
+2024-11-18 17:35:22,280 p=11775 u=root n=ansible | skipping: [192.168.57.18]
+2024-11-18 17:35:22,298 p=11775 u=root n=ansible | TASK [k8s : Render all plugin template files to /opt/k8s_deploy/plugins] *******
+2024-11-18 17:35:22,361 p=11775 u=root n=ansible | skipping: [192.168.57.13] => (item=01_flannel.yml.j2) 
+2024-11-18 17:35:22,406 p=11775 u=root n=ansible | skipping: [192.168.57.14] => (item=01_flannel.yml.j2) 
+2024-11-18 17:35:22,432 p=11775 u=root n=ansible | skipping: [192.168.57.15] => (item=01_flannel.yml.j2) 
+2024-11-18 17:35:22,434 p=11775 u=root n=ansible | skipping: [192.168.57.16] => (item=01_flannel.yml.j2) 
+2024-11-18 17:35:22,470 p=11775 u=root n=ansible | skipping: [192.168.57.18] => (item=01_flannel.yml.j2) 
+2024-11-18 17:35:22,471 p=11775 u=root n=ansible | skipping: [192.168.57.17] => (item=01_flannel.yml.j2) 
+2024-11-18 17:35:22,484 p=11775 u=root n=ansible | TASK [k8s : Apply all YAML files in /opt/k8s_deploy/plugins using kubectl] *****
+2024-11-18 17:35:22,529 p=11775 u=root n=ansible | skipping: [192.168.57.13]
+2024-11-18 17:35:22,550 p=11775 u=root n=ansible | skipping: [192.168.57.14]
+2024-11-18 17:35:22,574 p=11775 u=root n=ansible | skipping: [192.168.57.15]
+2024-11-18 17:35:22,598 p=11775 u=root n=ansible | skipping: [192.168.57.16]
+2024-11-18 17:35:22,600 p=11775 u=root n=ansible | skipping: [192.168.57.17]
+2024-11-18 17:35:22,617 p=11775 u=root n=ansible | skipping: [192.168.57.18]
+2024-11-18 17:35:22,629 p=11775 u=root n=ansible | TASK [k8s : Ensure /run/flannel directory exists] ******************************
+2024-11-18 17:35:24,781 p=11775 u=root n=ansible | ok: [192.168.57.14]
+2024-11-18 17:35:24,784 p=11775 u=root n=ansible | ok: [192.168.57.16]
+2024-11-18 17:35:24,792 p=11775 u=root n=ansible | ok: [192.168.57.13]
+2024-11-18 17:35:24,795 p=11775 u=root n=ansible | ok: [192.168.57.15]
+2024-11-18 17:35:25,031 p=11775 u=root n=ansible | changed: [192.168.57.17]
+2024-11-18 17:35:26,603 p=11775 u=root n=ansible | ok: [192.168.57.18]
+2024-11-18 17:35:26,612 p=11775 u=root n=ansible | TASK [k8s : Drop the /run/flannel/subnet.env file from template] ***************
+2024-11-18 17:35:29,297 p=11775 u=root n=ansible | ok: [192.168.57.13]
+2024-11-18 17:35:29,523 p=11775 u=root n=ansible | changed: [192.168.57.16]
+2024-11-18 17:35:29,574 p=11775 u=root n=ansible | changed: [192.168.57.15]
+2024-11-18 17:35:29,664 p=11775 u=root n=ansible | changed: [192.168.57.14]
+2024-11-18 17:35:29,665 p=11775 u=root n=ansible | changed: [192.168.57.17]
+2024-11-18 17:35:32,243 p=11775 u=root n=ansible | changed: [192.168.57.18]
+2024-11-18 17:35:32,254 p=11775 u=root n=ansible | TASK [k8s : Set and cache join_token fact] *************************************
+2024-11-18 17:35:32,276 p=11775 u=root n=ansible | skipping: [192.168.57.13]
+2024-11-18 17:35:32,295 p=11775 u=root n=ansible | skipping: [192.168.57.14]
+2024-11-18 17:35:32,306 p=11775 u=root n=ansible | skipping: [192.168.57.15]
+2024-11-18 17:35:32,318 p=11775 u=root n=ansible | skipping: [192.168.57.16]
+2024-11-18 17:35:32,318 p=11775 u=root n=ansible | skipping: [192.168.57.17]
+2024-11-18 17:35:32,326 p=11775 u=root n=ansible | skipping: [192.168.57.18]
+2024-11-18 17:35:32,335 p=11775 u=root n=ansible | TASK [k8s : Cache join_token] **************************************************
+2024-11-18 17:35:32,364 p=11775 u=root n=ansible | skipping: [192.168.57.13]
+2024-11-18 17:35:32,385 p=11775 u=root n=ansible | skipping: [192.168.57.14]
+2024-11-18 17:35:32,400 p=11775 u=root n=ansible | skipping: [192.168.57.15]
+2024-11-18 17:35:32,401 p=11775 u=root n=ansible | skipping: [192.168.57.16]
+2024-11-18 17:35:32,402 p=11775 u=root n=ansible | skipping: [192.168.57.17]
+2024-11-18 17:35:32,417 p=11775 u=root n=ansible | skipping: [192.168.57.18]
+2024-11-18 17:35:32,426 p=11775 u=root n=ansible | TASK [k8s : Set and cache cert_hash fact] **************************************
+2024-11-18 17:35:32,453 p=11775 u=root n=ansible | skipping: [192.168.57.13]
+2024-11-18 17:35:32,485 p=11775 u=root n=ansible | skipping: [192.168.57.14]
+2024-11-18 17:35:32,496 p=11775 u=root n=ansible | skipping: [192.168.57.15]
+2024-11-18 17:35:32,497 p=11775 u=root n=ansible | skipping: [192.168.57.17]
+2024-11-18 17:35:32,497 p=11775 u=root n=ansible | skipping: [192.168.57.16]
+2024-11-18 17:35:32,506 p=11775 u=root n=ansible | skipping: [192.168.57.18]
+2024-11-18 17:35:32,516 p=11775 u=root n=ansible | TASK [k8s : Cache cert_hash] ***************************************************
+2024-11-18 17:35:32,536 p=11775 u=root n=ansible | skipping: [192.168.57.13]
+2024-11-18 17:35:32,552 p=11775 u=root n=ansible | skipping: [192.168.57.14]
+2024-11-18 17:35:32,570 p=11775 u=root n=ansible | skipping: [192.168.57.15]
+2024-11-18 17:35:32,585 p=11775 u=root n=ansible | skipping: [192.168.57.16]
+2024-11-18 17:35:32,600 p=11775 u=root n=ansible | skipping: [192.168.57.17]
+2024-11-18 17:35:32,609 p=11775 u=root n=ansible | skipping: [192.168.57.18]
+2024-11-18 17:35:32,619 p=11775 u=root n=ansible | TASK [k8s : Set and cache cert_key fact] ***************************************
+2024-11-18 17:35:32,638 p=11775 u=root n=ansible | skipping: [192.168.57.13]
+2024-11-18 17:35:32,652 p=11775 u=root n=ansible | skipping: [192.168.57.14]
+2024-11-18 17:35:32,674 p=11775 u=root n=ansible | skipping: [192.168.57.15]
+2024-11-18 17:35:32,684 p=11775 u=root n=ansible | skipping: [192.168.57.16]
+2024-11-18 17:35:32,690 p=11775 u=root n=ansible | skipping: [192.168.57.17]
+2024-11-18 17:35:32,696 p=11775 u=root n=ansible | skipping: [192.168.57.18]
+2024-11-18 17:35:32,703 p=11775 u=root n=ansible | TASK [k8s : Cache cert_key] ****************************************************
+2024-11-18 17:35:32,724 p=11775 u=root n=ansible | skipping: [192.168.57.13]
+2024-11-18 17:35:32,740 p=11775 u=root n=ansible | skipping: [192.168.57.14]
+2024-11-18 17:35:32,761 p=11775 u=root n=ansible | skipping: [192.168.57.15]
+2024-11-18 17:35:32,774 p=11775 u=root n=ansible | skipping: [192.168.57.16]
+2024-11-18 17:35:32,774 p=11775 u=root n=ansible | skipping: [192.168.57.17]
+2024-11-18 17:35:32,781 p=11775 u=root n=ansible | skipping: [192.168.57.18]
+2024-11-18 17:35:32,788 p=11775 u=root n=ansible | TASK [k8s : Restart kubelet] ***************************************************
+2024-11-18 17:35:34,677 p=11775 u=root n=ansible | changed: [192.168.57.17]
+2024-11-18 17:35:34,718 p=11775 u=root n=ansible | changed: [192.168.57.16]
+2024-11-18 17:35:34,760 p=11775 u=root n=ansible | changed: [192.168.57.14]
+2024-11-18 17:35:34,800 p=11775 u=root n=ansible | changed: [192.168.57.13]
+2024-11-18 17:35:34,892 p=11775 u=root n=ansible | changed: [192.168.57.15]
+2024-11-18 17:35:37,032 p=11775 u=root n=ansible | changed: [192.168.57.18]
+2024-11-18 17:35:37,057 p=11775 u=root n=ansible | PLAY RECAP *********************************************************************
+2024-11-18 17:35:37,057 p=11775 u=root n=ansible | 192.168.57.13              : ok=81   changed=28   unreachable=0    failed=0    skipped=17   rescued=0    ignored=0   
+2024-11-18 17:35:37,057 p=11775 u=root n=ansible | 192.168.57.14              : ok=41   changed=21   unreachable=0    failed=0    skipped=11   rescued=0    ignored=0   
+2024-11-18 17:35:37,057 p=11775 u=root n=ansible | 192.168.57.15              : ok=41   changed=21   unreachable=0    failed=0    skipped=11   rescued=0    ignored=0   
+2024-11-18 17:35:37,058 p=11775 u=root n=ansible | 192.168.57.16              : ok=40   changed=20   unreachable=0    failed=0    skipped=12   rescued=0    ignored=0   
+2024-11-18 17:35:37,058 p=11775 u=root n=ansible | 192.168.57.17              : ok=40   changed=21   unreachable=0    failed=0    skipped=12   rescued=0    ignored=0   
+2024-11-18 17:35:37,059 p=11775 u=root n=ansible | 192.168.57.18              : ok=40   changed=20   unreachable=0    failed=0    skipped=12   rescued=0    ignored=0   
+2024-11-19 05:51:54,551 p=11629 u=root n=ansible | PLAY [Deploy haproxy and keepalived] *******************************************
+2024-11-19 05:51:54,582 p=11629 u=root n=ansible | TASK [Gathering Facts] *********************************************************
+2024-11-19 05:51:56,883 p=11629 u=root n=ansible | ok: [192.168.57.12]
+2024-11-19 05:51:56,887 p=11629 u=root n=ansible | ok: [192.168.57.11]
+2024-11-19 05:51:56,899 p=11629 u=root n=ansible | TASK [Bootstrap node geth] *****************************************************
+2024-11-19 05:51:56,938 p=11629 u=root n=ansible | TASK [haproxy_lb : Include vars if file exists] ********************************
+2024-11-19 05:51:56,980 p=11629 u=root n=ansible | ok: [192.168.57.11] => (item=linux/default.yml)
+2024-11-19 05:51:57,008 p=11629 u=root n=ansible | ok: [192.168.57.12] => (item=linux/default.yml)
+2024-11-19 05:51:57,015 p=11629 u=root n=ansible | ok: [192.168.57.12] => (item=linux/Ubuntu/default.yml)
+2024-11-19 05:51:57,016 p=11629 u=root n=ansible | ok: [192.168.57.11] => (item=linux/Ubuntu/default.yml)
+2024-11-19 05:51:57,019 p=11629 u=root n=ansible | ok: [192.168.57.11] => (item=linux/Ubuntu/22.04.yml)
+2024-11-19 05:51:57,024 p=11629 u=root n=ansible | ok: [192.168.57.12] => (item=linux/Ubuntu/22.04.yml)
+2024-11-19 05:51:57,030 p=11629 u=root n=ansible | TASK [haproxy_lb : Check if the OS is Ubuntu] **********************************
+2024-11-19 05:51:57,081 p=11629 u=root n=ansible | ok: [192.168.57.12]
+2024-11-19 05:51:57,090 p=11629 u=root n=ansible | ok: [192.168.57.11]
+2024-11-19 05:51:57,117 p=11629 u=root n=ansible | TASK [haproxy_lb : Include Ubuntu tasks] ***************************************
+2024-11-19 05:51:57,160 p=11629 u=root n=ansible | included: /vagrant/ansible/playbooks/roles/haproxy_lb/tasks/linux/Ubuntu/main.yml for 192.168.57.11, 192.168.57.12
+2024-11-19 05:51:57,168 p=11629 u=root n=ansible | TASK [haproxy_lb : Update apt cache] *******************************************
+2024-11-19 05:51:59,974 p=11629 u=root n=ansible | changed: [192.168.57.12]
+2024-11-19 05:52:00,164 p=11629 u=root n=ansible | changed: [192.168.57.11]
+2024-11-19 05:52:00,174 p=11629 u=root n=ansible | TASK [haproxy_lb : Install packages] *******************************************
+2024-11-19 05:52:08,331 p=11629 u=root n=ansible | changed: [192.168.57.11]
+2024-11-19 05:52:08,512 p=11629 u=root n=ansible | changed: [192.168.57.12]
+2024-11-19 05:52:08,523 p=11629 u=root n=ansible | TASK [haproxy_lb : Template the HAProxy configuration file] ********************
+2024-11-19 05:52:11,589 p=11629 u=root n=ansible | changed: [192.168.57.11]
+2024-11-19 05:52:11,789 p=11629 u=root n=ansible | changed: [192.168.57.12]
+2024-11-19 05:52:11,803 p=11629 u=root n=ansible | TASK [haproxy_lb : Template the keepalive.d configuration file] ****************
+2024-11-19 05:52:14,680 p=11629 u=root n=ansible | changed: [192.168.57.11]
+2024-11-19 05:52:15,332 p=11629 u=root n=ansible | changed: [192.168.57.12]
+2024-11-19 05:52:15,344 p=11629 u=root n=ansible | TASK [haproxy_lb : Start haproxy] **********************************************
+2024-11-19 05:52:17,080 p=11629 u=root n=ansible | changed: [192.168.57.11]
+2024-11-19 05:52:17,385 p=11629 u=root n=ansible | changed: [192.168.57.12]
+2024-11-19 05:52:17,401 p=11629 u=root n=ansible | TASK [haproxy_lb : Start keepalive.d] ******************************************
+2024-11-19 05:52:19,081 p=11629 u=root n=ansible | changed: [192.168.57.11]
+2024-11-19 05:52:19,316 p=11629 u=root n=ansible | changed: [192.168.57.12]
+2024-11-19 05:52:19,333 p=11629 u=root n=ansible | PLAY RECAP *********************************************************************
+2024-11-19 05:52:19,333 p=11629 u=root n=ansible | 192.168.57.11              : ok=10   changed=6    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2024-11-19 05:52:19,333 p=11629 u=root n=ansible | 192.168.57.12              : ok=10   changed=6    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2024-11-19 05:52:19,724 p=11807 u=root n=ansible | PLAY [Gather facts and set bootstrap variable] *********************************
+2024-11-19 05:52:19,733 p=11807 u=root n=ansible | TASK [Gathering Facts] *********************************************************
+2024-11-19 05:52:22,026 p=11807 u=root n=ansible | ok: [192.168.57.14]
+2024-11-19 05:52:22,114 p=11807 u=root n=ansible | ok: [192.168.57.17]
+2024-11-19 05:52:22,118 p=11807 u=root n=ansible | ok: [192.168.57.16]
+2024-11-19 05:52:22,423 p=11807 u=root n=ansible | ok: [192.168.57.13]
+2024-11-19 05:52:23,259 p=11807 u=root n=ansible | ok: [192.168.57.15]
+2024-11-19 05:52:24,781 p=11807 u=root n=ansible | ok: [192.168.57.18]
+2024-11-19 05:52:24,795 p=11807 u=root n=ansible | TASK [Set cacheable fact for the first controller node] ************************
+2024-11-19 05:52:24,830 p=11807 u=root n=ansible | ok: [192.168.57.13]
+2024-11-19 05:52:24,835 p=11807 u=root n=ansible | TASK [Add the bootstrap host to a group] ***************************************
+2024-11-19 05:52:24,851 p=11807 u=root n=ansible | changed: [192.168.57.13]
+2024-11-19 05:52:24,860 p=11807 u=root n=ansible | PLAY [Bootstrap controller] ****************************************************
+2024-11-19 05:52:24,865 p=11807 u=root n=ansible | TASK [Gathering Facts] *********************************************************
+2024-11-19 05:52:26,963 p=11807 u=root n=ansible | ok: [192.168.57.13]
+2024-11-19 05:52:26,979 p=11807 u=root n=ansible | TASK [Bootstrap actions] *******************************************************
+2024-11-19 05:52:27,028 p=11807 u=root n=ansible | TASK [k8s : Include vars if file exists] ***************************************
+2024-11-19 05:52:27,046 p=11807 u=root n=ansible | ok: [192.168.57.13] => (item=linux/default.yml)
+2024-11-19 05:52:27,047 p=11881 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/default.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2024-11-19 05:52:27,050 p=11807 u=root n=ansible | ok: [192.168.57.13] => (item=linux/Ubuntu/default.yml)
+2024-11-19 05:52:27,051 p=11881 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/22.04.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2024-11-19 05:52:27,053 p=11807 u=root n=ansible | ok: [192.168.57.13] => (item=linux/Ubuntu/22.04.yml)
+2024-11-19 05:52:27,060 p=11807 u=root n=ansible | TASK [k8s : Check if the OS is Ubuntu] *****************************************
+2024-11-19 05:52:27,073 p=11807 u=root n=ansible | ok: [192.168.57.13]
+2024-11-19 05:52:27,086 p=11807 u=root n=ansible | TASK [k8s : Include Ubuntu tasks] **********************************************
+2024-11-19 05:52:27,114 p=11807 u=root n=ansible | included: /vagrant/ansible/playbooks/roles/k8s/tasks/linux/Ubuntu/main.yml for 192.168.57.13
+2024-11-19 05:52:27,130 p=11807 u=root n=ansible | TASK [k8s : Ensure GPG package is installed] ***********************************
+2024-11-19 05:52:30,262 p=11807 u=root n=ansible | ok: [192.168.57.13]
+2024-11-19 05:52:30,274 p=11807 u=root n=ansible | TASK [k8s : Ensure /etc/apt/keyrings directory exists] *************************
+2024-11-19 05:52:32,284 p=11807 u=root n=ansible | ok: [192.168.57.13]
+2024-11-19 05:52:32,294 p=11807 u=root n=ansible | TASK [k8s : Add Docker GPG key] ************************************************
+2024-11-19 05:52:34,509 p=11807 u=root n=ansible | changed: [192.168.57.13]
+2024-11-19 05:52:34,524 p=11807 u=root n=ansible | TASK [k8s : Add Docker repository] *********************************************
+2024-11-19 05:52:40,882 p=11807 u=root n=ansible | changed: [192.168.57.13]
+2024-11-19 05:52:40,892 p=11807 u=root n=ansible | TASK [k8s : Download Kubernetes GPG key and save it as a keyring] **************
+2024-11-19 05:52:42,970 p=11807 u=root n=ansible | changed: [192.168.57.13]
+2024-11-19 05:52:42,981 p=11807 u=root n=ansible | TASK [k8s : Convert GPG key to keyring format] *********************************
+2024-11-19 05:52:44,692 p=11807 u=root n=ansible | changed: [192.168.57.13]
+2024-11-19 05:52:44,699 p=11807 u=root n=ansible | TASK [k8s : Add Kubernetes repository to APT sources] **************************
+2024-11-19 05:52:47,951 p=11807 u=root n=ansible | changed: [192.168.57.13]
+2024-11-19 05:52:47,960 p=11807 u=root n=ansible | TASK [k8s : Install packages] **************************************************
+2024-11-19 05:53:06,703 p=11807 u=root n=ansible | changed: [192.168.57.13]
+2024-11-19 05:53:06,712 p=11807 u=root n=ansible | TASK [k8s : Hold the kubelet, kubeadm, and kubectl packages] *******************
+2024-11-19 05:53:08,438 p=11807 u=root n=ansible | changed: [192.168.57.13] => (item=kubelet)
+2024-11-19 05:53:10,104 p=11807 u=root n=ansible | changed: [192.168.57.13] => (item=kubeadm)
+2024-11-19 05:53:11,874 p=11807 u=root n=ansible | changed: [192.168.57.13] => (item=kubectl)
+2024-11-19 05:53:11,887 p=11807 u=root n=ansible | TASK [k8s : Stop apparmor service] *********************************************
+2024-11-19 05:53:13,652 p=11807 u=root n=ansible | changed: [192.168.57.13]
+2024-11-19 05:53:13,658 p=11807 u=root n=ansible | TASK [k8s : Disable apparmor service] ******************************************
+2024-11-19 05:53:15,799 p=11807 u=root n=ansible | changed: [192.168.57.13]
+2024-11-19 05:53:15,814 p=11807 u=root n=ansible | TASK [k8s : Render containerd/config.toml template] ****************************
+2024-11-19 05:53:19,083 p=11807 u=root n=ansible | changed: [192.168.57.13]
+2024-11-19 05:53:19,099 p=11807 u=root n=ansible | RUNNING HANDLER [k8s : Start containerd] ***************************************
+2024-11-19 05:53:20,906 p=11807 u=root n=ansible | ok: [192.168.57.13]
+2024-11-19 05:53:20,907 p=11807 u=root n=ansible | RUNNING HANDLER [k8s : Restart containerd] *************************************
+2024-11-19 05:53:22,922 p=11807 u=root n=ansible | changed: [192.168.57.13]
+2024-11-19 05:53:22,937 p=11807 u=root n=ansible | TASK [k8s : Ensure swap is turned off] *****************************************
+2024-11-19 05:53:24,569 p=11807 u=root n=ansible | ok: [192.168.57.13]
+2024-11-19 05:53:24,580 p=11807 u=root n=ansible | TASK [k8s : Ensure swap is disabled in /etc/fstab] *****************************
+2024-11-19 05:53:26,513 p=11807 u=root n=ansible | ok: [192.168.57.13]
+2024-11-19 05:53:26,524 p=11807 u=root n=ansible | TASK [k8s : Load the br_netfilter module] **************************************
+2024-11-19 05:53:28,098 p=11807 u=root n=ansible | changed: [192.168.57.13]
+2024-11-19 05:53:28,111 p=11807 u=root n=ansible | TASK [k8s : Load the overlay module] *******************************************
+2024-11-19 05:53:29,734 p=11807 u=root n=ansible | ok: [192.168.57.13]
+2024-11-19 05:53:29,747 p=11807 u=root n=ansible | TASK [k8s : Persist br_netfilter module in /etc/modules-load.d/k8s.conf] *******
+2024-11-19 05:53:32,713 p=11807 u=root n=ansible | changed: [192.168.57.13]
+2024-11-19 05:53:32,724 p=11807 u=root n=ansible | TASK [k8s : Set sysctl parameters for Kubernetes networking] *******************
+2024-11-19 05:53:34,492 p=11807 u=root n=ansible | changed: [192.168.57.13] => (item={'key': 'net.ipv4.ip_forward', 'value': '1'})
+2024-11-19 05:53:36,262 p=11807 u=root n=ansible | changed: [192.168.57.13] => (item={'key': 'net.bridge.bridge-nf-call-ip6tables', 'value': '1'})
+2024-11-19 05:53:37,865 p=11807 u=root n=ansible | changed: [192.168.57.13] => (item={'key': 'net.bridge.bridge-nf-call-iptables', 'value': '1'})
+2024-11-19 05:53:37,873 p=11807 u=root n=ansible | TASK [k8s : Ensure kubelet service is enabled and started] *********************
+2024-11-19 05:53:39,570 p=11807 u=root n=ansible | changed: [192.168.57.13]
+2024-11-19 05:53:39,583 p=11807 u=root n=ansible | TASK [k8s : Set controller nodes facts] ****************************************
+2024-11-19 05:53:39,605 p=11807 u=root n=ansible | ok: [192.168.57.13]
+2024-11-19 05:53:39,609 p=11807 u=root n=ansible | TASK [k8s : Set computer node facts] *******************************************
+2024-11-19 05:53:39,622 p=11807 u=root n=ansible | ok: [192.168.57.13]
+2024-11-19 05:53:39,626 p=11807 u=root n=ansible | TASK [k8s : Determine the IP address for the target interface] *****************
+2024-11-19 05:53:39,641 p=11807 u=root n=ansible | ok: [192.168.57.13]
+2024-11-19 05:53:39,647 p=11807 u=root n=ansible | TASK [k8s : Check if the admin file exists] ************************************
+2024-11-19 05:53:41,213 p=11807 u=root n=ansible | ok: [192.168.57.13]
+2024-11-19 05:53:41,228 p=11807 u=root n=ansible | TASK [k8s : Run join controllers to cluster] ***********************************
+2024-11-19 05:53:41,244 p=11807 u=root n=ansible | skipping: [192.168.57.13]
+2024-11-19 05:53:41,253 p=11807 u=root n=ansible | TASK [k8s : Run join compute to cluster] ***************************************
+2024-11-19 05:53:41,264 p=11807 u=root n=ansible | skipping: [192.168.57.13]
+2024-11-19 05:53:41,269 p=11807 u=root n=ansible | TASK [k8s : Run kubeadm init if and only if bootstrap facts not present] *******
+2024-11-19 05:54:24,158 p=11807 u=root n=ansible | changed: [192.168.57.13]
+2024-11-19 05:54:24,170 p=11807 u=root n=ansible | TASK [k8s : Render kubeadm-flags.env template] *********************************
+2024-11-19 05:54:27,129 p=11807 u=root n=ansible | changed: [192.168.57.13]
+2024-11-19 05:54:27,137 p=11807 u=root n=ansible | RUNNING HANDLER [k8s : Restart kubelet] ****************************************
+2024-11-19 05:54:28,755 p=11807 u=root n=ansible | changed: [192.168.57.13]
+2024-11-19 05:54:28,762 p=11807 u=root n=ansible | TASK [k8s : Add KUBECONFIG to root's bashrc] ***********************************
+2024-11-19 05:54:30,494 p=11807 u=root n=ansible | changed: [192.168.57.13]
+2024-11-19 05:54:30,506 p=11807 u=root n=ansible | TASK [k8s : Ensure /opt/k8s_deploy/plugins directory exists with correct permissions] ***
+2024-11-19 05:54:31,984 p=11807 u=root n=ansible | changed: [192.168.57.13]
+2024-11-19 05:54:31,991 p=11807 u=root n=ansible | TASK [k8s : Render all plugin template files to /opt/k8s_deploy/plugins] *******
+2024-11-19 05:54:34,769 p=11807 u=root n=ansible | changed: [192.168.57.13] => (item=01_flannel.yml.j2)
+2024-11-19 05:54:34,780 p=11807 u=root n=ansible | TASK [k8s : Apply all YAML files in /opt/k8s_deploy/plugins using kubectl] *****
+2024-11-19 05:54:36,939 p=11807 u=root n=ansible | changed: [192.168.57.13]
+2024-11-19 05:54:36,945 p=11807 u=root n=ansible | TASK [k8s : Ensure /run/flannel directory exists] ******************************
+2024-11-19 05:54:38,462 p=11807 u=root n=ansible | changed: [192.168.57.13]
+2024-11-19 05:54:38,467 p=11807 u=root n=ansible | TASK [k8s : Drop the /run/flannel/subnet.env file from template] ***************
+2024-11-19 05:54:41,520 p=11807 u=root n=ansible | changed: [192.168.57.13]
+2024-11-19 05:54:41,527 p=11807 u=root n=ansible | TASK [k8s : Set and cache join_token fact] *************************************
+2024-11-19 05:54:43,079 p=11807 u=root n=ansible | ok: [192.168.57.13]
+2024-11-19 05:54:43,093 p=11807 u=root n=ansible | TASK [k8s : Cache join_token] **************************************************
+2024-11-19 05:54:43,112 p=11807 u=root n=ansible | ok: [192.168.57.13]
+2024-11-19 05:54:43,116 p=11807 u=root n=ansible | TASK [k8s : Set and cache cert_hash fact] **************************************
+2024-11-19 05:54:44,688 p=11807 u=root n=ansible | ok: [192.168.57.13]
+2024-11-19 05:54:44,703 p=11807 u=root n=ansible | TASK [k8s : Cache cert_hash] ***************************************************
+2024-11-19 05:54:44,725 p=11807 u=root n=ansible | ok: [192.168.57.13]
+2024-11-19 05:54:44,736 p=11807 u=root n=ansible | TASK [k8s : Set and cache cert_key fact] ***************************************
+2024-11-19 05:54:46,312 p=11807 u=root n=ansible | ok: [192.168.57.13]
+2024-11-19 05:54:46,324 p=11807 u=root n=ansible | TASK [k8s : Cache cert_key] ****************************************************
+2024-11-19 05:54:46,339 p=11807 u=root n=ansible | ok: [192.168.57.13]
+2024-11-19 05:54:46,343 p=11807 u=root n=ansible | TASK [k8s : Restart kubelet] ***************************************************
+2024-11-19 05:54:48,120 p=11807 u=root n=ansible | changed: [192.168.57.13]
+2024-11-19 05:54:48,130 p=11807 u=root n=ansible | PLAY [Sync actions] ************************************************************
+2024-11-19 05:54:48,138 p=11807 u=root n=ansible | TASK [Gathering Facts] *********************************************************
+2024-11-19 05:54:50,011 p=11807 u=root n=ansible | ok: [192.168.57.13]
+2024-11-19 05:54:50,142 p=11807 u=root n=ansible | ok: [192.168.57.14]
+2024-11-19 05:54:50,325 p=11807 u=root n=ansible | ok: [192.168.57.16]
+2024-11-19 05:54:50,606 p=11807 u=root n=ansible | ok: [192.168.57.17]
+2024-11-19 05:54:51,584 p=11807 u=root n=ansible | ok: [192.168.57.15]
+2024-11-19 05:54:52,693 p=11807 u=root n=ansible | ok: [192.168.57.18]
+2024-11-19 05:54:52,704 p=11807 u=root n=ansible | TASK [Sync facts] **************************************************************
+2024-11-19 05:54:52,789 p=11807 u=root n=ansible | TASK [k8s : Set join_token fact] ***********************************************
+2024-11-19 05:54:52,838 p=11807 u=root n=ansible | skipping: [192.168.57.13]
+2024-11-19 05:54:52,850 p=11807 u=root n=ansible | ok: [192.168.57.15]
+2024-11-19 05:54:52,854 p=11807 u=root n=ansible | ok: [192.168.57.14]
+2024-11-19 05:54:52,856 p=11807 u=root n=ansible | ok: [192.168.57.16]
+2024-11-19 05:54:52,862 p=11807 u=root n=ansible | ok: [192.168.57.17]
+2024-11-19 05:54:52,876 p=11807 u=root n=ansible | ok: [192.168.57.18]
+2024-11-19 05:54:52,882 p=11807 u=root n=ansible | TASK [k8s : Set cert_hash fact] ************************************************
+2024-11-19 05:54:52,898 p=11807 u=root n=ansible | skipping: [192.168.57.13]
+2024-11-19 05:54:52,947 p=11807 u=root n=ansible | ok: [192.168.57.14]
+2024-11-19 05:54:52,952 p=11807 u=root n=ansible | ok: [192.168.57.16]
+2024-11-19 05:54:52,953 p=11807 u=root n=ansible | ok: [192.168.57.15]
+2024-11-19 05:54:52,955 p=11807 u=root n=ansible | ok: [192.168.57.17]
+2024-11-19 05:54:52,970 p=11807 u=root n=ansible | ok: [192.168.57.18]
+2024-11-19 05:54:52,977 p=11807 u=root n=ansible | TASK [k8s : Set cert_key fact] *************************************************
+2024-11-19 05:54:53,006 p=11807 u=root n=ansible | skipping: [192.168.57.13]
+2024-11-19 05:54:53,043 p=11807 u=root n=ansible | ok: [192.168.57.16]
+2024-11-19 05:54:53,053 p=11807 u=root n=ansible | ok: [192.168.57.14]
+2024-11-19 05:54:53,054 p=11807 u=root n=ansible | ok: [192.168.57.15]
+2024-11-19 05:54:53,056 p=11807 u=root n=ansible | ok: [192.168.57.17]
+2024-11-19 05:54:53,067 p=11807 u=root n=ansible | ok: [192.168.57.18]
+2024-11-19 05:54:53,077 p=11807 u=root n=ansible | PLAY [Join to cluster] *********************************************************
+2024-11-19 05:54:53,082 p=11807 u=root n=ansible | TASK [Gathering Facts] *********************************************************
+2024-11-19 05:54:54,735 p=11807 u=root n=ansible | ok: [192.168.57.14]
+2024-11-19 05:54:54,896 p=11807 u=root n=ansible | ok: [192.168.57.16]
+2024-11-19 05:54:54,931 p=11807 u=root n=ansible | ok: [192.168.57.13]
+2024-11-19 05:54:54,991 p=11807 u=root n=ansible | ok: [192.168.57.17]
+2024-11-19 05:54:55,031 p=11807 u=root n=ansible | ok: [192.168.57.15]
+2024-11-19 05:54:56,905 p=11807 u=root n=ansible | ok: [192.168.57.18]
+2024-11-19 05:54:56,920 p=11807 u=root n=ansible | TASK [Deploy k8s cluster] ******************************************************
+2024-11-19 05:54:57,013 p=11807 u=root n=ansible | TASK [k8s : Include vars if file exists] ***************************************
+2024-11-19 05:54:57,048 p=12458 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/default.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2024-11-19 05:54:57,053 p=12458 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/22.04.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2024-11-19 05:54:57,058 p=11807 u=root n=ansible | ok: [192.168.57.13] => (item=linux/default.yml)
+2024-11-19 05:54:57,059 p=11807 u=root n=ansible | ok: [192.168.57.13] => (item=linux/Ubuntu/default.yml)
+2024-11-19 05:54:57,059 p=11807 u=root n=ansible | ok: [192.168.57.13] => (item=linux/Ubuntu/22.04.yml)
+2024-11-19 05:54:57,061 p=12459 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/default.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2024-11-19 05:54:57,068 p=12459 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/22.04.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2024-11-19 05:54:57,073 p=12460 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/default.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2024-11-19 05:54:57,077 p=11807 u=root n=ansible | ok: [192.168.57.14] => (item=linux/default.yml)
+2024-11-19 05:54:57,078 p=11807 u=root n=ansible | ok: [192.168.57.14] => (item=linux/Ubuntu/default.yml)
+2024-11-19 05:54:57,078 p=11807 u=root n=ansible | ok: [192.168.57.14] => (item=linux/Ubuntu/22.04.yml)
+2024-11-19 05:54:57,078 p=12460 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/22.04.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2024-11-19 05:54:57,078 p=11807 u=root n=ansible | ok: [192.168.57.15] => (item=linux/default.yml)
+2024-11-19 05:54:57,079 p=11807 u=root n=ansible | ok: [192.168.57.15] => (item=linux/Ubuntu/default.yml)
+2024-11-19 05:54:57,087 p=11807 u=root n=ansible | ok: [192.168.57.15] => (item=linux/Ubuntu/22.04.yml)
+2024-11-19 05:54:57,093 p=12461 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/default.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2024-11-19 05:54:57,095 p=11807 u=root n=ansible | ok: [192.168.57.16] => (item=linux/default.yml)
+2024-11-19 05:54:57,096 p=12466 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/default.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2024-11-19 05:54:57,099 p=11807 u=root n=ansible | ok: [192.168.57.18] => (item=linux/default.yml)
+2024-11-19 05:54:57,099 p=11807 u=root n=ansible | ok: [192.168.57.16] => (item=linux/Ubuntu/default.yml)
+2024-11-19 05:54:57,100 p=11807 u=root n=ansible | ok: [192.168.57.18] => (item=linux/Ubuntu/default.yml)
+2024-11-19 05:54:57,100 p=12466 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/22.04.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2024-11-19 05:54:57,100 p=12461 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/22.04.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2024-11-19 05:54:57,102 p=11807 u=root n=ansible | ok: [192.168.57.18] => (item=linux/Ubuntu/22.04.yml)
+2024-11-19 05:54:57,104 p=11807 u=root n=ansible | ok: [192.168.57.16] => (item=linux/Ubuntu/22.04.yml)
+2024-11-19 05:54:57,105 p=12464 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/default.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2024-11-19 05:54:57,106 p=11807 u=root n=ansible | ok: [192.168.57.17] => (item=linux/default.yml)
+2024-11-19 05:54:57,107 p=11807 u=root n=ansible | ok: [192.168.57.17] => (item=linux/Ubuntu/default.yml)
+2024-11-19 05:54:57,109 p=12464 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/22.04.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2024-11-19 05:54:57,112 p=11807 u=root n=ansible | ok: [192.168.57.17] => (item=linux/Ubuntu/22.04.yml)
+2024-11-19 05:54:57,117 p=11807 u=root n=ansible | TASK [k8s : Check if the OS is Ubuntu] *****************************************
+2024-11-19 05:54:57,140 p=11807 u=root n=ansible | ok: [192.168.57.13]
+2024-11-19 05:54:57,147 p=11807 u=root n=ansible | ok: [192.168.57.14]
+2024-11-19 05:54:57,164 p=11807 u=root n=ansible | ok: [192.168.57.15]
+2024-11-19 05:54:57,165 p=11807 u=root n=ansible | ok: [192.168.57.16]
+2024-11-19 05:54:57,165 p=11807 u=root n=ansible | ok: [192.168.57.17]
+2024-11-19 05:54:57,174 p=11807 u=root n=ansible | ok: [192.168.57.18]
+2024-11-19 05:54:57,185 p=11807 u=root n=ansible | TASK [k8s : Include Ubuntu tasks] **********************************************
+2024-11-19 05:54:57,272 p=11807 u=root n=ansible | included: /vagrant/ansible/playbooks/roles/k8s/tasks/linux/Ubuntu/main.yml for 192.168.57.13, 192.168.57.14, 192.168.57.15, 192.168.57.16, 192.168.57.17, 192.168.57.18
+2024-11-19 05:54:57,311 p=11807 u=root n=ansible | TASK [k8s : Ensure GPG package is installed] ***********************************
+2024-11-19 05:55:00,747 p=11807 u=root n=ansible | ok: [192.168.57.14]
+2024-11-19 05:55:00,937 p=11807 u=root n=ansible | ok: [192.168.57.17]
+2024-11-19 05:55:00,944 p=11807 u=root n=ansible | ok: [192.168.57.16]
+2024-11-19 05:55:01,042 p=11807 u=root n=ansible | ok: [192.168.57.15]
+2024-11-19 05:55:02,861 p=11807 u=root n=ansible | ok: [192.168.57.13]
+2024-11-19 05:55:03,690 p=11807 u=root n=ansible | ok: [192.168.57.18]
+2024-11-19 05:55:03,704 p=11807 u=root n=ansible | TASK [k8s : Ensure /etc/apt/keyrings directory exists] *************************
+2024-11-19 05:55:05,155 p=11807 u=root n=ansible | ok: [192.168.57.14]
+2024-11-19 05:55:05,221 p=11807 u=root n=ansible | ok: [192.168.57.16]
+2024-11-19 05:55:05,247 p=11807 u=root n=ansible | ok: [192.168.57.17]
+2024-11-19 05:55:05,262 p=11807 u=root n=ansible | ok: [192.168.57.13]
+2024-11-19 05:55:05,509 p=11807 u=root n=ansible | ok: [192.168.57.15]
+2024-11-19 05:55:07,140 p=11807 u=root n=ansible | ok: [192.168.57.18]
+2024-11-19 05:55:07,153 p=11807 u=root n=ansible | TASK [k8s : Add Docker GPG key] ************************************************
+2024-11-19 05:55:09,100 p=11807 u=root n=ansible | changed: [192.168.57.14]
+2024-11-19 05:55:09,142 p=11807 u=root n=ansible | ok: [192.168.57.13]
+2024-11-19 05:55:09,161 p=11807 u=root n=ansible | changed: [192.168.57.16]
+2024-11-19 05:55:09,264 p=11807 u=root n=ansible | changed: [192.168.57.17]
+2024-11-19 05:55:09,602 p=11807 u=root n=ansible | changed: [192.168.57.15]
+2024-11-19 05:55:11,407 p=11807 u=root n=ansible | changed: [192.168.57.18]
+2024-11-19 05:55:11,418 p=11807 u=root n=ansible | TASK [k8s : Add Docker repository] *********************************************
+2024-11-19 05:55:12,990 p=11807 u=root n=ansible | ok: [192.168.57.13]
+2024-11-19 05:55:18,525 p=11807 u=root n=ansible | changed: [192.168.57.15]
+2024-11-19 05:55:18,547 p=11807 u=root n=ansible | changed: [192.168.57.14]
+2024-11-19 05:55:18,637 p=11807 u=root n=ansible | changed: [192.168.57.16]
+2024-11-19 05:55:18,952 p=11807 u=root n=ansible | changed: [192.168.57.17]
+2024-11-19 05:55:20,134 p=11807 u=root n=ansible | changed: [192.168.57.18]
+2024-11-19 05:55:20,147 p=11807 u=root n=ansible | TASK [k8s : Download Kubernetes GPG key and save it as a keyring] **************
+2024-11-19 05:55:21,765 p=11807 u=root n=ansible | changed: [192.168.57.14]
+2024-11-19 05:55:21,783 p=11807 u=root n=ansible | changed: [192.168.57.16]
+2024-11-19 05:55:21,877 p=11807 u=root n=ansible | ok: [192.168.57.13]
+2024-11-19 05:55:22,162 p=11807 u=root n=ansible | changed: [192.168.57.15]
+2024-11-19 05:55:22,429 p=11807 u=root n=ansible | changed: [192.168.57.17]
+2024-11-19 05:55:23,937 p=11807 u=root n=ansible | changed: [192.168.57.18]
+2024-11-19 05:55:23,949 p=11807 u=root n=ansible | TASK [k8s : Convert GPG key to keyring format] *********************************
+2024-11-19 05:55:25,269 p=11807 u=root n=ansible | changed: [192.168.57.14]
+2024-11-19 05:55:25,358 p=11807 u=root n=ansible | changed: [192.168.57.16]
+2024-11-19 05:55:25,491 p=11807 u=root n=ansible | changed: [192.168.57.17]
+2024-11-19 05:55:25,544 p=11807 u=root n=ansible | changed: [192.168.57.15]
+2024-11-19 05:55:25,682 p=11807 u=root n=ansible | ok: [192.168.57.13]
+2024-11-19 05:55:27,318 p=11807 u=root n=ansible | changed: [192.168.57.18]
+2024-11-19 05:55:27,331 p=11807 u=root n=ansible | TASK [k8s : Add Kubernetes repository to APT sources] **************************
+2024-11-19 05:55:29,649 p=11807 u=root n=ansible | ok: [192.168.57.13]
+2024-11-19 05:55:29,740 p=11807 u=root n=ansible | changed: [192.168.57.14]
+2024-11-19 05:55:29,952 p=11807 u=root n=ansible | changed: [192.168.57.16]
+2024-11-19 05:55:30,077 p=11807 u=root n=ansible | changed: [192.168.57.15]
+2024-11-19 05:55:30,364 p=11807 u=root n=ansible | changed: [192.168.57.17]
+2024-11-19 05:55:33,364 p=11807 u=root n=ansible | changed: [192.168.57.18]
+2024-11-19 05:55:33,372 p=11807 u=root n=ansible | TASK [k8s : Install packages] **************************************************
+2024-11-19 05:55:37,103 p=11807 u=root n=ansible | ok: [192.168.57.13]
+2024-11-19 05:56:03,495 p=11807 u=root n=ansible | changed: [192.168.57.17]
+2024-11-19 05:56:03,684 p=11807 u=root n=ansible | changed: [192.168.57.16]
+2024-11-19 05:56:04,388 p=11807 u=root n=ansible | changed: [192.168.57.15]
+2024-11-19 05:56:05,149 p=11807 u=root n=ansible | changed: [192.168.57.14]
+2024-11-19 05:56:05,153 p=11807 u=root n=ansible | changed: [192.168.57.18]
+2024-11-19 05:56:05,162 p=11807 u=root n=ansible | TASK [k8s : Hold the kubelet, kubeadm, and kubectl packages] *******************
+2024-11-19 05:56:09,339 p=11807 u=root n=ansible | changed: [192.168.57.14] => (item=kubelet)
+2024-11-19 05:56:09,340 p=11807 u=root n=ansible | changed: [192.168.57.13] => (item=kubelet)
+2024-11-19 05:56:09,341 p=11807 u=root n=ansible | changed: [192.168.57.16] => (item=kubelet)
+2024-11-19 05:56:09,342 p=11807 u=root n=ansible | changed: [192.168.57.15] => (item=kubelet)
+2024-11-19 05:56:09,342 p=11807 u=root n=ansible | changed: [192.168.57.17] => (item=kubelet)
+2024-11-19 05:56:09,343 p=11807 u=root n=ansible | changed: [192.168.57.14] => (item=kubeadm)
+2024-11-19 05:56:09,343 p=11807 u=root n=ansible | changed: [192.168.57.13] => (item=kubeadm)
+2024-11-19 05:56:09,344 p=11807 u=root n=ansible | changed: [192.168.57.16] => (item=kubeadm)
+2024-11-19 05:56:09,344 p=11807 u=root n=ansible | changed: [192.168.57.15] => (item=kubeadm)
+2024-11-19 05:56:09,345 p=11807 u=root n=ansible | changed: [192.168.57.17] => (item=kubeadm)
+2024-11-19 05:56:09,345 p=11807 u=root n=ansible | changed: [192.168.57.14] => (item=kubectl)
+2024-11-19 05:56:09,477 p=11807 u=root n=ansible | changed: [192.168.57.16] => (item=kubectl)
+2024-11-19 05:56:09,493 p=11807 u=root n=ansible | changed: [192.168.57.13] => (item=kubectl)
+2024-11-19 05:56:09,874 p=11807 u=root n=ansible | changed: [192.168.57.15] => (item=kubectl)
+2024-11-19 05:56:09,921 p=11807 u=root n=ansible | changed: [192.168.57.17] => (item=kubectl)
+2024-11-19 05:56:11,432 p=11807 u=root n=ansible | changed: [192.168.57.18] => (item=kubelet)
+2024-11-19 05:56:13,372 p=11807 u=root n=ansible | changed: [192.168.57.18] => (item=kubeadm)
+2024-11-19 05:56:15,053 p=11807 u=root n=ansible | changed: [192.168.57.18] => (item=kubectl)
+2024-11-19 05:56:15,065 p=11807 u=root n=ansible | TASK [k8s : Stop apparmor service] *********************************************
+2024-11-19 05:56:16,603 p=11807 u=root n=ansible | changed: [192.168.57.14]
+2024-11-19 05:56:16,643 p=11807 u=root n=ansible | ok: [192.168.57.13]
+2024-11-19 05:56:16,673 p=11807 u=root n=ansible | changed: [192.168.57.16]
+2024-11-19 05:56:16,706 p=11807 u=root n=ansible | changed: [192.168.57.15]
+2024-11-19 05:56:16,913 p=11807 u=root n=ansible | changed: [192.168.57.17]
+2024-11-19 05:56:18,686 p=11807 u=root n=ansible | changed: [192.168.57.18]
+2024-11-19 05:56:18,700 p=11807 u=root n=ansible | TASK [k8s : Disable apparmor service] ******************************************
+2024-11-19 05:56:20,235 p=11807 u=root n=ansible | ok: [192.168.57.13]
+2024-11-19 05:56:20,648 p=11807 u=root n=ansible | changed: [192.168.57.14]
+2024-11-19 05:56:20,890 p=11807 u=root n=ansible | changed: [192.168.57.17]
+2024-11-19 05:56:20,930 p=11807 u=root n=ansible | changed: [192.168.57.16]
+2024-11-19 05:56:20,981 p=11807 u=root n=ansible | changed: [192.168.57.15]
+2024-11-19 05:56:22,746 p=11807 u=root n=ansible | changed: [192.168.57.18]
+2024-11-19 05:56:22,758 p=11807 u=root n=ansible | TASK [k8s : Render containerd/config.toml template] ****************************
+2024-11-19 05:56:25,192 p=11807 u=root n=ansible | changed: [192.168.57.14]
+2024-11-19 05:56:25,259 p=11807 u=root n=ansible | ok: [192.168.57.13]
+2024-11-19 05:56:25,336 p=11807 u=root n=ansible | changed: [192.168.57.16]
+2024-11-19 05:56:25,508 p=11807 u=root n=ansible | changed: [192.168.57.15]
+2024-11-19 05:56:25,535 p=11807 u=root n=ansible | changed: [192.168.57.17]
+2024-11-19 05:56:29,076 p=11807 u=root n=ansible | changed: [192.168.57.18]
+2024-11-19 05:56:29,093 p=11807 u=root n=ansible | RUNNING HANDLER [k8s : Start containerd] ***************************************
+2024-11-19 05:56:30,590 p=11807 u=root n=ansible | ok: [192.168.57.14]
+2024-11-19 05:56:30,590 p=11807 u=root n=ansible | ok: [192.168.57.16]
+2024-11-19 05:56:30,642 p=11807 u=root n=ansible | ok: [192.168.57.15]
+2024-11-19 05:56:30,643 p=11807 u=root n=ansible | ok: [192.168.57.17]
+2024-11-19 05:56:30,739 p=11807 u=root n=ansible | ok: [192.168.57.18]
+2024-11-19 05:56:30,740 p=11807 u=root n=ansible | RUNNING HANDLER [k8s : Restart containerd] *************************************
+2024-11-19 05:56:32,192 p=11807 u=root n=ansible | changed: [192.168.57.14]
+2024-11-19 05:56:32,298 p=11807 u=root n=ansible | changed: [192.168.57.16]
+2024-11-19 05:56:32,516 p=11807 u=root n=ansible | changed: [192.168.57.15]
+2024-11-19 05:56:32,518 p=11807 u=root n=ansible | changed: [192.168.57.17]
+2024-11-19 05:56:32,748 p=11807 u=root n=ansible | changed: [192.168.57.18]
+2024-11-19 05:56:32,761 p=11807 u=root n=ansible | TASK [k8s : Ensure swap is turned off] *****************************************
+2024-11-19 05:56:34,066 p=11807 u=root n=ansible | ok: [192.168.57.13]
+2024-11-19 05:56:34,148 p=11807 u=root n=ansible | ok: [192.168.57.14]
+2024-11-19 05:56:34,172 p=11807 u=root n=ansible | ok: [192.168.57.17]
+2024-11-19 05:56:34,208 p=11807 u=root n=ansible | ok: [192.168.57.16]
+2024-11-19 05:56:34,291 p=11807 u=root n=ansible | ok: [192.168.57.15]
+2024-11-19 05:56:35,936 p=11807 u=root n=ansible | ok: [192.168.57.18]
+2024-11-19 05:56:35,954 p=11807 u=root n=ansible | TASK [k8s : Ensure swap is disabled in /etc/fstab] *****************************
+2024-11-19 05:56:37,306 p=11807 u=root n=ansible | ok: [192.168.57.14]
+2024-11-19 05:56:37,311 p=11807 u=root n=ansible | ok: [192.168.57.13]
+2024-11-19 05:56:37,337 p=11807 u=root n=ansible | ok: [192.168.57.16]
+2024-11-19 05:56:37,365 p=11807 u=root n=ansible | ok: [192.168.57.17]
+2024-11-19 05:56:37,546 p=11807 u=root n=ansible | ok: [192.168.57.15]
+2024-11-19 05:56:39,318 p=11807 u=root n=ansible | ok: [192.168.57.18]
+2024-11-19 05:56:39,334 p=11807 u=root n=ansible | TASK [k8s : Load the br_netfilter module] **************************************
+2024-11-19 05:56:40,735 p=11807 u=root n=ansible | ok: [192.168.57.13]
+2024-11-19 05:56:40,798 p=11807 u=root n=ansible | changed: [192.168.57.14]
+2024-11-19 05:56:40,870 p=11807 u=root n=ansible | changed: [192.168.57.16]
+2024-11-19 05:56:40,922 p=11807 u=root n=ansible | changed: [192.168.57.17]
+2024-11-19 05:56:41,074 p=11807 u=root n=ansible | changed: [192.168.57.15]
+2024-11-19 05:56:42,662 p=11807 u=root n=ansible | changed: [192.168.57.18]
+2024-11-19 05:56:42,676 p=11807 u=root n=ansible | TASK [k8s : Load the overlay module] *******************************************
+2024-11-19 05:56:43,954 p=11807 u=root n=ansible | ok: [192.168.57.14]
+2024-11-19 05:56:44,043 p=11807 u=root n=ansible | ok: [192.168.57.15]
+2024-11-19 05:56:44,065 p=11807 u=root n=ansible | ok: [192.168.57.16]
+2024-11-19 05:56:44,147 p=11807 u=root n=ansible | ok: [192.168.57.13]
+2024-11-19 05:56:44,163 p=11807 u=root n=ansible | ok: [192.168.57.17]
+2024-11-19 05:56:45,895 p=11807 u=root n=ansible | ok: [192.168.57.18]
+2024-11-19 05:56:45,906 p=11807 u=root n=ansible | TASK [k8s : Persist br_netfilter module in /etc/modules-load.d/k8s.conf] *******
+2024-11-19 05:56:48,338 p=11807 u=root n=ansible | ok: [192.168.57.13]
+2024-11-19 05:56:48,573 p=11807 u=root n=ansible | changed: [192.168.57.14]
+2024-11-19 05:56:48,637 p=11807 u=root n=ansible | changed: [192.168.57.16]
+2024-11-19 05:56:49,071 p=11807 u=root n=ansible | changed: [192.168.57.15]
+2024-11-19 05:56:49,072 p=11807 u=root n=ansible | changed: [192.168.57.17]
+2024-11-19 05:56:51,932 p=11807 u=root n=ansible | changed: [192.168.57.18]
+2024-11-19 05:56:51,942 p=11807 u=root n=ansible | TASK [k8s : Set sysctl parameters for Kubernetes networking] *******************
+2024-11-19 05:56:56,217 p=11807 u=root n=ansible | changed: [192.168.57.14] => (item={'key': 'net.ipv4.ip_forward', 'value': '1'})
+2024-11-19 05:56:56,218 p=11807 u=root n=ansible | changed: [192.168.57.16] => (item={'key': 'net.ipv4.ip_forward', 'value': '1'})
+2024-11-19 05:56:56,219 p=11807 u=root n=ansible | ok: [192.168.57.13] => (item={'key': 'net.ipv4.ip_forward', 'value': '1'})
+2024-11-19 05:56:56,220 p=11807 u=root n=ansible | changed: [192.168.57.15] => (item={'key': 'net.ipv4.ip_forward', 'value': '1'})
+2024-11-19 05:56:56,221 p=11807 u=root n=ansible | changed: [192.168.57.17] => (item={'key': 'net.ipv4.ip_forward', 'value': '1'})
+2024-11-19 05:56:56,221 p=11807 u=root n=ansible | changed: [192.168.57.14] => (item={'key': 'net.bridge.bridge-nf-call-ip6tables', 'value': '1'})
+2024-11-19 05:56:56,222 p=11807 u=root n=ansible | changed: [192.168.57.16] => (item={'key': 'net.bridge.bridge-nf-call-ip6tables', 'value': '1'})
+2024-11-19 05:56:56,222 p=11807 u=root n=ansible | ok: [192.168.57.13] => (item={'key': 'net.bridge.bridge-nf-call-ip6tables', 'value': '1'})
+2024-11-19 05:56:56,222 p=11807 u=root n=ansible | changed: [192.168.57.15] => (item={'key': 'net.bridge.bridge-nf-call-ip6tables', 'value': '1'})
+2024-11-19 05:56:56,223 p=11807 u=root n=ansible | changed: [192.168.57.17] => (item={'key': 'net.bridge.bridge-nf-call-ip6tables', 'value': '1'})
+2024-11-19 05:56:56,224 p=11807 u=root n=ansible | changed: [192.168.57.14] => (item={'key': 'net.bridge.bridge-nf-call-iptables', 'value': '1'})
+2024-11-19 05:56:56,307 p=11807 u=root n=ansible | ok: [192.168.57.13] => (item={'key': 'net.bridge.bridge-nf-call-iptables', 'value': '1'})
+2024-11-19 05:56:56,326 p=11807 u=root n=ansible | changed: [192.168.57.16] => (item={'key': 'net.bridge.bridge-nf-call-iptables', 'value': '1'})
+2024-11-19 05:56:56,556 p=11807 u=root n=ansible | changed: [192.168.57.15] => (item={'key': 'net.bridge.bridge-nf-call-iptables', 'value': '1'})
+2024-11-19 05:56:56,753 p=11807 u=root n=ansible | changed: [192.168.57.17] => (item={'key': 'net.bridge.bridge-nf-call-iptables', 'value': '1'})
+2024-11-19 05:56:57,956 p=11807 u=root n=ansible | changed: [192.168.57.18] => (item={'key': 'net.ipv4.ip_forward', 'value': '1'})
+2024-11-19 05:57:00,009 p=11807 u=root n=ansible | changed: [192.168.57.18] => (item={'key': 'net.bridge.bridge-nf-call-ip6tables', 'value': '1'})
+2024-11-19 05:57:02,081 p=11807 u=root n=ansible | changed: [192.168.57.18] => (item={'key': 'net.bridge.bridge-nf-call-iptables', 'value': '1'})
+2024-11-19 05:57:02,093 p=11807 u=root n=ansible | TASK [k8s : Ensure kubelet service is enabled and started] *********************
+2024-11-19 05:57:03,621 p=11807 u=root n=ansible | changed: [192.168.57.14]
+2024-11-19 05:57:03,624 p=11807 u=root n=ansible | ok: [192.168.57.13]
+2024-11-19 05:57:03,864 p=11807 u=root n=ansible | changed: [192.168.57.15]
+2024-11-19 05:57:03,909 p=11807 u=root n=ansible | changed: [192.168.57.17]
+2024-11-19 05:57:03,997 p=11807 u=root n=ansible | changed: [192.168.57.16]
+2024-11-19 05:57:05,755 p=11807 u=root n=ansible | changed: [192.168.57.18]
+2024-11-19 05:57:05,769 p=11807 u=root n=ansible | TASK [k8s : Set controller nodes facts] ****************************************
+2024-11-19 05:57:05,877 p=11807 u=root n=ansible | ok: [192.168.57.15]
+2024-11-19 05:57:05,878 p=11807 u=root n=ansible | ok: [192.168.57.13]
+2024-11-19 05:57:05,882 p=11807 u=root n=ansible | ok: [192.168.57.14]
+2024-11-19 05:57:05,895 p=11807 u=root n=ansible | ok: [192.168.57.17]
+2024-11-19 05:57:05,897 p=11807 u=root n=ansible | ok: [192.168.57.16]
+2024-11-19 05:57:05,928 p=11807 u=root n=ansible | ok: [192.168.57.18]
+2024-11-19 05:57:05,933 p=11807 u=root n=ansible | TASK [k8s : Set computer node facts] *******************************************
+2024-11-19 05:57:06,024 p=11807 u=root n=ansible | ok: [192.168.57.13]
+2024-11-19 05:57:06,033 p=11807 u=root n=ansible | ok: [192.168.57.14]
+2024-11-19 05:57:06,047 p=11807 u=root n=ansible | ok: [192.168.57.15]
+2024-11-19 05:57:06,052 p=11807 u=root n=ansible | ok: [192.168.57.16]
+2024-11-19 05:57:06,070 p=11807 u=root n=ansible | ok: [192.168.57.17]
+2024-11-19 05:57:06,071 p=11807 u=root n=ansible | ok: [192.168.57.18]
+2024-11-19 05:57:06,077 p=11807 u=root n=ansible | TASK [k8s : Determine the IP address for the target interface] *****************
+2024-11-19 05:57:06,120 p=11807 u=root n=ansible | ok: [192.168.57.14]
+2024-11-19 05:57:06,130 p=11807 u=root n=ansible | ok: [192.168.57.13]
+2024-11-19 05:57:06,133 p=11807 u=root n=ansible | ok: [192.168.57.16]
+2024-11-19 05:57:06,140 p=11807 u=root n=ansible | ok: [192.168.57.15]
+2024-11-19 05:57:06,143 p=11807 u=root n=ansible | ok: [192.168.57.17]
+2024-11-19 05:57:06,149 p=11807 u=root n=ansible | ok: [192.168.57.18]
+2024-11-19 05:57:06,153 p=11807 u=root n=ansible | TASK [k8s : Check if the admin file exists] ************************************
+2024-11-19 05:57:07,526 p=11807 u=root n=ansible | ok: [192.168.57.13]
+2024-11-19 05:57:07,529 p=11807 u=root n=ansible | ok: [192.168.57.16]
+2024-11-19 05:57:07,712 p=11807 u=root n=ansible | ok: [192.168.57.14]
+2024-11-19 05:57:07,968 p=11807 u=root n=ansible | ok: [192.168.57.17]
+2024-11-19 05:57:08,042 p=11807 u=root n=ansible | ok: [192.168.57.15]
+2024-11-19 05:57:09,303 p=11807 u=root n=ansible | ok: [192.168.57.18]
+2024-11-19 05:57:09,317 p=11807 u=root n=ansible | TASK [k8s : Run join controllers to cluster] ***********************************
+2024-11-19 05:57:09,364 p=11807 u=root n=ansible | skipping: [192.168.57.13]
+2024-11-19 05:57:09,376 p=11807 u=root n=ansible | skipping: [192.168.57.16]
+2024-11-19 05:57:09,392 p=11807 u=root n=ansible | skipping: [192.168.57.18]
+2024-11-19 05:57:09,393 p=11807 u=root n=ansible | skipping: [192.168.57.17]
+2024-11-19 05:57:33,010 p=11807 u=root n=ansible | changed: [192.168.57.15]
+2024-11-19 05:57:38,579 p=11807 u=root n=ansible | changed: [192.168.57.14]
+2024-11-19 05:57:38,590 p=11807 u=root n=ansible | TASK [k8s : Run join compute to cluster] ***************************************
+2024-11-19 05:57:38,617 p=11807 u=root n=ansible | skipping: [192.168.57.13]
+2024-11-19 05:57:38,636 p=11807 u=root n=ansible | skipping: [192.168.57.15]
+2024-11-19 05:57:38,650 p=11807 u=root n=ansible | skipping: [192.168.57.14]
+2024-11-19 05:57:41,356 p=11807 u=root n=ansible | changed: [192.168.57.16]
+2024-11-19 05:57:41,717 p=11807 u=root n=ansible | changed: [192.168.57.17]
+2024-11-19 05:57:42,439 p=11807 u=root n=ansible | changed: [192.168.57.18]
+2024-11-19 05:57:42,448 p=11807 u=root n=ansible | TASK [k8s : Run kubeadm init if and only if bootstrap facts not present] *******
+2024-11-19 05:57:42,477 p=11807 u=root n=ansible | skipping: [192.168.57.13]
+2024-11-19 05:57:42,503 p=11807 u=root n=ansible | skipping: [192.168.57.14]
+2024-11-19 05:57:42,514 p=11807 u=root n=ansible | skipping: [192.168.57.15]
+2024-11-19 05:57:42,529 p=11807 u=root n=ansible | skipping: [192.168.57.16]
+2024-11-19 05:57:42,531 p=11807 u=root n=ansible | skipping: [192.168.57.17]
+2024-11-19 05:57:42,544 p=11807 u=root n=ansible | skipping: [192.168.57.18]
+2024-11-19 05:57:42,553 p=11807 u=root n=ansible | TASK [k8s : Render kubeadm-flags.env template] *********************************
+2024-11-19 05:57:45,747 p=11807 u=root n=ansible | ok: [192.168.57.13]
+2024-11-19 05:57:45,929 p=11807 u=root n=ansible | changed: [192.168.57.17]
+2024-11-19 05:57:46,109 p=11807 u=root n=ansible | changed: [192.168.57.14]
+2024-11-19 05:57:46,116 p=11807 u=root n=ansible | changed: [192.168.57.15]
+2024-11-19 05:57:46,198 p=11807 u=root n=ansible | changed: [192.168.57.16]
+2024-11-19 05:57:49,524 p=11807 u=root n=ansible | changed: [192.168.57.18]
+2024-11-19 05:57:49,534 p=11807 u=root n=ansible | RUNNING HANDLER [k8s : Restart kubelet] ****************************************
+2024-11-19 05:57:52,272 p=11807 u=root n=ansible | changed: [192.168.57.14]
+2024-11-19 05:57:52,457 p=11807 u=root n=ansible | changed: [192.168.57.15]
+2024-11-19 05:57:52,711 p=11807 u=root n=ansible | changed: [192.168.57.18]
+2024-11-19 05:57:52,826 p=11807 u=root n=ansible | changed: [192.168.57.17]
+2024-11-19 05:57:52,862 p=11807 u=root n=ansible | changed: [192.168.57.16]
+2024-11-19 05:57:52,876 p=11807 u=root n=ansible | TASK [k8s : Add KUBECONFIG to root's bashrc] ***********************************
+2024-11-19 05:57:53,094 p=11807 u=root n=ansible | skipping: [192.168.57.16]
+2024-11-19 05:57:53,098 p=11807 u=root n=ansible | skipping: [192.168.57.17]
+2024-11-19 05:57:53,121 p=11807 u=root n=ansible | skipping: [192.168.57.18]
+2024-11-19 05:57:55,185 p=11807 u=root n=ansible | ok: [192.168.57.13]
+2024-11-19 05:57:55,196 p=11807 u=root n=ansible | changed: [192.168.57.14]
+2024-11-19 05:57:55,307 p=11807 u=root n=ansible | changed: [192.168.57.15]
+2024-11-19 05:57:55,333 p=11807 u=root n=ansible | TASK [k8s : Ensure /opt/k8s_deploy/plugins directory exists with correct permissions] ***
+2024-11-19 05:57:55,382 p=11807 u=root n=ansible | skipping: [192.168.57.13]
+2024-11-19 05:57:55,409 p=11807 u=root n=ansible | skipping: [192.168.57.14]
+2024-11-19 05:57:55,443 p=11807 u=root n=ansible | skipping: [192.168.57.15]
+2024-11-19 05:57:55,470 p=11807 u=root n=ansible | skipping: [192.168.57.16]
+2024-11-19 05:57:55,498 p=11807 u=root n=ansible | skipping: [192.168.57.17]
+2024-11-19 05:57:55,521 p=11807 u=root n=ansible | skipping: [192.168.57.18]
+2024-11-19 05:57:55,546 p=11807 u=root n=ansible | TASK [k8s : Render all plugin template files to /opt/k8s_deploy/plugins] *******
+2024-11-19 05:57:55,685 p=11807 u=root n=ansible | skipping: [192.168.57.13] => (item=01_flannel.yml.j2) 
+2024-11-19 05:57:55,726 p=11807 u=root n=ansible | skipping: [192.168.57.14] => (item=01_flannel.yml.j2) 
+2024-11-19 05:57:55,730 p=11807 u=root n=ansible | skipping: [192.168.57.16] => (item=01_flannel.yml.j2) 
+2024-11-19 05:57:55,734 p=11807 u=root n=ansible | skipping: [192.168.57.15] => (item=01_flannel.yml.j2) 
+2024-11-19 05:57:55,737 p=11807 u=root n=ansible | skipping: [192.168.57.17] => (item=01_flannel.yml.j2) 
+2024-11-19 05:57:55,766 p=11807 u=root n=ansible | skipping: [192.168.57.18] => (item=01_flannel.yml.j2) 
+2024-11-19 05:57:55,792 p=11807 u=root n=ansible | TASK [k8s : Apply all YAML files in /opt/k8s_deploy/plugins using kubectl] *****
+2024-11-19 05:57:55,871 p=11807 u=root n=ansible | skipping: [192.168.57.13]
+2024-11-19 05:57:55,908 p=11807 u=root n=ansible | skipping: [192.168.57.14]
+2024-11-19 05:57:55,931 p=11807 u=root n=ansible | skipping: [192.168.57.15]
+2024-11-19 05:57:55,963 p=11807 u=root n=ansible | skipping: [192.168.57.16]
+2024-11-19 05:57:55,966 p=11807 u=root n=ansible | skipping: [192.168.57.17]
+2024-11-19 05:57:55,988 p=11807 u=root n=ansible | skipping: [192.168.57.18]
+2024-11-19 05:57:56,007 p=11807 u=root n=ansible | TASK [k8s : Ensure /run/flannel directory exists] ******************************
+2024-11-19 05:57:58,911 p=11807 u=root n=ansible | ok: [192.168.57.13]
+2024-11-19 05:57:58,916 p=11807 u=root n=ansible | ok: [192.168.57.16]
+2024-11-19 05:57:58,995 p=11807 u=root n=ansible | ok: [192.168.57.14]
+2024-11-19 05:57:59,036 p=11807 u=root n=ansible | ok: [192.168.57.15]
+2024-11-19 05:57:59,294 p=11807 u=root n=ansible | ok: [192.168.57.17]
+2024-11-19 05:58:00,869 p=11807 u=root n=ansible | ok: [192.168.57.18]
+2024-11-19 05:58:00,880 p=11807 u=root n=ansible | TASK [k8s : Drop the /run/flannel/subnet.env file from template] ***************
+2024-11-19 05:58:03,698 p=11807 u=root n=ansible | ok: [192.168.57.13]
+2024-11-19 05:58:04,145 p=11807 u=root n=ansible | changed: [192.168.57.15]
+2024-11-19 05:58:04,207 p=11807 u=root n=ansible | changed: [192.168.57.14]
+2024-11-19 05:58:04,437 p=11807 u=root n=ansible | changed: [192.168.57.17]
+2024-11-19 05:58:04,569 p=11807 u=root n=ansible | changed: [192.168.57.16]
+2024-11-19 05:58:07,425 p=11807 u=root n=ansible | changed: [192.168.57.18]
+2024-11-19 05:58:07,438 p=11807 u=root n=ansible | TASK [k8s : Set and cache join_token fact] *************************************
+2024-11-19 05:58:07,461 p=11807 u=root n=ansible | skipping: [192.168.57.13]
+2024-11-19 05:58:07,476 p=11807 u=root n=ansible | skipping: [192.168.57.14]
+2024-11-19 05:58:07,485 p=11807 u=root n=ansible | skipping: [192.168.57.15]
+2024-11-19 05:58:07,499 p=11807 u=root n=ansible | skipping: [192.168.57.16]
+2024-11-19 05:58:07,500 p=11807 u=root n=ansible | skipping: [192.168.57.17]
+2024-11-19 05:58:07,507 p=11807 u=root n=ansible | skipping: [192.168.57.18]
+2024-11-19 05:58:07,514 p=11807 u=root n=ansible | TASK [k8s : Cache join_token] **************************************************
+2024-11-19 05:58:07,535 p=11807 u=root n=ansible | skipping: [192.168.57.13]
+2024-11-19 05:58:07,553 p=11807 u=root n=ansible | skipping: [192.168.57.14]
+2024-11-19 05:58:07,563 p=11807 u=root n=ansible | skipping: [192.168.57.15]
+2024-11-19 05:58:07,575 p=11807 u=root n=ansible | skipping: [192.168.57.16]
+2024-11-19 05:58:07,576 p=11807 u=root n=ansible | skipping: [192.168.57.17]
+2024-11-19 05:58:07,583 p=11807 u=root n=ansible | skipping: [192.168.57.18]
+2024-11-19 05:58:07,589 p=11807 u=root n=ansible | TASK [k8s : Set and cache cert_hash fact] **************************************
+2024-11-19 05:58:07,612 p=11807 u=root n=ansible | skipping: [192.168.57.13]
+2024-11-19 05:58:07,623 p=11807 u=root n=ansible | skipping: [192.168.57.14]
+2024-11-19 05:58:07,633 p=11807 u=root n=ansible | skipping: [192.168.57.15]
+2024-11-19 05:58:07,647 p=11807 u=root n=ansible | skipping: [192.168.57.16]
+2024-11-19 05:58:07,648 p=11807 u=root n=ansible | skipping: [192.168.57.17]
+2024-11-19 05:58:07,654 p=11807 u=root n=ansible | skipping: [192.168.57.18]
+2024-11-19 05:58:07,660 p=11807 u=root n=ansible | TASK [k8s : Cache cert_hash] ***************************************************
+2024-11-19 05:58:07,683 p=11807 u=root n=ansible | skipping: [192.168.57.13]
+2024-11-19 05:58:07,699 p=11807 u=root n=ansible | skipping: [192.168.57.14]
+2024-11-19 05:58:07,715 p=11807 u=root n=ansible | skipping: [192.168.57.15]
+2024-11-19 05:58:07,728 p=11807 u=root n=ansible | skipping: [192.168.57.16]
+2024-11-19 05:58:07,729 p=11807 u=root n=ansible | skipping: [192.168.57.17]
+2024-11-19 05:58:07,735 p=11807 u=root n=ansible | skipping: [192.168.57.18]
+2024-11-19 05:58:07,748 p=11807 u=root n=ansible | TASK [k8s : Set and cache cert_key fact] ***************************************
+2024-11-19 05:58:07,764 p=11807 u=root n=ansible | skipping: [192.168.57.13]
+2024-11-19 05:58:07,780 p=11807 u=root n=ansible | skipping: [192.168.57.14]
+2024-11-19 05:58:07,795 p=11807 u=root n=ansible | skipping: [192.168.57.15]
+2024-11-19 05:58:07,807 p=11807 u=root n=ansible | skipping: [192.168.57.16]
+2024-11-19 05:58:07,821 p=11807 u=root n=ansible | skipping: [192.168.57.17]
+2024-11-19 05:58:07,830 p=11807 u=root n=ansible | skipping: [192.168.57.18]
+2024-11-19 05:58:07,841 p=11807 u=root n=ansible | TASK [k8s : Cache cert_key] ****************************************************
+2024-11-19 05:58:07,861 p=11807 u=root n=ansible | skipping: [192.168.57.13]
+2024-11-19 05:58:07,876 p=11807 u=root n=ansible | skipping: [192.168.57.14]
+2024-11-19 05:58:07,889 p=11807 u=root n=ansible | skipping: [192.168.57.15]
+2024-11-19 05:58:07,904 p=11807 u=root n=ansible | skipping: [192.168.57.16]
+2024-11-19 05:58:07,918 p=11807 u=root n=ansible | skipping: [192.168.57.17]
+2024-11-19 05:58:07,930 p=11807 u=root n=ansible | skipping: [192.168.57.18]
+2024-11-19 05:58:07,939 p=11807 u=root n=ansible | TASK [k8s : Restart kubelet] ***************************************************
+2024-11-19 05:58:09,696 p=11807 u=root n=ansible | changed: [192.168.57.13]
+2024-11-19 05:58:09,833 p=11807 u=root n=ansible | changed: [192.168.57.16]
+2024-11-19 05:58:10,367 p=11807 u=root n=ansible | changed: [192.168.57.17]
+2024-11-19 05:58:10,460 p=11807 u=root n=ansible | changed: [192.168.57.15]
+2024-11-19 05:58:10,494 p=11807 u=root n=ansible | changed: [192.168.57.14]
+2024-11-19 05:58:11,664 p=11807 u=root n=ansible | changed: [192.168.57.18]
+2024-11-19 05:58:11,679 p=11807 u=root n=ansible | PLAY RECAP *********************************************************************
+2024-11-19 05:58:11,679 p=11807 u=root n=ansible | 192.168.57.13              : ok=81   changed=28   unreachable=0    failed=0    skipped=17   rescued=0    ignored=0   
+2024-11-19 05:58:11,679 p=11807 u=root n=ansible | 192.168.57.14              : ok=41   changed=21   unreachable=0    failed=0    skipped=11   rescued=0    ignored=0   
+2024-11-19 05:58:11,679 p=11807 u=root n=ansible | 192.168.57.15              : ok=41   changed=21   unreachable=0    failed=0    skipped=11   rescued=0    ignored=0   
+2024-11-19 05:58:11,680 p=11807 u=root n=ansible | 192.168.57.16              : ok=40   changed=20   unreachable=0    failed=0    skipped=12   rescued=0    ignored=0   
+2024-11-19 05:58:11,680 p=11807 u=root n=ansible | 192.168.57.17              : ok=40   changed=20   unreachable=0    failed=0    skipped=12   rescued=0    ignored=0   
+2024-11-19 05:58:11,680 p=11807 u=root n=ansible | 192.168.57.18              : ok=40   changed=20   unreachable=0    failed=0    skipped=12   rescued=0    ignored=0   
