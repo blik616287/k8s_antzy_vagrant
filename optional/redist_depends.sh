@@ -23,6 +23,15 @@ echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://
 sudo apt update
 sudo apt install vagrant -y
 
+# ansible
+sudo apt update
+sudo apt install software-properties-common -y
+sudo add-apt-repository --yes --update ppa:ansible/ansible
+sudo apt install ansible -y
+ansible-galaxy collection install community.general --force
+ansible-galaxy collection install community.docker --force
+ansible-galaxy collection install ansible.posix --force
+
 # miniconda
 mkdir -p ~/miniconda3
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
@@ -33,6 +42,3 @@ rm ~/miniconda3/miniconda.sh
 yes | conda create --prefix ./k8s_conda_env python=3.12
 conda activate ./k8s_conda_env
 pip install requests==2.31.0 molecule molecule-docker jmespath --use-deprecated=legacy-resolver
-ansible-galaxy collection install community.general --force
-ansible-galaxy collection install community.docker --force
-ansible-galaxy collection install ansible.posix --force
