@@ -14,6 +14,11 @@ idempotent ansible config for roles:
 - haproxy_lb -- roundrobin with vip
 - k8s -- dynamic bootstrap and join
 
+supported plugins:
+- calico
+- ingress-nginx
+- rook-ceph
+
 # iac automated deployment
 ```
 # requires redistributables outlined in READ: ./optional/redist_depends.sh
@@ -23,9 +28,9 @@ vagrant destroy -f
 
 # todo:
 ~~testing fix for flannel subnet issue~~
-1) molecule role tests
-2) dashboard
-3) istio
-4) grafana
-5) slinky
-6) ldap -- possible implementation idea in mind
+- molecule role tests
+- dashboard
+- istio
+- grafana
+- slinky
+- ldap -- possible implementation idea in mind

@@ -1,0 +1,83 @@
+2024-11-21 18:59:48,995 p=11627 u=root n=ansible | PLAY [Deploy haproxy and keepalived] *******************************************
+2024-11-21 18:59:49,012 p=11627 u=root n=ansible | TASK [Gathering Facts] *********************************************************
+2024-11-21 18:59:51,275 p=11627 u=root n=ansible | ok: [192.168.57.11]
+2024-11-21 18:59:51,418 p=11627 u=root n=ansible | ok: [192.168.57.12]
+2024-11-21 18:59:51,425 p=11627 u=root n=ansible | TASK [Bootstrap node geth] *****************************************************
+2024-11-21 18:59:51,466 p=11627 u=root n=ansible | TASK [haproxy_lb : Include vars if file exists] ********************************
+2024-11-21 18:59:51,497 p=11627 u=root n=ansible | ok: [192.168.57.12] => (item=linux/default.yml)
+2024-11-21 18:59:51,502 p=11627 u=root n=ansible | ok: [192.168.57.12] => (item=linux/Ubuntu/default.yml)
+2024-11-21 18:59:51,503 p=11627 u=root n=ansible | ok: [192.168.57.12] => (item=linux/Ubuntu/22.04.yml)
+2024-11-21 18:59:51,510 p=11627 u=root n=ansible | ok: [192.168.57.11] => (item=linux/default.yml)
+2024-11-21 18:59:51,514 p=11627 u=root n=ansible | ok: [192.168.57.11] => (item=linux/Ubuntu/default.yml)
+2024-11-21 18:59:51,518 p=11627 u=root n=ansible | ok: [192.168.57.11] => (item=linux/Ubuntu/22.04.yml)
+2024-11-21 18:59:51,523 p=11627 u=root n=ansible | TASK [haproxy_lb : Check if the OS is Ubuntu] **********************************
+2024-11-21 18:59:51,549 p=11627 u=root n=ansible | ok: [192.168.57.11]
+2024-11-21 18:59:51,554 p=11627 u=root n=ansible | ok: [192.168.57.12]
+2024-11-21 18:59:51,558 p=11627 u=root n=ansible | TASK [haproxy_lb : Include Ubuntu tasks] ***************************************
+2024-11-21 18:59:51,611 p=11627 u=root n=ansible | included: /vagrant/ansible/playbooks/roles/haproxy_lb/tasks/linux/Ubuntu/main.yml for 192.168.57.11, 192.168.57.12
+2024-11-21 18:59:51,622 p=11627 u=root n=ansible | TASK [haproxy_lb : Update apt cache] *******************************************
+2024-11-21 18:59:54,583 p=11627 u=root n=ansible | changed: [192.168.57.12]
+2024-11-21 18:59:56,085 p=11627 u=root n=ansible | changed: [192.168.57.11]
+2024-11-21 18:59:56,100 p=11627 u=root n=ansible | TASK [haproxy_lb : Install packages] *******************************************
+2024-11-21 19:00:03,929 p=11627 u=root n=ansible | changed: [192.168.57.12]
+2024-11-21 19:00:04,397 p=11627 u=root n=ansible | changed: [192.168.57.11]
+2024-11-21 19:00:04,411 p=11627 u=root n=ansible | TASK [haproxy_lb : Template the HAProxy configuration file] ********************
+2024-11-21 19:00:07,372 p=11627 u=root n=ansible | changed: [192.168.57.11]
+2024-11-21 19:00:07,380 p=11627 u=root n=ansible | changed: [192.168.57.12]
+2024-11-21 19:00:07,389 p=11627 u=root n=ansible | TASK [haproxy_lb : Template the keepalive.d configuration file] ****************
+2024-11-21 19:00:10,514 p=11627 u=root n=ansible | changed: [192.168.57.12]
+2024-11-21 19:00:10,635 p=11627 u=root n=ansible | changed: [192.168.57.11]
+2024-11-21 19:00:10,650 p=11627 u=root n=ansible | TASK [haproxy_lb : Start haproxy] **********************************************
+2024-11-21 19:00:12,800 p=11627 u=root n=ansible | changed: [192.168.57.12]
+2024-11-21 19:00:12,906 p=11627 u=root n=ansible | changed: [192.168.57.11]
+2024-11-21 19:00:12,914 p=11627 u=root n=ansible | TASK [haproxy_lb : Start keepalive.d] ******************************************
+2024-11-21 19:00:14,629 p=11627 u=root n=ansible | changed: [192.168.57.11]
+2024-11-21 19:00:14,776 p=11627 u=root n=ansible | changed: [192.168.57.12]
+2024-11-21 19:00:14,791 p=11627 u=root n=ansible | PLAY RECAP *********************************************************************
+2024-11-21 19:00:14,791 p=11627 u=root n=ansible | 192.168.57.11              : ok=10   changed=6    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2024-11-21 19:00:14,792 p=11627 u=root n=ansible | 192.168.57.12              : ok=10   changed=6    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2024-11-21 19:00:15,215 p=11805 u=root n=ansible | PLAY [Gather facts and set bootstrap variable] *********************************
+2024-11-21 19:00:15,224 p=11805 u=root n=ansible | TASK [Gathering Facts] *********************************************************
+2024-11-21 19:00:17,469 p=11805 u=root n=ansible | ok: [192.168.57.15]
+2024-11-21 19:00:17,482 p=11805 u=root n=ansible | ok: [192.168.57.13]
+2024-11-21 19:00:17,549 p=11805 u=root n=ansible | ok: [192.168.57.17]
+2024-11-21 19:00:17,689 p=11805 u=root n=ansible | ok: [192.168.57.14]
+2024-11-21 19:00:17,753 p=11805 u=root n=ansible | ok: [192.168.57.16]
+2024-11-21 19:00:19,654 p=11805 u=root n=ansible | ok: [192.168.57.18]
+2024-11-21 19:00:19,671 p=11805 u=root n=ansible | TASK [Set cacheable fact for the first controller node] ************************
+2024-11-21 19:00:19,712 p=11805 u=root n=ansible | ok: [192.168.57.13]
+2024-11-21 19:00:19,724 p=11805 u=root n=ansible | TASK [Add the bootstrap host to a group] ***************************************
+2024-11-21 19:00:19,737 p=11805 u=root n=ansible | changed: [192.168.57.13]
+2024-11-21 19:00:19,750 p=11805 u=root n=ansible | PLAY [Bootstrap controller] ****************************************************
+2024-11-21 19:00:19,762 p=11805 u=root n=ansible | TASK [Gathering Facts] *********************************************************
+2024-11-21 19:00:22,091 p=11805 u=root n=ansible | ok: [192.168.57.13]
+2024-11-21 19:00:22,099 p=11805 u=root n=ansible | TASK [Bootstrap actions] *******************************************************
+2024-11-21 19:00:22,152 p=11805 u=root n=ansible | TASK [k8s : Include vars if file exists] ***************************************
+2024-11-21 19:00:22,174 p=11805 u=root n=ansible | ok: [192.168.57.13] => (item=linux/default.yml)
+2024-11-21 19:00:22,175 p=11879 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/default.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2024-11-21 19:00:22,176 p=11805 u=root n=ansible | ok: [192.168.57.13] => (item=linux/Ubuntu/default.yml)
+2024-11-21 19:00:22,178 p=11879 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/22.04.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2024-11-21 19:00:22,181 p=11805 u=root n=ansible | ok: [192.168.57.13] => (item=linux/Ubuntu/22.04.yml)
+2024-11-21 19:00:22,186 p=11805 u=root n=ansible | TASK [k8s : Check if the OS is Ubuntu] *****************************************
+2024-11-21 19:00:22,198 p=11805 u=root n=ansible | ok: [192.168.57.13]
+2024-11-21 19:00:22,203 p=11805 u=root n=ansible | TASK [k8s : Include Ubuntu tasks] **********************************************
+2024-11-21 19:00:22,227 p=11805 u=root n=ansible | included: /vagrant/ansible/playbooks/roles/k8s/tasks/linux/Ubuntu/main.yml for 192.168.57.13
+2024-11-21 19:00:22,236 p=11805 u=root n=ansible | TASK [k8s : Ensure GPG package is installed] ***********************************
+2024-11-21 19:00:25,651 p=11805 u=root n=ansible | ok: [192.168.57.13]
+2024-11-21 19:00:25,659 p=11805 u=root n=ansible | TASK [k8s : Ensure /etc/apt/keyrings directory exists] *************************
+2024-11-21 19:00:27,435 p=11805 u=root n=ansible | ok: [192.168.57.13]
+2024-11-21 19:00:27,446 p=11805 u=root n=ansible | TASK [k8s : Add Docker GPG key] ************************************************
+2024-11-21 19:00:29,876 p=11805 u=root n=ansible | changed: [192.168.57.13]
+2024-11-21 19:00:29,890 p=11805 u=root n=ansible | TASK [k8s : Add Docker repository] *********************************************
+2024-11-21 19:00:36,085 p=11805 u=root n=ansible | changed: [192.168.57.13]
+2024-11-21 19:00:36,093 p=11805 u=root n=ansible | TASK [k8s : Download Kubernetes GPG key and save it as a keyring] **************
+2024-11-21 19:00:38,250 p=11805 u=root n=ansible | changed: [192.168.57.13]
+2024-11-21 19:00:38,259 p=11805 u=root n=ansible | TASK [k8s : Convert GPG key to keyring format] *********************************
