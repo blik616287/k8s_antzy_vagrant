@@ -2,5 +2,5 @@
 ansible/cache/
 **/cache/*
 disks/
-ansible/molecule_env
+k8s_conda_env/
 .Vagrantfile.swp/
