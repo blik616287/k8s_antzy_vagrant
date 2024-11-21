@@ -1,3 +1,5 @@
+
 .vagrant/
 ansible/cache/
+disks/
 .Vagrantfile.swp/

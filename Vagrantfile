@@ -1,4 +1,3 @@
-
 Vagrant.configure("2") do |config|
 
   #######################################
@@ -19,16 +18,14 @@ Vagrant.configure("2") do |config|
   vm_workers.each do |vm_config|
     config.vm.define vm_config[:name] do |vm|
       vm.vm.box = "ubuntu/jammy64"
+      vm.vm.hostname = vm_config[:name]
+      vm.vm.network "private_network", type: "static", ip: vm_config[:ip], adapter: 2
 
       vm.vm.provider "virtualbox" do |vb|
         vb.name = vm_config[:name]
         vb.memory = "2048"
         vb.cpus = 2
       end
-
-      vm.vm.network "private_network", type: "static", ip: vm_config[:ip], adapter: 2
-
-      vm.vm.hostname = vm_config[:name]
 
       vm.vm.provision "shell", inline: <<-SHELL
         echo "%vagrant ALL=(ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/90-nopassword-vagrant
@@ -45,6 +42,49 @@ Vagrant.configure("2") do |config|
 
     end
   end
+end
+
+Vagrant.configure("2") do |config|
+
+  ##################
+  #### add disk ####
+  ##################
+
+  vm_workers = [
+    { name: 'kube-controller1', role: 'controller', ip: '192.168.57.13' },
+    { name: 'kube-controller2', role: 'controller', ip: '192.168.57.14' },
+    { name: 'kube-controller3', role: 'controller', ip: '192.168.57.15' },
+    { name: 'kube-compute1', role: 'compute', ip: '192.168.57.16' },
+    { name: 'kube-compute2', role: 'compute', ip: '192.168.57.17' },
+    { name: 'kube-compute3', role: 'compute', ip: '192.168.57.18' }
+  ]
+
+  vm_workers.each do |vm_config|
+    config.vm.define vm_config[:name] do |vm|
+      vm.vm.provider "virtualbox" do |vb|
+        vm.vm.hostname = vm_config[:name]
+        vb.name = vm_config[:name]
+        vb.memory = "2048"
+        vb.cpus = 2
+        disk_path = "./disks/#{vm.vm.hostname}_disk.vdi"
+        FileUtils.mkdir_p('./disks') unless Dir.exist?('./disks')
+        if File.exist?(disk_path)
+          system("VBoxManage closemedium disk '#{disk_path}' --delete 2>/dev/null")
+          File.delete(disk_path) if File.exist?(disk_path)
+        end
+        system("VBoxManage createhd --filename '#{disk_path}' --variant Fixed --size 30720")
+        vb.customize ['storageattach', :id,
+          '--storagectl', 'SCSI',
+          '--port', 2,
+          '--device', 0,
+          '--type', 'hdd',
+          '--medium', disk_path]
+      end
+    end
+  end
+end
+
+Vagrant.configure("2") do |config|
 
   #######################################
   #### deploy ansible infrastructure ####
@@ -100,5 +140,4 @@ Vagrant.configure("2") do |config|
 
     end
   end
-
 end
