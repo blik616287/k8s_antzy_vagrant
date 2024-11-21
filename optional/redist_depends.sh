@@ -30,7 +30,7 @@ bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
 rm ~/miniconda3/miniconda.sh
 
 # make molecule conda env
-conda create --prefix ./k8s_conda_env python=3.12
+yes | conda create --prefix ./k8s_conda_env python=3.12
 conda activate ./k8s_conda_env
 pip install requests==2.31.0 molecule molecule-docker jmespath --use-deprecated=legacy-resolver
 ansible-galaxy collection install community.general --force
