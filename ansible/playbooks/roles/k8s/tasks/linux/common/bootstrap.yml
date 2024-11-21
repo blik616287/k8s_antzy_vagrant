@@ -143,7 +143,7 @@
   ansible.builtin.shell: |
     for file in /opt/k8s_deploy/plugins/*; do
       if [[ -f "$file" ]]; then
-        KUBECONFIG=/etc/kubernetes/admin.conf kubectl apply -f "$file"
+        KUBECONFIG=/etc/kubernetes/admin.conf kubectl create -f "$file"
         sleep 10
       fi
     done
