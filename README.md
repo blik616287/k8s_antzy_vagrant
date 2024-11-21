@@ -28,9 +28,9 @@ vagrant destroy -f
 
 # todo:
 ~~testing fix for flannel subnet issue~~
-- molecule role tests
-- dashboard
+~~testing calico replacement for flannel~~
+- molecule role tests ~~haproxy_lb role completed~~
+- dashboard / grafana
 - istio
-- grafana
 - slinky
-- ldap -- possible implementation idea in mind
+- ldap
