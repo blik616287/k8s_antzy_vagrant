@@ -25,6 +25,12 @@
     name: overlay
     state: present
 
+- name: Load the rbd module
+  become: yes
+  ansible.builtin.modprobe:
+    name: rbd
+    state: present
+
 - name: Persist br_netfilter module in /etc/modules-load.d/k8s.conf
   become: yes
   ansible.builtin.copy:
@@ -32,6 +38,7 @@
     content: |
       br_netfilter
       overlay
+      rbd
     mode: '0644'
 
 - name: Set sysctl parameters for Kubernetes networking

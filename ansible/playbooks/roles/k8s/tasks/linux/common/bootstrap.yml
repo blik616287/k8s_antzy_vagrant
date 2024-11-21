@@ -25,7 +25,7 @@
 - name: Run join controllers to cluster
   become: yes
   ansible.builtin.shell: |
-    kubeadm join {{ lb_vip | default(lb_vip) }}:6443 \
+    kubeadm join {{ lb_vip | default(lb_vip) }}:443 \
       --control-plane \
       --apiserver-advertise-address {{ ipaddr }} \
       --apiserver-bind-port 443 \
@@ -46,7 +46,7 @@
 - name: Run join compute to cluster
   become: yes
   ansible.builtin.shell: |
-    kubeadm join {{ lb_vip | default(lb_vip) }}:6443 \
+    kubeadm join {{ lb_vip | default(lb_vip) }}:443 \
       --token {{ join_token }}\
       --discovery-token-ca-cert-hash sha256:{{ cert_hash }}
   args:
