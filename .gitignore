@@ -1,5 +1,5 @@
-
 .vagrant/
 ansible/cache/
 disks/
+ansible/molecule_env
 .Vagrantfile.swp/
