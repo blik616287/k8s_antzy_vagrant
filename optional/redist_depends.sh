@@ -22,8 +22,3 @@ wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/sha
 echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com ${CODENAME} main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
 sudo apt update
 sudo apt install vagrant -y
-
-# plugins
-#curl -L https://github.com/coreos/flannel/releases/download/v0.14.0/kube-flannel.yml -o files/plugins/01-flannel.yml
-#curl -L https://raw.githubusercontent.com/kubernetes/dashboard/v2.4.0/aio/deploy/recommended.yaml -o files/plugins/02-dashboard.yml
-
