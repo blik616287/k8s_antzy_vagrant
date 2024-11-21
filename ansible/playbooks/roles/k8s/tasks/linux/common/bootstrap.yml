@@ -28,6 +28,7 @@
     kubeadm join {{ lb_vip | default(lb_vip) }}:6443 \
       --control-plane \
       --apiserver-advertise-address {{ ipaddr }} \
+      --apiserver-bind-port 443 \
       --token {{ join_token }} \
       --discovery-token-ca-cert-hash sha256:{{ cert_hash }} \
       --certificate-key {{ cert_key }}
@@ -64,6 +65,7 @@
     kubeadm init \
       --pod-network-cidr={{ pod_cidr | default(pod_cidr) }} \
       --apiserver-advertise-address={{ ipaddr }} \
+      --apiserver-bind-port 443 \
       --control-plane-endpoint={{ lb_vip | default(lb_vip) }} \
       --token {{ k8s_admin_token | default(k8s_admin_token) }} \
       --upload-certs | tee /var/log/kubeadm.log
