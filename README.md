@@ -1,6 +1,6 @@
 POC k8s local testbed
 
-![new](https://github.com/user-attachments/assets/4a692928-072c-4467-8e37-38b7a388fc5a)
+![Screenshot_2024-11-21_13-39-51](https://github.com/user-attachments/assets/a479ac85-ce31-43cf-8dce-b1309f72e89c)
 
 Uses virtualbox and vagrant to deploy local infra, and ansible for config 
 
