@@ -144,6 +144,7 @@
     for file in /opt/k8s_deploy/plugins/*; do
       if [[ -f "$file" ]]; then
         KUBECONFIG=/etc/kubernetes/admin.conf kubectl apply -f "$file"
+        sleep 10
       fi
     done
   args:
@@ -153,20 +154,6 @@
     - join_token is not defined
     - cert_hash is not defined
     - cert_key is not defined
-
-#- name: Ensure /run/flannel directory exists
-#  become: yes
-#  ansible.builtin.file:
-#    path: /run/flannel
-#    state: directory
-#    mode: '0755'
-
-#- name: Drop the /run/flannel/subnet.env file from template
-#  become: yes
-#  ansible.builtin.template:
-#    src: flannel/subnet.env.j2
-#    dest: /run/flannel/subnet.env
-#    mode: '0644'
 
 
 #### if a bootstrap node is now configured, set the join details to facts
