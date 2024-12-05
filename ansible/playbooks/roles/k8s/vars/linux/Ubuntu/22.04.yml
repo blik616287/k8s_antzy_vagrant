@@ -8,9 +8,11 @@ packages:
   - gpg
   - net-tools
   - containerd.io
+  - apt-transport-https
   - kubelet
   - kubeadm
   - kubectl
+  - helm
 
 k8s_version: "1.31"
 lb_vip: "192.168.57.201"

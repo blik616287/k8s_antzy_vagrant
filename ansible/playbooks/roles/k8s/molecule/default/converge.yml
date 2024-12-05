@@ -1,0 +1,10 @@
+---
+
+- name: Single node bootstrap
+  hosts: "{{ groups['all'][0] }}"
+  tasks:
+    - name: bootstrap k8s
+      include_role:
+        name: k8s
+
+...

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: my-rook-ceph-pvc
+  namespace: default  # Change to your desired namespace
+spec:
+  storageClassName: rook-ceph-block  # Ensure this matches your Rook Ceph StorageClass
+  accessModes:
+    - ReadWriteOnce  # Adjust based on your requirements (e.g., ReadWriteMany)
+  resources:
+    requests:
+      storage: 10Gi  # Adjust storage size as needed

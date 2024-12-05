@@ -1,3 +1,5 @@
+---
+
 #### gpg pkg
 - name: Ensure GPG package is installed
   become: yes
@@ -48,3 +50,27 @@
     dest: /etc/apt/sources.list.d/kubernetes.list
     content: 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v{{ k8s_version }}/deb/ /'
     mode: '0644'
+
+
+# helm repo
+- name: Download Helm GPG key and save it as a keyring
+  become: yes
+  ansible.builtin.get_url:
+    url: https://baltocdn.com/helm/signing.asc
+    dest: /tmp/helm.key
+    mode: '0644'
+
+- name: Convert Helm GPG key to keyring format
+  become: yes
+  ansible.builtin.command:
+    cmd: gpg --dearmor -o /etc/apt/keyrings/helm-apt-keyring.gpg /tmp/helm.key
+    creates: /etc/apt/keyrings/helm-apt-keyring.gpg
+
+- name: Add Helm repository to APT sources
+  become: yes
+  ansible.builtin.copy:
+    dest: /etc/apt/sources.list.d/helm.list
+    content: "deb [arch=amd64 signed-by=/etc/apt/keyrings/helm-apt-keyring.gpg] https://baltocdn.com/helm/stable/debian/ all main"
+    mode: '0644'
+
+...
