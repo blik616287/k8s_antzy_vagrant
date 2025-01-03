@@ -1,7 +1,16 @@
 apiVersion: v1
+kind: Namespace
+metadata:
+  name: openldap
+  labels:
+    app.kubernetes.io/instance: openldap
+    app.kubernetes.io/name: openldap
+---
+apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: openldap-pvc-data
+  namespace: openldap
 spec:
   accessModes:
     - ReadWriteOnce
@@ -14,6 +23,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: openldap-pvc-etc
+  namespace: openldap
 spec:
   accessModes:
     - ReadWriteOnce
@@ -26,6 +36,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: openldap
+  namespace: openldap
 data:
   LDAP_ORGANISATION: {{ ldap_org | default(ldap_org) }}
   LDAP_DOMAIN: {{ ldap_domain | default(ldap_domain) }}
@@ -34,6 +45,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: openldap
+  namespace: openldap
 type: Opaque
 data:
   LDAP_ADMIN_PASSWORD: {{ ldap_admin_pass | default(ldap_admin_pass) }}

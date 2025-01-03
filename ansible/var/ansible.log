@@ -4573,3 +4573,1476 @@ only.
 2025-01-02 17:36:30,448 p=11803 u=root n=ansible | 192.168.57.16              : ok=45   changed=26   unreachable=0    failed=0    skipped=12   rescued=0    ignored=0   
 2025-01-02 17:36:30,448 p=11803 u=root n=ansible | 192.168.57.17              : ok=45   changed=26   unreachable=0    failed=0    skipped=12   rescued=0    ignored=0   
 2025-01-02 17:36:30,449 p=11803 u=root n=ansible | 192.168.57.18              : ok=45   changed=26   unreachable=0    failed=0    skipped=12   rescued=0    ignored=0   
+2025-01-03 03:04:15,656 p=11632 u=root n=ansible | PLAY [Deploy haproxy and keepalived] *******************************************
+2025-01-03 03:04:15,677 p=11632 u=root n=ansible | TASK [Gathering Facts] *********************************************************
+2025-01-03 03:04:17,938 p=11632 u=root n=ansible | ok: [192.168.57.12]
+2025-01-03 03:04:18,013 p=11632 u=root n=ansible | ok: [192.168.57.11]
+2025-01-03 03:04:18,025 p=11632 u=root n=ansible | TASK [Bootstrap node geth] *****************************************************
+2025-01-03 03:04:18,113 p=11632 u=root n=ansible | TASK [haproxy_lb : Include vars if file exists] ********************************
+2025-01-03 03:04:18,140 p=11632 u=root n=ansible | ok: [192.168.57.11] => (item=linux/default.yml)
+2025-01-03 03:04:18,144 p=11632 u=root n=ansible | ok: [192.168.57.11] => (item=linux/Ubuntu/default.yml)
+2025-01-03 03:04:18,149 p=11632 u=root n=ansible | ok: [192.168.57.11] => (item=linux/Ubuntu/22.04.yml)
+2025-01-03 03:04:18,159 p=11632 u=root n=ansible | ok: [192.168.57.12] => (item=linux/default.yml)
+2025-01-03 03:04:18,164 p=11632 u=root n=ansible | ok: [192.168.57.12] => (item=linux/Ubuntu/default.yml)
+2025-01-03 03:04:18,172 p=11632 u=root n=ansible | ok: [192.168.57.12] => (item=linux/Ubuntu/22.04.yml)
+2025-01-03 03:04:18,179 p=11632 u=root n=ansible | TASK [haproxy_lb : Check if the OS is Ubuntu] **********************************
+2025-01-03 03:04:18,200 p=11632 u=root n=ansible | ok: [192.168.57.11]
+2025-01-03 03:04:18,208 p=11632 u=root n=ansible | ok: [192.168.57.12]
+2025-01-03 03:04:18,213 p=11632 u=root n=ansible | TASK [haproxy_lb : Include Ubuntu tasks] ***************************************
+2025-01-03 03:04:18,262 p=11632 u=root n=ansible | included: /vagrant/ansible/playbooks/roles/haproxy_lb/tasks/linux/Ubuntu/main.yml for 192.168.57.11, 192.168.57.12
+2025-01-03 03:04:18,270 p=11632 u=root n=ansible | TASK [haproxy_lb : Update apt cache] *******************************************
+2025-01-03 03:04:21,113 p=11632 u=root n=ansible | changed: [192.168.57.12]
+2025-01-03 03:04:21,307 p=11632 u=root n=ansible | changed: [192.168.57.11]
+2025-01-03 03:04:21,313 p=11632 u=root n=ansible | TASK [haproxy_lb : Install packages] *******************************************
+2025-01-03 03:04:28,933 p=11632 u=root n=ansible | changed: [192.168.57.11]
+2025-01-03 03:04:29,976 p=11632 u=root n=ansible | changed: [192.168.57.12]
+2025-01-03 03:04:29,988 p=11632 u=root n=ansible | TASK [haproxy_lb : Template the HAProxy configuration file] ********************
+2025-01-03 03:04:33,014 p=11632 u=root n=ansible | changed: [192.168.57.11]
+2025-01-03 03:04:33,017 p=11632 u=root n=ansible | changed: [192.168.57.12]
+2025-01-03 03:04:33,025 p=11632 u=root n=ansible | TASK [haproxy_lb : Template the keepalive.d configuration file] ****************
+2025-01-03 03:04:35,928 p=11632 u=root n=ansible | changed: [192.168.57.12]
+2025-01-03 03:04:35,929 p=11632 u=root n=ansible | changed: [192.168.57.11]
+2025-01-03 03:04:35,937 p=11632 u=root n=ansible | TASK [haproxy_lb : Start haproxy] **********************************************
+2025-01-03 03:04:37,760 p=11632 u=root n=ansible | changed: [192.168.57.12]
+2025-01-03 03:04:37,967 p=11632 u=root n=ansible | changed: [192.168.57.11]
+2025-01-03 03:04:37,974 p=11632 u=root n=ansible | TASK [haproxy_lb : Start keepalive.d] ******************************************
+2025-01-03 03:04:39,757 p=11632 u=root n=ansible | changed: [192.168.57.12]
+2025-01-03 03:04:39,804 p=11632 u=root n=ansible | changed: [192.168.57.11]
+2025-01-03 03:04:39,817 p=11632 u=root n=ansible | PLAY RECAP *********************************************************************
+2025-01-03 03:04:39,818 p=11632 u=root n=ansible | 192.168.57.11              : ok=10   changed=6    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-01-03 03:04:39,818 p=11632 u=root n=ansible | 192.168.57.12              : ok=10   changed=6    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-01-03 03:04:40,256 p=11810 u=root n=ansible | PLAY [Gather facts and set bootstrap variable] *********************************
+2025-01-03 03:04:40,277 p=11810 u=root n=ansible | TASK [Gathering Facts] *********************************************************
+2025-01-03 03:04:42,710 p=11810 u=root n=ansible | ok: [192.168.57.17]
+2025-01-03 03:04:42,735 p=11810 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 03:04:42,758 p=11810 u=root n=ansible | ok: [192.168.57.16]
+2025-01-03 03:04:42,820 p=11810 u=root n=ansible | ok: [192.168.57.14]
+2025-01-03 03:04:42,854 p=11810 u=root n=ansible | ok: [192.168.57.15]
+2025-01-03 03:04:45,379 p=11810 u=root n=ansible | ok: [192.168.57.18]
+2025-01-03 03:04:45,395 p=11810 u=root n=ansible | TASK [Set cacheable fact for the first controller node] ************************
+2025-01-03 03:04:45,448 p=11810 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 03:04:45,458 p=11810 u=root n=ansible | TASK [Add the bootstrap host to a group] ***************************************
+2025-01-03 03:04:45,481 p=11810 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 03:04:45,498 p=11810 u=root n=ansible | PLAY [Bootstrap controller] ****************************************************
+2025-01-03 03:04:45,508 p=11810 u=root n=ansible | TASK [Gathering Facts] *********************************************************
+2025-01-03 03:04:47,609 p=11810 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 03:04:47,626 p=11810 u=root n=ansible | TASK [Bootstrap actions] *******************************************************
+2025-01-03 03:04:47,692 p=11810 u=root n=ansible | TASK [k8s : Include vars if file exists] ***************************************
+2025-01-03 03:04:47,722 p=11810 u=root n=ansible | ok: [192.168.57.13] => (item=linux/default.yml)
+2025-01-03 03:04:47,726 p=11884 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/default.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2025-01-03 03:04:47,729 p=11810 u=root n=ansible | ok: [192.168.57.13] => (item=linux/Ubuntu/default.yml)
+2025-01-03 03:04:47,731 p=11884 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/22.04.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2025-01-03 03:04:47,733 p=11810 u=root n=ansible | ok: [192.168.57.13] => (item=linux/Ubuntu/22.04.yml)
+2025-01-03 03:04:47,739 p=11810 u=root n=ansible | TASK [k8s : Check if the OS is Ubuntu] *****************************************
+2025-01-03 03:04:47,757 p=11810 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 03:04:47,764 p=11810 u=root n=ansible | TASK [k8s : Include Ubuntu tasks] **********************************************
+2025-01-03 03:04:47,795 p=11810 u=root n=ansible | included: /vagrant/ansible/playbooks/roles/k8s/tasks/linux/Ubuntu/main.yml for 192.168.57.13
+2025-01-03 03:04:47,809 p=11810 u=root n=ansible | TASK [k8s : Ensure GPG package is installed] ***********************************
+2025-01-03 03:04:51,253 p=11810 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 03:04:51,262 p=11810 u=root n=ansible | TASK [k8s : Ensure /etc/apt/keyrings directory exists] *************************
+2025-01-03 03:04:53,026 p=11810 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 03:04:53,034 p=11810 u=root n=ansible | TASK [k8s : Add Docker GPG key] ************************************************
+2025-01-03 03:04:55,482 p=11810 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 03:04:55,493 p=11810 u=root n=ansible | TASK [k8s : Add Docker repository] *********************************************
+2025-01-03 03:05:02,215 p=11810 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 03:05:02,228 p=11810 u=root n=ansible | TASK [k8s : Download Kubernetes GPG key and save it as a keyring] **************
+2025-01-03 03:05:04,263 p=11810 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 03:05:04,277 p=11810 u=root n=ansible | TASK [k8s : Convert GPG key to keyring format] *********************************
+2025-01-03 03:05:06,218 p=11810 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 03:05:06,227 p=11810 u=root n=ansible | TASK [k8s : Add Kubernetes repository to APT sources] **************************
+2025-01-03 03:05:09,330 p=11810 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 03:05:09,338 p=11810 u=root n=ansible | TASK [k8s : Download Helm GPG key and save it as a keyring] ********************
+2025-01-03 03:05:11,021 p=11810 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 03:05:11,033 p=11810 u=root n=ansible | TASK [k8s : Convert Helm GPG key to keyring format] ****************************
+2025-01-03 03:05:12,685 p=11810 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 03:05:12,693 p=11810 u=root n=ansible | TASK [k8s : Add Helm repository to APT sources] ********************************
+2025-01-03 03:05:15,571 p=11810 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 03:05:15,580 p=11810 u=root n=ansible | TASK [k8s : Install packages] **************************************************
+2025-01-03 03:05:38,654 p=11810 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 03:05:38,665 p=11810 u=root n=ansible | TASK [k8s : Hold the kubelet, kubeadm, and kubectl packages] *******************
+2025-01-03 03:05:40,236 p=11810 u=root n=ansible | changed: [192.168.57.13] => (item=kubelet)
+2025-01-03 03:05:41,947 p=11810 u=root n=ansible | changed: [192.168.57.13] => (item=kubeadm)
+2025-01-03 03:05:43,532 p=11810 u=root n=ansible | changed: [192.168.57.13] => (item=kubectl)
+2025-01-03 03:05:43,545 p=11810 u=root n=ansible | TASK [k8s : Stop apparmor service] *********************************************
+2025-01-03 03:05:45,523 p=11810 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 03:05:45,536 p=11810 u=root n=ansible | TASK [k8s : Disable apparmor service] ******************************************
+2025-01-03 03:05:47,644 p=11810 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 03:05:47,652 p=11810 u=root n=ansible | TASK [k8s : Render containerd/config.toml template] ****************************
+2025-01-03 03:05:50,808 p=11810 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 03:05:50,820 p=11810 u=root n=ansible | RUNNING HANDLER [k8s : Start containerd] ***************************************
+2025-01-03 03:05:52,389 p=11810 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 03:05:52,390 p=11810 u=root n=ansible | RUNNING HANDLER [k8s : Restart containerd] *************************************
+2025-01-03 03:05:54,161 p=11810 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 03:05:54,171 p=11810 u=root n=ansible | TASK [k8s : Stop the UFW service] **********************************************
+2025-01-03 03:05:55,804 p=11810 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 03:05:55,811 p=11810 u=root n=ansible | TASK [k8s : Disable the UFW service] *******************************************
+2025-01-03 03:05:58,101 p=11810 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 03:05:58,110 p=11810 u=root n=ansible | TASK [k8s : Ensure swap is turned off] *****************************************
+2025-01-03 03:05:59,696 p=11810 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 03:05:59,704 p=11810 u=root n=ansible | TASK [k8s : Ensure swap is disabled in /etc/fstab] *****************************
+2025-01-03 03:06:01,361 p=11810 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 03:06:01,372 p=11810 u=root n=ansible | TASK [k8s : Load the br_netfilter module] **************************************
+2025-01-03 03:06:03,136 p=11810 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 03:06:03,144 p=11810 u=root n=ansible | TASK [k8s : Load the overlay module] *******************************************
+2025-01-03 03:06:04,691 p=11810 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 03:06:04,699 p=11810 u=root n=ansible | TASK [k8s : Load the rbd module] ***********************************************
+2025-01-03 03:06:06,429 p=11810 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 03:06:06,440 p=11810 u=root n=ansible | TASK [k8s : Persist br_netfilter module in /etc/modules-load.d/k8s.conf] *******
+2025-01-03 03:06:09,133 p=11810 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 03:06:09,147 p=11810 u=root n=ansible | TASK [k8s : Set sysctl parameters for Kubernetes networking] *******************
+2025-01-03 03:06:11,055 p=11810 u=root n=ansible | changed: [192.168.57.13] => (item={'key': 'net.ipv4.ip_forward', 'value': '1'})
+2025-01-03 03:06:12,622 p=11810 u=root n=ansible | changed: [192.168.57.13] => (item={'key': 'net.bridge.bridge-nf-call-ip6tables', 'value': '1'})
+2025-01-03 03:06:14,126 p=11810 u=root n=ansible | changed: [192.168.57.13] => (item={'key': 'net.bridge.bridge-nf-call-iptables', 'value': '1'})
+2025-01-03 03:06:14,135 p=11810 u=root n=ansible | TASK [k8s : Add NAT masquerade rule for interface enp0s8] **********************
+2025-01-03 03:06:15,588 p=11810 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 03:06:15,600 p=11810 u=root n=ansible | TASK [k8s : Ensure kubelet service is enabled and started] *********************
+2025-01-03 03:06:17,354 p=11810 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 03:06:17,362 p=11810 u=root n=ansible | TASK [k8s : Set controller nodes facts] ****************************************
+2025-01-03 03:06:17,385 p=11810 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 03:06:17,398 p=11810 u=root n=ansible | TASK [k8s : Set computer node facts] *******************************************
+2025-01-03 03:06:17,422 p=11810 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 03:06:17,431 p=11810 u=root n=ansible | TASK [k8s : Determine the IP address for the target interface] *****************
+2025-01-03 03:06:17,451 p=11810 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 03:06:17,456 p=11810 u=root n=ansible | TASK [k8s : Check if the admin file exists] ************************************
+2025-01-03 03:06:19,046 p=11810 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 03:06:19,055 p=11810 u=root n=ansible | TASK [k8s : Run join controllers to cluster] ***********************************
+2025-01-03 03:06:19,082 p=11810 u=root n=ansible | skipping: [192.168.57.13]
+2025-01-03 03:06:19,091 p=11810 u=root n=ansible | TASK [k8s : Run join compute to cluster] ***************************************
+2025-01-03 03:06:19,104 p=11810 u=root n=ansible | skipping: [192.168.57.13]
+2025-01-03 03:06:19,111 p=11810 u=root n=ansible | TASK [k8s : Run kubeadm init if and only if bootstrap facts not present] *******
+2025-01-03 03:07:02,958 p=11810 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 03:07:02,966 p=11810 u=root n=ansible | TASK [k8s : Render kubeadm-flags.env template] *********************************
+2025-01-03 03:07:06,284 p=11810 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 03:07:06,291 p=11810 u=root n=ansible | RUNNING HANDLER [k8s : Restart kubelet] ****************************************
+2025-01-03 03:07:08,005 p=11810 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 03:07:08,013 p=11810 u=root n=ansible | TASK [k8s : Add KUBECONFIG to root's bashrc] ***********************************
+2025-01-03 03:07:09,840 p=11810 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 03:07:09,852 p=11810 u=root n=ansible | TASK [k8s : Ensure /opt/k8s_deploy/plugins directory exists with correct permissions] ***
+2025-01-03 03:07:11,675 p=11810 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 03:07:11,686 p=11810 u=root n=ansible | TASK [k8s : Render all plugin template files to /opt/k8s_deploy/plugins] *******
+2025-01-03 03:07:14,509 p=11810 u=root n=ansible | changed: [192.168.57.13] => (item=05_rook-ceph-common.yml.j2)
+2025-01-03 03:07:17,462 p=11810 u=root n=ansible | changed: [192.168.57.13] => (item=10-rook-ceph-storageclass.yml.j2)
+2025-01-03 03:07:20,578 p=11810 u=root n=ansible | changed: [192.168.57.13] => (item=02_calico-resources.yml.j2)
+2025-01-03 03:07:23,598 p=11810 u=root n=ansible | changed: [192.168.57.13] => (item=06_rook-ceph-operator.yml.j2)
+2025-01-03 03:07:26,521 p=11810 u=root n=ansible | changed: [192.168.57.13] => (item=12-openldap.yml.j2)
+2025-01-03 03:07:29,448 p=11810 u=root n=ansible | changed: [192.168.57.13] => (item=03_ingress-nginx.yml.j2)
+2025-01-03 03:07:32,359 p=11810 u=root n=ansible | changed: [192.168.57.13] => (item=08_rook-ceph-dashboard-ingress.yml.j2)
+2025-01-03 03:07:35,348 p=11810 u=root n=ansible | changed: [192.168.57.13] => (item=04_rook-ceph-crds.yml.j2)
+2025-01-03 03:07:38,034 p=11810 u=root n=ansible | changed: [192.168.57.13] => (item=07_rook-ceph-cluster.yml.j2)
+2025-01-03 03:07:40,784 p=11810 u=root n=ansible | changed: [192.168.57.13] => (item=09_rook-ceph-pvc.yml.j2)
+2025-01-03 03:07:43,833 p=11810 u=root n=ansible | changed: [192.168.57.13] => (item=01_tigera-operator.yml.j2)
+2025-01-03 03:07:46,665 p=11810 u=root n=ansible | changed: [192.168.57.13] => (item=11-rook-ceph-tools.yml.j2)
+2025-01-03 03:07:46,675 p=11810 u=root n=ansible | TASK [k8s : Apply all YAML files in /opt/k8s_deploy/plugins using kubectl] *****
+2025-01-03 03:09:55,963 p=11810 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 03:09:55,972 p=11810 u=root n=ansible | TASK [k8s : Set and cache join_token fact] *************************************
+2025-01-03 03:09:57,770 p=11810 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 03:09:57,782 p=11810 u=root n=ansible | TASK [k8s : Cache join_token] **************************************************
+2025-01-03 03:09:57,808 p=11810 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 03:09:57,816 p=11810 u=root n=ansible | TASK [k8s : Set and cache cert_hash fact] **************************************
+2025-01-03 03:09:59,565 p=11810 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 03:09:59,573 p=11810 u=root n=ansible | TASK [k8s : Cache cert_hash] ***************************************************
+2025-01-03 03:09:59,598 p=11810 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 03:09:59,607 p=11810 u=root n=ansible | TASK [k8s : Set and cache cert_key fact] ***************************************
+2025-01-03 03:10:01,026 p=11810 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 03:10:01,034 p=11810 u=root n=ansible | TASK [k8s : Cache cert_key] ****************************************************
+2025-01-03 03:10:01,051 p=11810 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 03:10:01,059 p=11810 u=root n=ansible | TASK [k8s : Restart kubelet] ***************************************************
+2025-01-03 03:10:02,801 p=11810 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 03:10:02,818 p=11810 u=root n=ansible | PLAY [Sync actions] ************************************************************
+2025-01-03 03:10:02,827 p=11810 u=root n=ansible | TASK [Gathering Facts] *********************************************************
+2025-01-03 03:10:05,082 p=11810 u=root n=ansible | ok: [192.168.57.16]
+2025-01-03 03:10:05,125 p=11810 u=root n=ansible | ok: [192.168.57.14]
+2025-01-03 03:10:05,224 p=11810 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 03:10:05,433 p=11810 u=root n=ansible | ok: [192.168.57.17]
+2025-01-03 03:10:06,561 p=11810 u=root n=ansible | ok: [192.168.57.15]
+2025-01-03 03:10:08,259 p=11810 u=root n=ansible | ok: [192.168.57.18]
+2025-01-03 03:10:08,273 p=11810 u=root n=ansible | TASK [Sync facts] **************************************************************
+2025-01-03 03:10:08,396 p=11810 u=root n=ansible | TASK [k8s : Set join_token fact] ***********************************************
+2025-01-03 03:10:08,460 p=11810 u=root n=ansible | skipping: [192.168.57.13]
+2025-01-03 03:10:08,505 p=11810 u=root n=ansible | ok: [192.168.57.14]
+2025-01-03 03:10:08,508 p=11810 u=root n=ansible | ok: [192.168.57.15]
+2025-01-03 03:10:08,513 p=11810 u=root n=ansible | ok: [192.168.57.16]
+2025-01-03 03:10:08,520 p=11810 u=root n=ansible | ok: [192.168.57.17]
+2025-01-03 03:10:08,530 p=11810 u=root n=ansible | ok: [192.168.57.18]
+2025-01-03 03:10:08,539 p=11810 u=root n=ansible | TASK [k8s : Set cert_hash fact] ************************************************
+2025-01-03 03:10:08,570 p=11810 u=root n=ansible | skipping: [192.168.57.13]
+2025-01-03 03:10:08,626 p=11810 u=root n=ansible | ok: [192.168.57.14]
+2025-01-03 03:10:08,631 p=11810 u=root n=ansible | ok: [192.168.57.15]
+2025-01-03 03:10:08,648 p=11810 u=root n=ansible | ok: [192.168.57.16]
+2025-01-03 03:10:08,653 p=11810 u=root n=ansible | ok: [192.168.57.18]
+2025-01-03 03:10:08,655 p=11810 u=root n=ansible | ok: [192.168.57.17]
+2025-01-03 03:10:08,663 p=11810 u=root n=ansible | TASK [k8s : Set cert_key fact] *************************************************
+2025-01-03 03:10:08,730 p=11810 u=root n=ansible | skipping: [192.168.57.13]
+2025-01-03 03:10:08,775 p=11810 u=root n=ansible | ok: [192.168.57.15]
+2025-01-03 03:10:08,783 p=11810 u=root n=ansible | ok: [192.168.57.14]
+2025-01-03 03:10:08,788 p=11810 u=root n=ansible | ok: [192.168.57.16]
+2025-01-03 03:10:08,791 p=11810 u=root n=ansible | ok: [192.168.57.17]
+2025-01-03 03:10:08,810 p=11810 u=root n=ansible | ok: [192.168.57.18]
+2025-01-03 03:10:08,824 p=11810 u=root n=ansible | PLAY [Join to cluster] *********************************************************
+2025-01-03 03:10:08,832 p=11810 u=root n=ansible | TASK [Gathering Facts] *********************************************************
+2025-01-03 03:10:10,686 p=11810 u=root n=ansible | ok: [192.168.57.17]
+2025-01-03 03:10:10,947 p=11810 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 03:10:10,979 p=11810 u=root n=ansible | ok: [192.168.57.16]
+2025-01-03 03:10:11,112 p=11810 u=root n=ansible | ok: [192.168.57.15]
+2025-01-03 03:10:11,845 p=11810 u=root n=ansible | ok: [192.168.57.14]
+2025-01-03 03:10:12,714 p=11810 u=root n=ansible | ok: [192.168.57.18]
+2025-01-03 03:10:12,731 p=11810 u=root n=ansible | TASK [Deploy k8s cluster] ******************************************************
+2025-01-03 03:10:12,878 p=11810 u=root n=ansible | TASK [k8s : Include vars if file exists] ***************************************
+2025-01-03 03:10:12,913 p=12670 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/default.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2025-01-03 03:10:12,926 p=12670 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/22.04.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2025-01-03 03:10:12,933 p=11810 u=root n=ansible | ok: [192.168.57.13] => (item=linux/default.yml)
+2025-01-03 03:10:12,937 p=11810 u=root n=ansible | ok: [192.168.57.13] => (item=linux/Ubuntu/default.yml)
+2025-01-03 03:10:12,938 p=11810 u=root n=ansible | ok: [192.168.57.13] => (item=linux/Ubuntu/22.04.yml)
+2025-01-03 03:10:12,940 p=12671 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/default.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2025-01-03 03:10:12,948 p=12671 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/22.04.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2025-01-03 03:10:12,951 p=12672 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/default.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2025-01-03 03:10:12,958 p=12672 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/22.04.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2025-01-03 03:10:12,966 p=11810 u=root n=ansible | ok: [192.168.57.14] => (item=linux/default.yml)
+2025-01-03 03:10:12,967 p=12674 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/default.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2025-01-03 03:10:12,967 p=11810 u=root n=ansible | ok: [192.168.57.14] => (item=linux/Ubuntu/default.yml)
+2025-01-03 03:10:12,972 p=11810 u=root n=ansible | ok: [192.168.57.15] => (item=linux/default.yml)
+2025-01-03 03:10:12,973 p=11810 u=root n=ansible | ok: [192.168.57.14] => (item=linux/Ubuntu/22.04.yml)
+2025-01-03 03:10:12,974 p=11810 u=root n=ansible | ok: [192.168.57.15] => (item=linux/Ubuntu/default.yml)
+2025-01-03 03:10:12,974 p=11810 u=root n=ansible | ok: [192.168.57.15] => (item=linux/Ubuntu/22.04.yml)
+2025-01-03 03:10:12,975 p=11810 u=root n=ansible | ok: [192.168.57.16] => (item=linux/default.yml)
+2025-01-03 03:10:12,975 p=11810 u=root n=ansible | ok: [192.168.57.16] => (item=linux/Ubuntu/default.yml)
+2025-01-03 03:10:12,976 p=12674 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/22.04.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2025-01-03 03:10:12,979 p=11810 u=root n=ansible | ok: [192.168.57.16] => (item=linux/Ubuntu/22.04.yml)
+2025-01-03 03:10:12,985 p=11810 u=root n=ansible | ok: [192.168.57.17] => (item=linux/default.yml)
+2025-01-03 03:10:12,987 p=12675 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/default.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2025-01-03 03:10:12,989 p=11810 u=root n=ansible | ok: [192.168.57.18] => (item=linux/default.yml)
+2025-01-03 03:10:12,991 p=12679 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/default.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2025-01-03 03:10:12,992 p=11810 u=root n=ansible | ok: [192.168.57.17] => (item=linux/Ubuntu/default.yml)
+2025-01-03 03:10:12,994 p=12675 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/22.04.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2025-01-03 03:10:12,996 p=11810 u=root n=ansible | ok: [192.168.57.18] => (item=linux/Ubuntu/default.yml)
+2025-01-03 03:10:12,996 p=11810 u=root n=ansible | ok: [192.168.57.17] => (item=linux/Ubuntu/22.04.yml)
+2025-01-03 03:10:12,997 p=12679 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/22.04.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2025-01-03 03:10:12,999 p=11810 u=root n=ansible | ok: [192.168.57.18] => (item=linux/Ubuntu/22.04.yml)
+2025-01-03 03:10:13,011 p=11810 u=root n=ansible | TASK [k8s : Check if the OS is Ubuntu] *****************************************
+2025-01-03 03:10:13,026 p=11810 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 03:10:13,050 p=11810 u=root n=ansible | ok: [192.168.57.14]
+2025-01-03 03:10:13,061 p=11810 u=root n=ansible | ok: [192.168.57.15]
+2025-01-03 03:10:13,073 p=11810 u=root n=ansible | ok: [192.168.57.16]
+2025-01-03 03:10:13,081 p=11810 u=root n=ansible | ok: [192.168.57.17]
+2025-01-03 03:10:13,092 p=11810 u=root n=ansible | ok: [192.168.57.18]
+2025-01-03 03:10:13,101 p=11810 u=root n=ansible | TASK [k8s : Include Ubuntu tasks] **********************************************
+2025-01-03 03:10:13,196 p=11810 u=root n=ansible | included: /vagrant/ansible/playbooks/roles/k8s/tasks/linux/Ubuntu/main.yml for 192.168.57.13, 192.168.57.14, 192.168.57.15, 192.168.57.16, 192.168.57.17, 192.168.57.18
+2025-01-03 03:10:13,241 p=11810 u=root n=ansible | TASK [k8s : Ensure GPG package is installed] ***********************************
+2025-01-03 03:10:17,231 p=11810 u=root n=ansible | ok: [192.168.57.15]
+2025-01-03 03:10:17,238 p=11810 u=root n=ansible | ok: [192.168.57.14]
+2025-01-03 03:10:17,271 p=11810 u=root n=ansible | ok: [192.168.57.16]
+2025-01-03 03:10:17,327 p=11810 u=root n=ansible | ok: [192.168.57.17]
+2025-01-03 03:10:20,253 p=11810 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 03:10:20,561 p=11810 u=root n=ansible | ok: [192.168.57.18]
+2025-01-03 03:10:20,571 p=11810 u=root n=ansible | TASK [k8s : Ensure /etc/apt/keyrings directory exists] *************************
+2025-01-03 03:10:22,017 p=11810 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 03:10:22,052 p=11810 u=root n=ansible | ok: [192.168.57.14]
+2025-01-03 03:10:22,055 p=11810 u=root n=ansible | ok: [192.168.57.16]
+2025-01-03 03:10:22,164 p=11810 u=root n=ansible | ok: [192.168.57.15]
+2025-01-03 03:10:22,170 p=11810 u=root n=ansible | ok: [192.168.57.17]
+2025-01-03 03:10:23,573 p=11810 u=root n=ansible | ok: [192.168.57.18]
+2025-01-03 03:10:23,586 p=11810 u=root n=ansible | TASK [k8s : Add Docker GPG key] ************************************************
+2025-01-03 03:10:25,709 p=11810 u=root n=ansible | changed: [192.168.57.14]
+2025-01-03 03:10:25,842 p=11810 u=root n=ansible | changed: [192.168.57.16]
+2025-01-03 03:10:25,854 p=11810 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 03:10:26,005 p=11810 u=root n=ansible | changed: [192.168.57.17]
+2025-01-03 03:10:26,095 p=11810 u=root n=ansible | changed: [192.168.57.15]
+2025-01-03 03:10:27,847 p=11810 u=root n=ansible | changed: [192.168.57.18]
+2025-01-03 03:10:27,857 p=11810 u=root n=ansible | TASK [k8s : Add Docker repository] *********************************************
+2025-01-03 03:10:29,587 p=11810 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 03:10:38,156 p=11810 u=root n=ansible | changed: [192.168.57.14]
+2025-01-03 03:10:38,646 p=11810 u=root n=ansible | changed: [192.168.57.17]
+2025-01-03 03:10:38,654 p=11810 u=root n=ansible | changed: [192.168.57.16]
+2025-01-03 03:10:38,846 p=11810 u=root n=ansible | changed: [192.168.57.15]
+2025-01-03 03:10:40,037 p=11810 u=root n=ansible | changed: [192.168.57.18]
+2025-01-03 03:10:40,048 p=11810 u=root n=ansible | TASK [k8s : Download Kubernetes GPG key and save it as a keyring] **************
+2025-01-03 03:10:41,781 p=11810 u=root n=ansible | changed: [192.168.57.14]
+2025-01-03 03:10:41,895 p=11810 u=root n=ansible | changed: [192.168.57.17]
+2025-01-03 03:10:41,902 p=11810 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 03:10:41,903 p=11810 u=root n=ansible | changed: [192.168.57.16]
+2025-01-03 03:10:41,917 p=11810 u=root n=ansible | changed: [192.168.57.15]
+2025-01-03 03:10:43,778 p=11810 u=root n=ansible | changed: [192.168.57.18]
+2025-01-03 03:10:43,792 p=11810 u=root n=ansible | TASK [k8s : Convert GPG key to keyring format] *********************************
+2025-01-03 03:10:45,195 p=11810 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 03:10:45,198 p=11810 u=root n=ansible | changed: [192.168.57.14]
+2025-01-03 03:10:45,305 p=11810 u=root n=ansible | changed: [192.168.57.17]
+2025-01-03 03:10:45,382 p=11810 u=root n=ansible | changed: [192.168.57.16]
+2025-01-03 03:10:45,601 p=11810 u=root n=ansible | changed: [192.168.57.15]
+2025-01-03 03:10:46,842 p=11810 u=root n=ansible | changed: [192.168.57.18]
+2025-01-03 03:10:46,857 p=11810 u=root n=ansible | TASK [k8s : Add Kubernetes repository to APT sources] **************************
+2025-01-03 03:10:49,283 p=11810 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 03:10:49,640 p=11810 u=root n=ansible | changed: [192.168.57.14]
+2025-01-03 03:10:49,697 p=11810 u=root n=ansible | changed: [192.168.57.15]
+2025-01-03 03:10:49,740 p=11810 u=root n=ansible | changed: [192.168.57.17]
+2025-01-03 03:10:49,855 p=11810 u=root n=ansible | changed: [192.168.57.16]
+2025-01-03 03:10:52,205 p=11810 u=root n=ansible | changed: [192.168.57.18]
+2025-01-03 03:10:52,217 p=11810 u=root n=ansible | TASK [k8s : Download Helm GPG key and save it as a keyring] ********************
+2025-01-03 03:10:53,772 p=11810 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 03:10:53,887 p=11810 u=root n=ansible | changed: [192.168.57.17]
+2025-01-03 03:10:53,930 p=11810 u=root n=ansible | changed: [192.168.57.14]
+2025-01-03 03:10:53,948 p=11810 u=root n=ansible | changed: [192.168.57.16]
+2025-01-03 03:10:54,069 p=11810 u=root n=ansible | changed: [192.168.57.15]
+2025-01-03 03:10:55,585 p=11810 u=root n=ansible | changed: [192.168.57.18]
+2025-01-03 03:10:55,599 p=11810 u=root n=ansible | TASK [k8s : Convert Helm GPG key to keyring format] ****************************
+2025-01-03 03:10:57,216 p=11810 u=root n=ansible | changed: [192.168.57.16]
+2025-01-03 03:10:57,334 p=11810 u=root n=ansible | changed: [192.168.57.14]
+2025-01-03 03:10:57,414 p=11810 u=root n=ansible | changed: [192.168.57.17]
+2025-01-03 03:10:57,422 p=11810 u=root n=ansible | changed: [192.168.57.15]
+2025-01-03 03:10:57,517 p=11810 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 03:10:59,005 p=11810 u=root n=ansible | changed: [192.168.57.18]
+2025-01-03 03:10:59,015 p=11810 u=root n=ansible | TASK [k8s : Add Helm repository to APT sources] ********************************
+2025-01-03 03:11:01,223 p=11810 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 03:11:01,819 p=11810 u=root n=ansible | changed: [192.168.57.16]
+2025-01-03 03:11:01,906 p=11810 u=root n=ansible | changed: [192.168.57.17]
+2025-01-03 03:11:01,908 p=11810 u=root n=ansible | changed: [192.168.57.15]
+2025-01-03 03:11:01,969 p=11810 u=root n=ansible | changed: [192.168.57.14]
+2025-01-03 03:11:04,118 p=11810 u=root n=ansible | changed: [192.168.57.18]
+2025-01-03 03:11:04,132 p=11810 u=root n=ansible | TASK [k8s : Install packages] **************************************************
+2025-01-03 03:11:09,056 p=11810 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 03:11:45,142 p=11810 u=root n=ansible | changed: [192.168.57.15]
+2025-01-03 03:11:45,397 p=11810 u=root n=ansible | changed: [192.168.57.16]
+2025-01-03 03:11:45,904 p=11810 u=root n=ansible | changed: [192.168.57.14]
+2025-01-03 03:11:46,372 p=11810 u=root n=ansible | changed: [192.168.57.17]
+2025-01-03 03:11:47,894 p=11810 u=root n=ansible | changed: [192.168.57.18]
+2025-01-03 03:11:47,904 p=11810 u=root n=ansible | TASK [k8s : Hold the kubelet, kubeadm, and kubectl packages] *******************
+2025-01-03 03:11:52,387 p=11810 u=root n=ansible | changed: [192.168.57.14] => (item=kubelet)
+2025-01-03 03:11:52,390 p=11810 u=root n=ansible | changed: [192.168.57.13] => (item=kubelet)
+2025-01-03 03:11:52,391 p=11810 u=root n=ansible | changed: [192.168.57.15] => (item=kubelet)
+2025-01-03 03:11:52,392 p=11810 u=root n=ansible | changed: [192.168.57.16] => (item=kubelet)
+2025-01-03 03:11:52,393 p=11810 u=root n=ansible | changed: [192.168.57.17] => (item=kubelet)
+2025-01-03 03:11:52,393 p=11810 u=root n=ansible | changed: [192.168.57.14] => (item=kubeadm)
+2025-01-03 03:11:52,394 p=11810 u=root n=ansible | changed: [192.168.57.15] => (item=kubeadm)
+2025-01-03 03:11:52,394 p=11810 u=root n=ansible | changed: [192.168.57.13] => (item=kubeadm)
+2025-01-03 03:11:52,394 p=11810 u=root n=ansible | changed: [192.168.57.17] => (item=kubeadm)
+2025-01-03 03:11:52,395 p=11810 u=root n=ansible | changed: [192.168.57.16] => (item=kubeadm)
+2025-01-03 03:11:52,395 p=11810 u=root n=ansible | changed: [192.168.57.14] => (item=kubectl)
+2025-01-03 03:11:52,397 p=11810 u=root n=ansible | changed: [192.168.57.15] => (item=kubectl)
+2025-01-03 03:11:52,497 p=11810 u=root n=ansible | changed: [192.168.57.17] => (item=kubectl)
+2025-01-03 03:11:52,509 p=11810 u=root n=ansible | changed: [192.168.57.13] => (item=kubectl)
+2025-01-03 03:11:52,620 p=11810 u=root n=ansible | changed: [192.168.57.16] => (item=kubectl)
+2025-01-03 03:11:53,905 p=11810 u=root n=ansible | changed: [192.168.57.18] => (item=kubelet)
+2025-01-03 03:11:55,411 p=11810 u=root n=ansible | changed: [192.168.57.18] => (item=kubeadm)
+2025-01-03 03:11:57,008 p=11810 u=root n=ansible | changed: [192.168.57.18] => (item=kubectl)
+2025-01-03 03:11:57,017 p=11810 u=root n=ansible | TASK [k8s : Stop apparmor service] *********************************************
+2025-01-03 03:11:58,644 p=11810 u=root n=ansible | changed: [192.168.57.15]
+2025-01-03 03:11:58,690 p=11810 u=root n=ansible | changed: [192.168.57.17]
+2025-01-03 03:11:58,750 p=11810 u=root n=ansible | changed: [192.168.57.16]
+2025-01-03 03:11:58,786 p=11810 u=root n=ansible | changed: [192.168.57.14]
+2025-01-03 03:11:58,979 p=11810 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 03:12:00,347 p=11810 u=root n=ansible | changed: [192.168.57.18]
+2025-01-03 03:12:00,357 p=11810 u=root n=ansible | TASK [k8s : Disable apparmor service] ******************************************
+2025-01-03 03:12:02,083 p=11810 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 03:12:02,753 p=11810 u=root n=ansible | changed: [192.168.57.16]
+2025-01-03 03:12:02,838 p=11810 u=root n=ansible | changed: [192.168.57.15]
+2025-01-03 03:12:02,936 p=11810 u=root n=ansible | changed: [192.168.57.14]
+2025-01-03 03:12:03,026 p=11810 u=root n=ansible | changed: [192.168.57.17]
+2025-01-03 03:12:04,207 p=11810 u=root n=ansible | changed: [192.168.57.18]
+2025-01-03 03:12:04,217 p=11810 u=root n=ansible | TASK [k8s : Render containerd/config.toml template] ****************************
+2025-01-03 03:12:06,678 p=11810 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 03:12:07,372 p=11810 u=root n=ansible | changed: [192.168.57.14]
+2025-01-03 03:12:07,394 p=11810 u=root n=ansible | changed: [192.168.57.15]
+2025-01-03 03:12:07,394 p=11810 u=root n=ansible | changed: [192.168.57.16]
+2025-01-03 03:12:07,577 p=11810 u=root n=ansible | changed: [192.168.57.17]
+2025-01-03 03:12:09,550 p=11810 u=root n=ansible | changed: [192.168.57.18]
+2025-01-03 03:12:09,562 p=11810 u=root n=ansible | RUNNING HANDLER [k8s : Start containerd] ***************************************
+2025-01-03 03:12:11,085 p=11810 u=root n=ansible | ok: [192.168.57.14]
+2025-01-03 03:12:11,228 p=11810 u=root n=ansible | ok: [192.168.57.17]
+2025-01-03 03:12:11,235 p=11810 u=root n=ansible | ok: [192.168.57.15]
+2025-01-03 03:12:11,245 p=11810 u=root n=ansible | ok: [192.168.57.16]
+2025-01-03 03:12:11,701 p=11810 u=root n=ansible | ok: [192.168.57.18]
+2025-01-03 03:12:11,702 p=11810 u=root n=ansible | RUNNING HANDLER [k8s : Restart containerd] *************************************
+2025-01-03 03:12:13,436 p=11810 u=root n=ansible | changed: [192.168.57.14]
+2025-01-03 03:12:13,535 p=11810 u=root n=ansible | changed: [192.168.57.17]
+2025-01-03 03:12:13,539 p=11810 u=root n=ansible | changed: [192.168.57.16]
+2025-01-03 03:12:13,603 p=11810 u=root n=ansible | changed: [192.168.57.15]
+2025-01-03 03:12:13,607 p=11810 u=root n=ansible | changed: [192.168.57.18]
+2025-01-03 03:12:13,619 p=11810 u=root n=ansible | TASK [k8s : Stop the UFW service] **********************************************
+2025-01-03 03:12:15,224 p=11810 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 03:12:15,286 p=11810 u=root n=ansible | changed: [192.168.57.14]
+2025-01-03 03:12:15,388 p=11810 u=root n=ansible | changed: [192.168.57.17]
+2025-01-03 03:12:15,456 p=11810 u=root n=ansible | changed: [192.168.57.16]
+2025-01-03 03:12:15,457 p=11810 u=root n=ansible | changed: [192.168.57.15]
+2025-01-03 03:12:16,915 p=11810 u=root n=ansible | changed: [192.168.57.18]
+2025-01-03 03:12:16,961 p=11810 u=root n=ansible | TASK [k8s : Disable the UFW service] *******************************************
+2025-01-03 03:12:18,625 p=11810 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 03:12:19,178 p=11810 u=root n=ansible | changed: [192.168.57.17]
+2025-01-03 03:12:19,380 p=11810 u=root n=ansible | changed: [192.168.57.15]
+2025-01-03 03:12:19,474 p=11810 u=root n=ansible | changed: [192.168.57.16]
+2025-01-03 03:12:19,476 p=11810 u=root n=ansible | changed: [192.168.57.14]
+2025-01-03 03:12:20,970 p=11810 u=root n=ansible | changed: [192.168.57.18]
+2025-01-03 03:12:20,981 p=11810 u=root n=ansible | TASK [k8s : Ensure swap is turned off] *****************************************
+2025-01-03 03:12:22,468 p=11810 u=root n=ansible | ok: [192.168.57.14]
+2025-01-03 03:12:22,487 p=11810 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 03:12:22,491 p=11810 u=root n=ansible | ok: [192.168.57.17]
+2025-01-03 03:12:22,498 p=11810 u=root n=ansible | ok: [192.168.57.15]
+2025-01-03 03:12:22,550 p=11810 u=root n=ansible | ok: [192.168.57.16]
+2025-01-03 03:12:24,022 p=11810 u=root n=ansible | ok: [192.168.57.18]
+2025-01-03 03:12:24,037 p=11810 u=root n=ansible | TASK [k8s : Ensure swap is disabled in /etc/fstab] *****************************
+2025-01-03 03:12:25,463 p=11810 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 03:12:25,532 p=11810 u=root n=ansible | ok: [192.168.57.16]
+2025-01-03 03:12:25,575 p=11810 u=root n=ansible | ok: [192.168.57.14]
+2025-01-03 03:12:25,577 p=11810 u=root n=ansible | ok: [192.168.57.17]
+2025-01-03 03:12:25,582 p=11810 u=root n=ansible | ok: [192.168.57.15]
+2025-01-03 03:12:27,145 p=11810 u=root n=ansible | ok: [192.168.57.18]
+2025-01-03 03:12:27,159 p=11810 u=root n=ansible | TASK [k8s : Load the br_netfilter module] **************************************
+2025-01-03 03:12:28,650 p=11810 u=root n=ansible | changed: [192.168.57.17]
+2025-01-03 03:12:28,654 p=11810 u=root n=ansible | changed: [192.168.57.14]
+2025-01-03 03:12:28,663 p=11810 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 03:12:28,665 p=11810 u=root n=ansible | changed: [192.168.57.15]
+2025-01-03 03:12:28,721 p=11810 u=root n=ansible | changed: [192.168.57.16]
+2025-01-03 03:12:30,207 p=11810 u=root n=ansible | changed: [192.168.57.18]
+2025-01-03 03:12:30,219 p=11810 u=root n=ansible | TASK [k8s : Load the overlay module] *******************************************
+2025-01-03 03:12:31,691 p=11810 u=root n=ansible | ok: [192.168.57.14]
+2025-01-03 03:12:31,732 p=11810 u=root n=ansible | ok: [192.168.57.17]
+2025-01-03 03:12:31,781 p=11810 u=root n=ansible | ok: [192.168.57.15]
+2025-01-03 03:12:31,782 p=11810 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 03:12:31,805 p=11810 u=root n=ansible | ok: [192.168.57.16]
+2025-01-03 03:12:33,358 p=11810 u=root n=ansible | ok: [192.168.57.18]
+2025-01-03 03:12:33,368 p=11810 u=root n=ansible | TASK [k8s : Load the rbd module] ***********************************************
+2025-01-03 03:12:34,860 p=11810 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 03:12:34,866 p=11810 u=root n=ansible | changed: [192.168.57.16]
+2025-01-03 03:12:34,878 p=11810 u=root n=ansible | changed: [192.168.57.15]
+2025-01-03 03:12:34,918 p=11810 u=root n=ansible | changed: [192.168.57.17]
+2025-01-03 03:12:34,937 p=11810 u=root n=ansible | changed: [192.168.57.14]
+2025-01-03 03:12:36,430 p=11810 u=root n=ansible | changed: [192.168.57.18]
+2025-01-03 03:12:36,444 p=11810 u=root n=ansible | TASK [k8s : Persist br_netfilter module in /etc/modules-load.d/k8s.conf] *******
+2025-01-03 03:12:38,757 p=11810 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 03:12:39,186 p=11810 u=root n=ansible | changed: [192.168.57.17]
+2025-01-03 03:12:39,187 p=11810 u=root n=ansible | changed: [192.168.57.14]
+2025-01-03 03:12:39,246 p=11810 u=root n=ansible | changed: [192.168.57.15]
+2025-01-03 03:12:39,278 p=11810 u=root n=ansible | changed: [192.168.57.16]
+2025-01-03 03:12:41,598 p=11810 u=root n=ansible | changed: [192.168.57.18]
+2025-01-03 03:12:41,606 p=11810 u=root n=ansible | TASK [k8s : Set sysctl parameters for Kubernetes networking] *******************
+2025-01-03 03:12:46,041 p=11810 u=root n=ansible | changed: [192.168.57.14] => (item={'key': 'net.ipv4.ip_forward', 'value': '1'})
+2025-01-03 03:12:46,042 p=11810 u=root n=ansible | ok: [192.168.57.13] => (item={'key': 'net.ipv4.ip_forward', 'value': '1'})
+2025-01-03 03:12:46,043 p=11810 u=root n=ansible | changed: [192.168.57.15] => (item={'key': 'net.ipv4.ip_forward', 'value': '1'})
+2025-01-03 03:12:46,043 p=11810 u=root n=ansible | changed: [192.168.57.16] => (item={'key': 'net.ipv4.ip_forward', 'value': '1'})
+2025-01-03 03:12:46,043 p=11810 u=root n=ansible | changed: [192.168.57.17] => (item={'key': 'net.ipv4.ip_forward', 'value': '1'})
+2025-01-03 03:12:46,044 p=11810 u=root n=ansible | ok: [192.168.57.13] => (item={'key': 'net.bridge.bridge-nf-call-ip6tables', 'value': '1'})
+2025-01-03 03:12:46,045 p=11810 u=root n=ansible | changed: [192.168.57.14] => (item={'key': 'net.bridge.bridge-nf-call-ip6tables', 'value': '1'})
+2025-01-03 03:12:46,045 p=11810 u=root n=ansible | changed: [192.168.57.16] => (item={'key': 'net.bridge.bridge-nf-call-ip6tables', 'value': '1'})
+2025-01-03 03:12:46,046 p=11810 u=root n=ansible | changed: [192.168.57.15] => (item={'key': 'net.bridge.bridge-nf-call-ip6tables', 'value': '1'})
+2025-01-03 03:12:46,046 p=11810 u=root n=ansible | changed: [192.168.57.17] => (item={'key': 'net.bridge.bridge-nf-call-ip6tables', 'value': '1'})
+2025-01-03 03:12:46,047 p=11810 u=root n=ansible | ok: [192.168.57.13] => (item={'key': 'net.bridge.bridge-nf-call-iptables', 'value': '1'})
+2025-01-03 03:12:46,048 p=11810 u=root n=ansible | changed: [192.168.57.14] => (item={'key': 'net.bridge.bridge-nf-call-iptables', 'value': '1'})
+2025-01-03 03:12:46,166 p=11810 u=root n=ansible | changed: [192.168.57.15] => (item={'key': 'net.bridge.bridge-nf-call-iptables', 'value': '1'})
+2025-01-03 03:12:46,198 p=11810 u=root n=ansible | changed: [192.168.57.16] => (item={'key': 'net.bridge.bridge-nf-call-iptables', 'value': '1'})
+2025-01-03 03:12:47,065 p=11810 u=root n=ansible | changed: [192.168.57.17] => (item={'key': 'net.bridge.bridge-nf-call-iptables', 'value': '1'})
+2025-01-03 03:12:47,543 p=11810 u=root n=ansible | changed: [192.168.57.18] => (item={'key': 'net.ipv4.ip_forward', 'value': '1'})
+2025-01-03 03:12:49,180 p=11810 u=root n=ansible | changed: [192.168.57.18] => (item={'key': 'net.bridge.bridge-nf-call-ip6tables', 'value': '1'})
+2025-01-03 03:12:50,891 p=11810 u=root n=ansible | changed: [192.168.57.18] => (item={'key': 'net.bridge.bridge-nf-call-iptables', 'value': '1'})
+2025-01-03 03:12:50,903 p=11810 u=root n=ansible | TASK [k8s : Add NAT masquerade rule for interface enp0s8] **********************
+2025-01-03 03:12:52,292 p=11810 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 03:12:52,510 p=11810 u=root n=ansible | changed: [192.168.57.15]
+2025-01-03 03:12:52,545 p=11810 u=root n=ansible | changed: [192.168.57.14]
+2025-01-03 03:12:52,546 p=11810 u=root n=ansible | changed: [192.168.57.17]
+2025-01-03 03:12:52,563 p=11810 u=root n=ansible | changed: [192.168.57.16]
+2025-01-03 03:12:53,770 p=11810 u=root n=ansible | changed: [192.168.57.18]
+2025-01-03 03:12:53,779 p=11810 u=root n=ansible | TASK [k8s : Ensure kubelet service is enabled and started] *********************
+2025-01-03 03:12:55,487 p=11810 u=root n=ansible | changed: [192.168.57.17]
+2025-01-03 03:12:55,544 p=11810 u=root n=ansible | changed: [192.168.57.16]
+2025-01-03 03:12:55,570 p=11810 u=root n=ansible | changed: [192.168.57.15]
+2025-01-03 03:12:55,573 p=11810 u=root n=ansible | changed: [192.168.57.14]
+2025-01-03 03:12:55,586 p=11810 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 03:12:57,253 p=11810 u=root n=ansible | changed: [192.168.57.18]
+2025-01-03 03:12:57,263 p=11810 u=root n=ansible | TASK [k8s : Set controller nodes facts] ****************************************
+2025-01-03 03:12:57,364 p=11810 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 03:12:57,389 p=11810 u=root n=ansible | ok: [192.168.57.14]
+2025-01-03 03:12:57,393 p=11810 u=root n=ansible | ok: [192.168.57.15]
+2025-01-03 03:12:57,421 p=11810 u=root n=ansible | ok: [192.168.57.16]
+2025-01-03 03:12:57,425 p=11810 u=root n=ansible | ok: [192.168.57.17]
+2025-01-03 03:12:57,435 p=11810 u=root n=ansible | ok: [192.168.57.18]
+2025-01-03 03:12:57,444 p=11810 u=root n=ansible | TASK [k8s : Set computer node facts] *******************************************
+2025-01-03 03:12:57,547 p=11810 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 03:12:57,552 p=11810 u=root n=ansible | ok: [192.168.57.14]
+2025-01-03 03:12:57,575 p=11810 u=root n=ansible | ok: [192.168.57.15]
+2025-01-03 03:12:57,590 p=11810 u=root n=ansible | ok: [192.168.57.16]
+2025-01-03 03:12:57,605 p=11810 u=root n=ansible | ok: [192.168.57.17]
+2025-01-03 03:12:57,609 p=11810 u=root n=ansible | ok: [192.168.57.18]
+2025-01-03 03:12:57,617 p=11810 u=root n=ansible | TASK [k8s : Determine the IP address for the target interface] *****************
+2025-01-03 03:12:57,679 p=11810 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 03:12:57,693 p=11810 u=root n=ansible | ok: [192.168.57.14]
+2025-01-03 03:12:57,694 p=11810 u=root n=ansible | ok: [192.168.57.16]
+2025-01-03 03:12:57,695 p=11810 u=root n=ansible | ok: [192.168.57.15]
+2025-01-03 03:12:57,702 p=11810 u=root n=ansible | ok: [192.168.57.17]
+2025-01-03 03:12:57,713 p=11810 u=root n=ansible | ok: [192.168.57.18]
+2025-01-03 03:12:57,720 p=11810 u=root n=ansible | TASK [k8s : Check if the admin file exists] ************************************
+2025-01-03 03:12:59,205 p=11810 u=root n=ansible | ok: [192.168.57.17]
+2025-01-03 03:12:59,316 p=11810 u=root n=ansible | ok: [192.168.57.15]
+2025-01-03 03:12:59,317 p=11810 u=root n=ansible | ok: [192.168.57.14]
+2025-01-03 03:12:59,318 p=11810 u=root n=ansible | ok: [192.168.57.16]
+2025-01-03 03:12:59,614 p=11810 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 03:13:00,701 p=11810 u=root n=ansible | ok: [192.168.57.18]
+2025-01-03 03:13:00,711 p=11810 u=root n=ansible | TASK [k8s : Run join controllers to cluster] ***********************************
+2025-01-03 03:13:00,744 p=11810 u=root n=ansible | skipping: [192.168.57.13]
+2025-01-03 03:13:00,792 p=11810 u=root n=ansible | skipping: [192.168.57.16]
+2025-01-03 03:13:00,807 p=11810 u=root n=ansible | skipping: [192.168.57.17]
+2025-01-03 03:13:00,819 p=11810 u=root n=ansible | skipping: [192.168.57.18]
+2025-01-03 03:13:28,622 p=11810 u=root n=ansible | changed: [192.168.57.14]
+2025-01-03 03:13:33,419 p=11810 u=root n=ansible | changed: [192.168.57.15]
+2025-01-03 03:13:33,433 p=11810 u=root n=ansible | TASK [k8s : Run join compute to cluster] ***************************************
+2025-01-03 03:13:33,457 p=11810 u=root n=ansible | skipping: [192.168.57.13]
+2025-01-03 03:13:33,484 p=11810 u=root n=ansible | skipping: [192.168.57.14]
+2025-01-03 03:13:33,501 p=11810 u=root n=ansible | skipping: [192.168.57.15]
+2025-01-03 03:13:38,097 p=11810 u=root n=ansible | changed: [192.168.57.17]
+2025-01-03 03:13:38,481 p=11810 u=root n=ansible | changed: [192.168.57.18]
+2025-01-03 03:13:39,081 p=11810 u=root n=ansible | changed: [192.168.57.16]
+2025-01-03 03:13:39,099 p=11810 u=root n=ansible | TASK [k8s : Run kubeadm init if and only if bootstrap facts not present] *******
+2025-01-03 03:13:39,194 p=11810 u=root n=ansible | skipping: [192.168.57.13]
+2025-01-03 03:13:39,241 p=11810 u=root n=ansible | skipping: [192.168.57.14]
+2025-01-03 03:13:39,273 p=11810 u=root n=ansible | skipping: [192.168.57.15]
+2025-01-03 03:13:39,276 p=11810 u=root n=ansible | skipping: [192.168.57.16]
+2025-01-03 03:13:39,278 p=11810 u=root n=ansible | skipping: [192.168.57.17]
+2025-01-03 03:13:39,290 p=11810 u=root n=ansible | skipping: [192.168.57.18]
+2025-01-03 03:13:39,316 p=11810 u=root n=ansible | TASK [k8s : Render kubeadm-flags.env template] *********************************
+2025-01-03 03:13:44,630 p=11810 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 03:13:44,670 p=11810 u=root n=ansible | changed: [192.168.57.16]
+2025-01-03 03:13:45,013 p=11810 u=root n=ansible | changed: [192.168.57.17]
+2025-01-03 03:13:46,930 p=11810 u=root n=ansible | changed: [192.168.57.14]
+2025-01-03 03:13:46,971 p=11810 u=root n=ansible | changed: [192.168.57.15]
+2025-01-03 03:13:50,249 p=11810 u=root n=ansible | changed: [192.168.57.18]
+2025-01-03 03:13:50,308 p=11810 u=root n=ansible | RUNNING HANDLER [k8s : Restart kubelet] ****************************************
+2025-01-03 03:13:55,126 p=11810 u=root n=ansible | changed: [192.168.57.18]
+2025-01-03 03:13:55,223 p=11810 u=root n=ansible | changed: [192.168.57.14]
+2025-01-03 03:13:55,291 p=11810 u=root n=ansible | changed: [192.168.57.16]
+2025-01-03 03:13:55,487 p=11810 u=root n=ansible | changed: [192.168.57.17]
+2025-01-03 03:13:56,120 p=11810 u=root n=ansible | changed: [192.168.57.15]
+2025-01-03 03:13:56,140 p=11810 u=root n=ansible | TASK [k8s : Add KUBECONFIG to root's bashrc] ***********************************
+2025-01-03 03:13:56,293 p=11810 u=root n=ansible | skipping: [192.168.57.16]
+2025-01-03 03:13:56,303 p=11810 u=root n=ansible | skipping: [192.168.57.17]
+2025-01-03 03:13:56,337 p=11810 u=root n=ansible | skipping: [192.168.57.18]
+2025-01-03 03:13:58,599 p=11810 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 03:13:58,646 p=11810 u=root n=ansible | changed: [192.168.57.15]
+2025-01-03 03:13:58,673 p=11810 u=root n=ansible | changed: [192.168.57.14]
+2025-01-03 03:13:58,695 p=11810 u=root n=ansible | TASK [k8s : Ensure /opt/k8s_deploy/plugins directory exists with correct permissions] ***
+2025-01-03 03:13:58,757 p=11810 u=root n=ansible | skipping: [192.168.57.13]
+2025-01-03 03:13:58,784 p=11810 u=root n=ansible | skipping: [192.168.57.14]
+2025-01-03 03:13:58,806 p=11810 u=root n=ansible | skipping: [192.168.57.15]
+2025-01-03 03:13:58,834 p=11810 u=root n=ansible | skipping: [192.168.57.16]
+2025-01-03 03:13:58,838 p=11810 u=root n=ansible | skipping: [192.168.57.17]
+2025-01-03 03:13:58,856 p=11810 u=root n=ansible | skipping: [192.168.57.18]
+2025-01-03 03:13:58,870 p=11810 u=root n=ansible | TASK [k8s : Render all plugin template files to /opt/k8s_deploy/plugins] *******
+2025-01-03 03:13:58,988 p=11810 u=root n=ansible | skipping: [192.168.57.13] => (item=05_rook-ceph-common.yml.j2) 
+2025-01-03 03:13:58,990 p=11810 u=root n=ansible | skipping: [192.168.57.13] => (item=10-rook-ceph-storageclass.yml.j2) 
+2025-01-03 03:13:58,992 p=11810 u=root n=ansible | skipping: [192.168.57.13] => (item=02_calico-resources.yml.j2) 
+2025-01-03 03:13:58,993 p=11810 u=root n=ansible | skipping: [192.168.57.14] => (item=05_rook-ceph-common.yml.j2) 
+2025-01-03 03:13:59,033 p=11810 u=root n=ansible | skipping: [192.168.57.14] => (item=10-rook-ceph-storageclass.yml.j2) 
+2025-01-03 03:13:59,042 p=11810 u=root n=ansible | skipping: [192.168.57.13] => (item=06_rook-ceph-operator.yml.j2) 
+2025-01-03 03:13:59,046 p=11810 u=root n=ansible | skipping: [192.168.57.14] => (item=02_calico-resources.yml.j2) 
+2025-01-03 03:13:59,048 p=11810 u=root n=ansible | skipping: [192.168.57.15] => (item=05_rook-ceph-common.yml.j2) 
+2025-01-03 03:13:59,376 p=11810 u=root n=ansible | skipping: [192.168.57.14] => (item=06_rook-ceph-operator.yml.j2) 
+2025-01-03 03:13:59,388 p=11810 u=root n=ansible | skipping: [192.168.57.13] => (item=12-openldap.yml.j2) 
+2025-01-03 03:13:59,395 p=11810 u=root n=ansible | skipping: [192.168.57.15] => (item=10-rook-ceph-storageclass.yml.j2) 
+2025-01-03 03:13:59,406 p=11810 u=root n=ansible | skipping: [192.168.57.16] => (item=05_rook-ceph-common.yml.j2) 
+2025-01-03 03:13:59,407 p=11810 u=root n=ansible | skipping: [192.168.57.15] => (item=02_calico-resources.yml.j2) 
+2025-01-03 03:13:59,409 p=11810 u=root n=ansible | skipping: [192.168.57.16] => (item=10-rook-ceph-storageclass.yml.j2) 
+2025-01-03 03:13:59,411 p=11810 u=root n=ansible | skipping: [192.168.57.14] => (item=12-openldap.yml.j2) 
+2025-01-03 03:13:59,412 p=11810 u=root n=ansible | skipping: [192.168.57.14] => (item=03_ingress-nginx.yml.j2) 
+2025-01-03 03:13:59,414 p=11810 u=root n=ansible | skipping: [192.168.57.17] => (item=05_rook-ceph-common.yml.j2) 
+2025-01-03 03:13:59,417 p=11810 u=root n=ansible | skipping: [192.168.57.14] => (item=08_rook-ceph-dashboard-ingress.yml.j2) 
+2025-01-03 03:13:59,419 p=11810 u=root n=ansible | skipping: [192.168.57.17] => (item=10-rook-ceph-storageclass.yml.j2) 
+2025-01-03 03:13:59,426 p=11810 u=root n=ansible | skipping: [192.168.57.14] => (item=04_rook-ceph-crds.yml.j2) 
+2025-01-03 03:13:59,435 p=11810 u=root n=ansible | skipping: [192.168.57.17] => (item=02_calico-resources.yml.j2) 
+2025-01-03 03:13:59,437 p=11810 u=root n=ansible | skipping: [192.168.57.17] => (item=06_rook-ceph-operator.yml.j2) 
+2025-01-03 03:13:59,440 p=11810 u=root n=ansible | skipping: [192.168.57.14] => (item=07_rook-ceph-cluster.yml.j2) 
+2025-01-03 03:13:59,441 p=11810 u=root n=ansible | skipping: [192.168.57.17] => (item=12-openldap.yml.j2) 
+2025-01-03 03:13:59,446 p=11810 u=root n=ansible | skipping: [192.168.57.17] => (item=03_ingress-nginx.yml.j2) 
+2025-01-03 03:13:59,448 p=11810 u=root n=ansible | skipping: [192.168.57.14] => (item=09_rook-ceph-pvc.yml.j2) 
+2025-01-03 03:13:59,460 p=11810 u=root n=ansible | skipping: [192.168.57.17] => (item=08_rook-ceph-dashboard-ingress.yml.j2) 
+2025-01-03 03:13:59,467 p=11810 u=root n=ansible | skipping: [192.168.57.14] => (item=01_tigera-operator.yml.j2) 
+2025-01-03 03:13:59,469 p=11810 u=root n=ansible | skipping: [192.168.57.17] => (item=04_rook-ceph-crds.yml.j2) 
+2025-01-03 03:13:59,471 p=11810 u=root n=ansible | skipping: [192.168.57.17] => (item=07_rook-ceph-cluster.yml.j2) 
+2025-01-03 03:13:59,472 p=11810 u=root n=ansible | skipping: [192.168.57.14] => (item=11-rook-ceph-tools.yml.j2) 
+2025-01-03 03:13:59,475 p=11810 u=root n=ansible | skipping: [192.168.57.13] => (item=03_ingress-nginx.yml.j2) 
+2025-01-03 03:13:59,476 p=11810 u=root n=ansible | skipping: [192.168.57.17] => (item=09_rook-ceph-pvc.yml.j2) 
+2025-01-03 03:13:59,491 p=11810 u=root n=ansible | skipping: [192.168.57.13] => (item=08_rook-ceph-dashboard-ingress.yml.j2) 
+2025-01-03 03:13:59,491 p=11810 u=root n=ansible | skipping: [192.168.57.17] => (item=01_tigera-operator.yml.j2) 
+2025-01-03 03:13:59,492 p=11810 u=root n=ansible | skipping: [192.168.57.16] => (item=02_calico-resources.yml.j2) 
+2025-01-03 03:13:59,492 p=11810 u=root n=ansible | skipping: [192.168.57.15] => (item=06_rook-ceph-operator.yml.j2) 
+2025-01-03 03:13:59,492 p=11810 u=root n=ansible | skipping: [192.168.57.17] => (item=11-rook-ceph-tools.yml.j2) 
+2025-01-03 03:13:59,493 p=11810 u=root n=ansible | skipping: [192.168.57.16] => (item=06_rook-ceph-operator.yml.j2) 
+2025-01-03 03:13:59,493 p=11810 u=root n=ansible | skipping: [192.168.57.13] => (item=04_rook-ceph-crds.yml.j2) 
+2025-01-03 03:13:59,501 p=11810 u=root n=ansible | skipping: [192.168.57.15] => (item=12-openldap.yml.j2) 
+2025-01-03 03:13:59,501 p=11810 u=root n=ansible | skipping: [192.168.57.16] => (item=12-openldap.yml.j2) 
+2025-01-03 03:13:59,515 p=11810 u=root n=ansible | skipping: [192.168.57.13] => (item=07_rook-ceph-cluster.yml.j2) 
+2025-01-03 03:13:59,544 p=11810 u=root n=ansible | skipping: [192.168.57.16] => (item=03_ingress-nginx.yml.j2) 
+2025-01-03 03:13:59,546 p=11810 u=root n=ansible | skipping: [192.168.57.15] => (item=03_ingress-nginx.yml.j2) 
+2025-01-03 03:13:59,754 p=11810 u=root n=ansible | skipping: [192.168.57.16] => (item=08_rook-ceph-dashboard-ingress.yml.j2) 
+2025-01-03 03:13:59,756 p=11810 u=root n=ansible | skipping: [192.168.57.13] => (item=09_rook-ceph-pvc.yml.j2) 
+2025-01-03 03:13:59,760 p=11810 u=root n=ansible | skipping: [192.168.57.15] => (item=08_rook-ceph-dashboard-ingress.yml.j2) 
+2025-01-03 03:13:59,765 p=11810 u=root n=ansible | skipping: [192.168.57.16] => (item=04_rook-ceph-crds.yml.j2) 
+2025-01-03 03:13:59,767 p=11810 u=root n=ansible | skipping: [192.168.57.13] => (item=01_tigera-operator.yml.j2) 
+2025-01-03 03:13:59,769 p=11810 u=root n=ansible | skipping: [192.168.57.16] => (item=07_rook-ceph-cluster.yml.j2) 
+2025-01-03 03:13:59,773 p=11810 u=root n=ansible | skipping: [192.168.57.15] => (item=04_rook-ceph-crds.yml.j2) 
+2025-01-03 03:13:59,774 p=11810 u=root n=ansible | skipping: [192.168.57.18] => (item=05_rook-ceph-common.yml.j2) 
+2025-01-03 03:13:59,776 p=11810 u=root n=ansible | skipping: [192.168.57.13] => (item=11-rook-ceph-tools.yml.j2) 
+2025-01-03 03:13:59,779 p=11810 u=root n=ansible | skipping: [192.168.57.18] => (item=10-rook-ceph-storageclass.yml.j2) 
+2025-01-03 03:13:59,781 p=11810 u=root n=ansible | skipping: [192.168.57.15] => (item=07_rook-ceph-cluster.yml.j2) 
+2025-01-03 03:13:59,783 p=11810 u=root n=ansible | skipping: [192.168.57.16] => (item=09_rook-ceph-pvc.yml.j2) 
+2025-01-03 03:13:59,784 p=11810 u=root n=ansible | skipping: [192.168.57.18] => (item=02_calico-resources.yml.j2) 
+2025-01-03 03:13:59,785 p=11810 u=root n=ansible | skipping: [192.168.57.18] => (item=06_rook-ceph-operator.yml.j2) 
+2025-01-03 03:13:59,786 p=11810 u=root n=ansible | skipping: [192.168.57.18] => (item=12-openldap.yml.j2) 
+2025-01-03 03:13:59,787 p=11810 u=root n=ansible | skipping: [192.168.57.18] => (item=03_ingress-nginx.yml.j2) 
+2025-01-03 03:13:59,788 p=11810 u=root n=ansible | skipping: [192.168.57.16] => (item=01_tigera-operator.yml.j2) 
+2025-01-03 03:13:59,791 p=11810 u=root n=ansible | skipping: [192.168.57.18] => (item=08_rook-ceph-dashboard-ingress.yml.j2) 
+2025-01-03 03:13:59,795 p=11810 u=root n=ansible | skipping: [192.168.57.18] => (item=04_rook-ceph-crds.yml.j2) 
+2025-01-03 03:13:59,797 p=11810 u=root n=ansible | skipping: [192.168.57.16] => (item=11-rook-ceph-tools.yml.j2) 
+2025-01-03 03:13:59,799 p=11810 u=root n=ansible | skipping: [192.168.57.18] => (item=07_rook-ceph-cluster.yml.j2) 
+2025-01-03 03:13:59,800 p=11810 u=root n=ansible | skipping: [192.168.57.18] => (item=09_rook-ceph-pvc.yml.j2) 
+2025-01-03 03:13:59,802 p=11810 u=root n=ansible | skipping: [192.168.57.18] => (item=01_tigera-operator.yml.j2) 
+2025-01-03 03:13:59,805 p=11810 u=root n=ansible | skipping: [192.168.57.18] => (item=11-rook-ceph-tools.yml.j2) 
+2025-01-03 03:13:59,807 p=11810 u=root n=ansible | skipping: [192.168.57.15] => (item=09_rook-ceph-pvc.yml.j2) 
+2025-01-03 03:13:59,808 p=11810 u=root n=ansible | skipping: [192.168.57.15] => (item=01_tigera-operator.yml.j2) 
+2025-01-03 03:13:59,809 p=11810 u=root n=ansible | skipping: [192.168.57.15] => (item=11-rook-ceph-tools.yml.j2) 
+2025-01-03 03:13:59,827 p=11810 u=root n=ansible | TASK [k8s : Apply all YAML files in /opt/k8s_deploy/plugins using kubectl] *****
+2025-01-03 03:13:59,885 p=11810 u=root n=ansible | skipping: [192.168.57.13]
+2025-01-03 03:13:59,913 p=11810 u=root n=ansible | skipping: [192.168.57.14]
+2025-01-03 03:13:59,975 p=11810 u=root n=ansible | skipping: [192.168.57.15]
+2025-01-03 03:14:00,051 p=11810 u=root n=ansible | skipping: [192.168.57.16]
+2025-01-03 03:14:00,060 p=11810 u=root n=ansible | skipping: [192.168.57.17]
+2025-01-03 03:14:00,063 p=11810 u=root n=ansible | skipping: [192.168.57.18]
+2025-01-03 03:14:00,106 p=11810 u=root n=ansible | TASK [k8s : Set and cache join_token fact] *************************************
+2025-01-03 03:14:00,139 p=11810 u=root n=ansible | skipping: [192.168.57.13]
+2025-01-03 03:14:00,160 p=11810 u=root n=ansible | skipping: [192.168.57.14]
+2025-01-03 03:14:00,186 p=11810 u=root n=ansible | skipping: [192.168.57.15]
+2025-01-03 03:14:00,218 p=11810 u=root n=ansible | skipping: [192.168.57.16]
+2025-01-03 03:14:00,245 p=11810 u=root n=ansible | skipping: [192.168.57.17]
+2025-01-03 03:14:00,274 p=11810 u=root n=ansible | skipping: [192.168.57.18]
+2025-01-03 03:14:00,293 p=11810 u=root n=ansible | TASK [k8s : Cache join_token] **************************************************
+2025-01-03 03:14:00,323 p=11810 u=root n=ansible | skipping: [192.168.57.13]
+2025-01-03 03:14:00,344 p=11810 u=root n=ansible | skipping: [192.168.57.14]
+2025-01-03 03:14:00,361 p=11810 u=root n=ansible | skipping: [192.168.57.15]
+2025-01-03 03:14:00,382 p=11810 u=root n=ansible | skipping: [192.168.57.16]
+2025-01-03 03:14:00,397 p=11810 u=root n=ansible | skipping: [192.168.57.17]
+2025-01-03 03:14:00,412 p=11810 u=root n=ansible | skipping: [192.168.57.18]
+2025-01-03 03:14:00,429 p=11810 u=root n=ansible | TASK [k8s : Set and cache cert_hash fact] **************************************
+2025-01-03 03:14:00,479 p=11810 u=root n=ansible | skipping: [192.168.57.13]
+2025-01-03 03:14:00,506 p=11810 u=root n=ansible | skipping: [192.168.57.14]
+2025-01-03 03:14:00,534 p=11810 u=root n=ansible | skipping: [192.168.57.15]
+2025-01-03 03:14:00,560 p=11810 u=root n=ansible | skipping: [192.168.57.16]
+2025-01-03 03:14:00,563 p=11810 u=root n=ansible | skipping: [192.168.57.17]
+2025-01-03 03:14:00,587 p=11810 u=root n=ansible | skipping: [192.168.57.18]
+2025-01-03 03:14:00,618 p=11810 u=root n=ansible | TASK [k8s : Cache cert_hash] ***************************************************
+2025-01-03 03:14:00,684 p=11810 u=root n=ansible | skipping: [192.168.57.13]
+2025-01-03 03:14:00,720 p=11810 u=root n=ansible | skipping: [192.168.57.14]
+2025-01-03 03:14:00,790 p=11810 u=root n=ansible | skipping: [192.168.57.15]
+2025-01-03 03:14:00,823 p=11810 u=root n=ansible | skipping: [192.168.57.16]
+2025-01-03 03:14:00,825 p=11810 u=root n=ansible | skipping: [192.168.57.17]
+2025-01-03 03:14:00,856 p=11810 u=root n=ansible | skipping: [192.168.57.18]
+2025-01-03 03:14:00,930 p=11810 u=root n=ansible | TASK [k8s : Set and cache cert_key fact] ***************************************
+2025-01-03 03:14:00,984 p=11810 u=root n=ansible | skipping: [192.168.57.13]
+2025-01-03 03:14:01,007 p=11810 u=root n=ansible | skipping: [192.168.57.14]
+2025-01-03 03:14:01,045 p=11810 u=root n=ansible | skipping: [192.168.57.15]
+2025-01-03 03:14:01,100 p=11810 u=root n=ansible | skipping: [192.168.57.16]
+2025-01-03 03:14:01,103 p=11810 u=root n=ansible | skipping: [192.168.57.17]
+2025-01-03 03:14:01,125 p=11810 u=root n=ansible | skipping: [192.168.57.18]
+2025-01-03 03:14:01,181 p=11810 u=root n=ansible | TASK [k8s : Cache cert_key] ****************************************************
+2025-01-03 03:14:01,269 p=11810 u=root n=ansible | skipping: [192.168.57.13]
+2025-01-03 03:14:01,318 p=11810 u=root n=ansible | skipping: [192.168.57.14]
+2025-01-03 03:14:01,349 p=11810 u=root n=ansible | skipping: [192.168.57.15]
+2025-01-03 03:14:01,382 p=11810 u=root n=ansible | skipping: [192.168.57.16]
+2025-01-03 03:14:01,388 p=11810 u=root n=ansible | skipping: [192.168.57.17]
+2025-01-03 03:14:01,410 p=11810 u=root n=ansible | skipping: [192.168.57.18]
+2025-01-03 03:14:01,429 p=11810 u=root n=ansible | TASK [k8s : Restart kubelet] ***************************************************
+2025-01-03 03:14:05,232 p=11810 u=root n=ansible | changed: [192.168.57.16]
+2025-01-03 03:14:05,324 p=11810 u=root n=ansible | changed: [192.168.57.17]
+2025-01-03 03:14:05,581 p=11810 u=root n=ansible | changed: [192.168.57.14]
+2025-01-03 03:14:05,848 p=11810 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 03:14:06,024 p=11810 u=root n=ansible | changed: [192.168.57.15]
+2025-01-03 03:14:09,926 p=11810 u=root n=ansible | changed: [192.168.57.18]
+2025-01-03 03:14:09,947 p=11810 u=root n=ansible | PLAY RECAP *********************************************************************
+2025-01-03 03:14:09,947 p=11810 u=root n=ansible | 192.168.57.13              : ok=91   changed=34   unreachable=0    failed=0    skipped=17   rescued=0    ignored=0   
+2025-01-03 03:14:09,948 p=11810 u=root n=ansible | 192.168.57.14              : ok=46   changed=27   unreachable=0    failed=0    skipped=11   rescued=0    ignored=0   
+2025-01-03 03:14:09,949 p=11810 u=root n=ansible | 192.168.57.15              : ok=46   changed=27   unreachable=0    failed=0    skipped=11   rescued=0    ignored=0   
+2025-01-03 03:14:09,949 p=11810 u=root n=ansible | 192.168.57.16              : ok=45   changed=26   unreachable=0    failed=0    skipped=12   rescued=0    ignored=0   
+2025-01-03 03:14:09,950 p=11810 u=root n=ansible | 192.168.57.17              : ok=45   changed=26   unreachable=0    failed=0    skipped=12   rescued=0    ignored=0   
+2025-01-03 03:14:09,950 p=11810 u=root n=ansible | 192.168.57.18              : ok=45   changed=26   unreachable=0    failed=0    skipped=12   rescued=0    ignored=0   
+2025-01-03 17:50:10,224 p=11633 u=root n=ansible | PLAY [Deploy haproxy and keepalived] *******************************************
+2025-01-03 17:50:10,245 p=11633 u=root n=ansible | TASK [Gathering Facts] *********************************************************
+2025-01-03 17:50:12,600 p=11633 u=root n=ansible | ok: [192.168.57.12]
+2025-01-03 17:50:12,857 p=11633 u=root n=ansible | ok: [192.168.57.11]
+2025-01-03 17:50:12,866 p=11633 u=root n=ansible | TASK [Bootstrap node geth] *****************************************************
+2025-01-03 17:50:12,909 p=11633 u=root n=ansible | TASK [haproxy_lb : Include vars if file exists] ********************************
+2025-01-03 17:50:12,942 p=11633 u=root n=ansible | ok: [192.168.57.11] => (item=linux/default.yml)
+2025-01-03 17:50:12,947 p=11633 u=root n=ansible | ok: [192.168.57.11] => (item=linux/Ubuntu/default.yml)
+2025-01-03 17:50:12,948 p=11633 u=root n=ansible | ok: [192.168.57.11] => (item=linux/Ubuntu/22.04.yml)
+2025-01-03 17:50:12,951 p=11633 u=root n=ansible | ok: [192.168.57.12] => (item=linux/default.yml)
+2025-01-03 17:50:12,955 p=11633 u=root n=ansible | ok: [192.168.57.12] => (item=linux/Ubuntu/default.yml)
+2025-01-03 17:50:12,958 p=11633 u=root n=ansible | ok: [192.168.57.12] => (item=linux/Ubuntu/22.04.yml)
+2025-01-03 17:50:12,968 p=11633 u=root n=ansible | TASK [haproxy_lb : Check if the OS is Ubuntu] **********************************
+2025-01-03 17:50:12,992 p=11633 u=root n=ansible | ok: [192.168.57.11]
+2025-01-03 17:50:13,003 p=11633 u=root n=ansible | ok: [192.168.57.12]
+2025-01-03 17:50:13,007 p=11633 u=root n=ansible | TASK [haproxy_lb : Include Ubuntu tasks] ***************************************
+2025-01-03 17:50:13,052 p=11633 u=root n=ansible | included: /vagrant/ansible/playbooks/roles/haproxy_lb/tasks/linux/Ubuntu/main.yml for 192.168.57.11, 192.168.57.12
+2025-01-03 17:50:13,060 p=11633 u=root n=ansible | TASK [haproxy_lb : Update apt cache] *******************************************
+2025-01-03 17:50:16,287 p=11633 u=root n=ansible | changed: [192.168.57.11]
+2025-01-03 17:50:16,403 p=11633 u=root n=ansible | changed: [192.168.57.12]
+2025-01-03 17:50:16,413 p=11633 u=root n=ansible | TASK [haproxy_lb : Install packages] *******************************************
+2025-01-03 17:50:25,164 p=11633 u=root n=ansible | changed: [192.168.57.12]
+2025-01-03 17:50:25,329 p=11633 u=root n=ansible | changed: [192.168.57.11]
+2025-01-03 17:50:25,339 p=11633 u=root n=ansible | TASK [haproxy_lb : Template the HAProxy configuration file] ********************
+2025-01-03 17:50:28,334 p=11633 u=root n=ansible | changed: [192.168.57.12]
+2025-01-03 17:50:28,699 p=11633 u=root n=ansible | changed: [192.168.57.11]
+2025-01-03 17:50:28,704 p=11633 u=root n=ansible | TASK [haproxy_lb : Template the keepalive.d configuration file] ****************
+2025-01-03 17:50:31,914 p=11633 u=root n=ansible | changed: [192.168.57.12]
+2025-01-03 17:50:32,311 p=11633 u=root n=ansible | changed: [192.168.57.11]
+2025-01-03 17:50:32,326 p=11633 u=root n=ansible | TASK [haproxy_lb : Start haproxy] **********************************************
+2025-01-03 17:50:34,189 p=11633 u=root n=ansible | changed: [192.168.57.12]
+2025-01-03 17:50:34,323 p=11633 u=root n=ansible | changed: [192.168.57.11]
+2025-01-03 17:50:34,335 p=11633 u=root n=ansible | TASK [haproxy_lb : Start keepalive.d] ******************************************
+2025-01-03 17:50:36,067 p=11633 u=root n=ansible | changed: [192.168.57.12]
+2025-01-03 17:50:36,287 p=11633 u=root n=ansible | changed: [192.168.57.11]
+2025-01-03 17:50:36,301 p=11633 u=root n=ansible | PLAY RECAP *********************************************************************
+2025-01-03 17:50:36,302 p=11633 u=root n=ansible | 192.168.57.11              : ok=10   changed=6    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-01-03 17:50:36,302 p=11633 u=root n=ansible | 192.168.57.12              : ok=10   changed=6    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-01-03 17:50:36,722 p=11811 u=root n=ansible | PLAY [Gather facts and set bootstrap variable] *********************************
+2025-01-03 17:50:36,735 p=11811 u=root n=ansible | TASK [Gathering Facts] *********************************************************
+2025-01-03 17:50:39,287 p=11811 u=root n=ansible | ok: [192.168.57.14]
+2025-01-03 17:50:39,306 p=11811 u=root n=ansible | ok: [192.168.57.15]
+2025-01-03 17:50:39,313 p=11811 u=root n=ansible | ok: [192.168.57.16]
+2025-01-03 17:50:39,370 p=11811 u=root n=ansible | ok: [192.168.57.17]
+2025-01-03 17:50:39,410 p=11811 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 17:50:41,553 p=11811 u=root n=ansible | ok: [192.168.57.18]
+2025-01-03 17:50:41,565 p=11811 u=root n=ansible | TASK [Set cacheable fact for the first controller node] ************************
+2025-01-03 17:50:41,596 p=11811 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 17:50:41,609 p=11811 u=root n=ansible | TASK [Add the bootstrap host to a group] ***************************************
+2025-01-03 17:50:41,619 p=11811 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 17:50:41,628 p=11811 u=root n=ansible | PLAY [Bootstrap controller] ****************************************************
+2025-01-03 17:50:41,634 p=11811 u=root n=ansible | TASK [Gathering Facts] *********************************************************
+2025-01-03 17:50:43,779 p=11811 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 17:50:43,795 p=11811 u=root n=ansible | TASK [Bootstrap actions] *******************************************************
+2025-01-03 17:50:43,854 p=11811 u=root n=ansible | TASK [k8s : Include vars if file exists] ***************************************
+2025-01-03 17:50:43,873 p=11885 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/default.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2025-01-03 17:50:43,875 p=11811 u=root n=ansible | ok: [192.168.57.13] => (item=linux/default.yml)
+2025-01-03 17:50:43,878 p=11811 u=root n=ansible | ok: [192.168.57.13] => (item=linux/Ubuntu/default.yml)
+2025-01-03 17:50:43,879 p=11885 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/22.04.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2025-01-03 17:50:43,884 p=11811 u=root n=ansible | ok: [192.168.57.13] => (item=linux/Ubuntu/22.04.yml)
+2025-01-03 17:50:43,895 p=11811 u=root n=ansible | TASK [k8s : Check if the OS is Ubuntu] *****************************************
+2025-01-03 17:50:43,910 p=11811 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 17:50:43,916 p=11811 u=root n=ansible | TASK [k8s : Include Ubuntu tasks] **********************************************
+2025-01-03 17:50:43,950 p=11811 u=root n=ansible | included: /vagrant/ansible/playbooks/roles/k8s/tasks/linux/Ubuntu/main.yml for 192.168.57.13
+2025-01-03 17:50:43,959 p=11811 u=root n=ansible | TASK [k8s : Ensure GPG package is installed] ***********************************
+2025-01-03 17:50:47,150 p=11811 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 17:50:47,157 p=11811 u=root n=ansible | TASK [k8s : Ensure /etc/apt/keyrings directory exists] *************************
+2025-01-03 17:50:48,869 p=11811 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 17:50:48,877 p=11811 u=root n=ansible | TASK [k8s : Add Docker GPG key] ************************************************
+2025-01-03 17:50:51,351 p=11811 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 17:50:51,359 p=11811 u=root n=ansible | TASK [k8s : Add Docker repository] *********************************************
+2025-01-03 17:50:57,523 p=11811 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 17:50:57,534 p=11811 u=root n=ansible | TASK [k8s : Download Kubernetes GPG key and save it as a keyring] **************
+2025-01-03 17:50:59,761 p=11811 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 17:50:59,777 p=11811 u=root n=ansible | TASK [k8s : Convert GPG key to keyring format] *********************************
+2025-01-03 17:51:01,606 p=11811 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 17:51:01,621 p=11811 u=root n=ansible | TASK [k8s : Add Kubernetes repository to APT sources] **************************
+2025-01-03 17:51:05,201 p=11811 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 17:51:05,215 p=11811 u=root n=ansible | TASK [k8s : Download Helm GPG key and save it as a keyring] ********************
+2025-01-03 17:51:07,089 p=11811 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 17:51:07,096 p=11811 u=root n=ansible | TASK [k8s : Convert Helm GPG key to keyring format] ****************************
+2025-01-03 17:51:08,834 p=11811 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 17:51:08,844 p=11811 u=root n=ansible | TASK [k8s : Add Helm repository to APT sources] ********************************
+2025-01-03 17:51:11,805 p=11811 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 17:51:11,815 p=11811 u=root n=ansible | TASK [k8s : Install packages] **************************************************
+2025-01-03 17:51:31,917 p=11811 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 17:51:31,925 p=11811 u=root n=ansible | TASK [k8s : Hold the kubelet, kubeadm, and kubectl packages] *******************
+2025-01-03 17:51:33,678 p=11811 u=root n=ansible | changed: [192.168.57.13] => (item=kubelet)
+2025-01-03 17:51:35,328 p=11811 u=root n=ansible | changed: [192.168.57.13] => (item=kubeadm)
+2025-01-03 17:51:36,727 p=11811 u=root n=ansible | changed: [192.168.57.13] => (item=kubectl)
+2025-01-03 17:51:36,740 p=11811 u=root n=ansible | TASK [k8s : Stop apparmor service] *********************************************
+2025-01-03 17:51:38,692 p=11811 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 17:51:38,701 p=11811 u=root n=ansible | TASK [k8s : Disable apparmor service] ******************************************
+2025-01-03 17:51:40,889 p=11811 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 17:51:40,900 p=11811 u=root n=ansible | TASK [k8s : Render containerd/config.toml template] ****************************
+2025-01-03 17:51:43,808 p=11811 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 17:51:43,816 p=11811 u=root n=ansible | RUNNING HANDLER [k8s : Start containerd] ***************************************
+2025-01-03 17:51:45,625 p=11811 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 17:51:45,626 p=11811 u=root n=ansible | RUNNING HANDLER [k8s : Restart containerd] *************************************
+2025-01-03 17:51:47,249 p=11811 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 17:51:47,263 p=11811 u=root n=ansible | TASK [k8s : Stop the UFW service] **********************************************
+2025-01-03 17:51:48,954 p=11811 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 17:51:48,964 p=11811 u=root n=ansible | TASK [k8s : Disable the UFW service] *******************************************
+2025-01-03 17:51:51,478 p=11811 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 17:51:51,489 p=11811 u=root n=ansible | TASK [k8s : Ensure swap is turned off] *****************************************
+2025-01-03 17:51:53,141 p=11811 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 17:51:53,154 p=11811 u=root n=ansible | TASK [k8s : Ensure swap is disabled in /etc/fstab] *****************************
+2025-01-03 17:51:54,976 p=11811 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 17:51:54,990 p=11811 u=root n=ansible | TASK [k8s : Load the br_netfilter module] **************************************
+2025-01-03 17:51:56,570 p=11811 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 17:51:56,578 p=11811 u=root n=ansible | TASK [k8s : Load the overlay module] *******************************************
+2025-01-03 17:51:58,034 p=11811 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 17:51:58,042 p=11811 u=root n=ansible | TASK [k8s : Load the rbd module] ***********************************************
+2025-01-03 17:51:59,622 p=11811 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 17:51:59,634 p=11811 u=root n=ansible | TASK [k8s : Persist br_netfilter module in /etc/modules-load.d/k8s.conf] *******
+2025-01-03 17:52:02,436 p=11811 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 17:52:02,446 p=11811 u=root n=ansible | TASK [k8s : Set sysctl parameters for Kubernetes networking] *******************
+2025-01-03 17:52:05,254 p=11811 u=root n=ansible | changed: [192.168.57.13] => (item={'key': 'net.ipv4.ip_forward', 'value': '1'})
+2025-01-03 17:52:06,704 p=11811 u=root n=ansible | changed: [192.168.57.13] => (item={'key': 'net.bridge.bridge-nf-call-ip6tables', 'value': '1'})
+2025-01-03 17:52:08,312 p=11811 u=root n=ansible | changed: [192.168.57.13] => (item={'key': 'net.bridge.bridge-nf-call-iptables', 'value': '1'})
+2025-01-03 17:52:08,321 p=11811 u=root n=ansible | TASK [k8s : Add NAT masquerade rule for interface enp0s8] **********************
+2025-01-03 17:52:10,094 p=11811 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 17:52:10,102 p=11811 u=root n=ansible | TASK [k8s : Ensure kubelet service is enabled and started] *********************
+2025-01-03 17:52:11,763 p=11811 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 17:52:11,771 p=11811 u=root n=ansible | TASK [k8s : Set controller nodes facts] ****************************************
+2025-01-03 17:52:11,801 p=11811 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 17:52:11,809 p=11811 u=root n=ansible | TASK [k8s : Set computer node facts] *******************************************
+2025-01-03 17:52:11,834 p=11811 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 17:52:11,844 p=11811 u=root n=ansible | TASK [k8s : Determine the IP address for the target interface] *****************
+2025-01-03 17:52:11,870 p=11811 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 17:52:11,875 p=11811 u=root n=ansible | TASK [k8s : Check if the admin file exists] ************************************
+2025-01-03 17:52:13,619 p=11811 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 17:52:13,628 p=11811 u=root n=ansible | TASK [k8s : Run join controllers to cluster] ***********************************
+2025-01-03 17:52:13,650 p=11811 u=root n=ansible | skipping: [192.168.57.13]
+2025-01-03 17:52:13,659 p=11811 u=root n=ansible | TASK [k8s : Run join compute to cluster] ***************************************
+2025-01-03 17:52:13,677 p=11811 u=root n=ansible | skipping: [192.168.57.13]
+2025-01-03 17:52:13,687 p=11811 u=root n=ansible | TASK [k8s : Run kubeadm init if and only if bootstrap facts not present] *******
+2025-01-03 17:52:59,780 p=11811 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 17:52:59,786 p=11811 u=root n=ansible | TASK [k8s : Render kubeadm-flags.env template] *********************************
+2025-01-03 17:53:02,893 p=11811 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 17:53:02,907 p=11811 u=root n=ansible | RUNNING HANDLER [k8s : Restart kubelet] ****************************************
+2025-01-03 17:53:04,894 p=11811 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 17:53:04,902 p=11811 u=root n=ansible | TASK [k8s : Add KUBECONFIG to root's bashrc] ***********************************
+2025-01-03 17:53:06,586 p=11811 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 17:53:06,596 p=11811 u=root n=ansible | TASK [k8s : Ensure /opt/k8s_deploy/plugins directory exists with correct permissions] ***
+2025-01-03 17:53:08,074 p=11811 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 17:53:08,086 p=11811 u=root n=ansible | TASK [k8s : Render all plugin template files to /opt/k8s_deploy/plugins] *******
+2025-01-03 17:53:10,917 p=11811 u=root n=ansible | changed: [192.168.57.13] => (item=05_rook-ceph-common.yml.j2)
+2025-01-03 17:53:13,803 p=11811 u=root n=ansible | changed: [192.168.57.13] => (item=10-rook-ceph-storageclass.yml.j2)
+2025-01-03 17:53:16,604 p=11811 u=root n=ansible | changed: [192.168.57.13] => (item=02_calico-resources.yml.j2)
+2025-01-03 17:53:19,800 p=11811 u=root n=ansible | changed: [192.168.57.13] => (item=06_rook-ceph-operator.yml.j2)
+2025-01-03 17:53:22,522 p=11811 u=root n=ansible | changed: [192.168.57.13] => (item=03_ingress-nginx.yml.j2)
+2025-01-03 17:53:25,196 p=11811 u=root n=ansible | changed: [192.168.57.13] => (item=08_rook-ceph-dashboard-ingress.yml.j2)
+2025-01-03 17:53:28,333 p=11811 u=root n=ansible | changed: [192.168.57.13] => (item=04_rook-ceph-crds.yml.j2)
+2025-01-03 17:53:31,653 p=11811 u=root n=ansible | changed: [192.168.57.13] => (item=07_rook-ceph-cluster.yml.j2)
+2025-01-03 17:53:34,514 p=11811 u=root n=ansible | changed: [192.168.57.13] => (item=09_rook-ceph-pvc.yml.j2)
+2025-01-03 17:53:37,413 p=11811 u=root n=ansible | changed: [192.168.57.13] => (item=01_tigera-operator.yml.j2)
+2025-01-03 17:53:40,497 p=11811 u=root n=ansible | changed: [192.168.57.13] => (item=11-rook-ceph-tools.yml.j2)
+2025-01-03 17:53:40,505 p=11811 u=root n=ansible | TASK [k8s : Apply all YAML files in /opt/k8s_deploy/plugins using kubectl] *****
+2025-01-03 17:55:39,466 p=11811 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 17:55:39,475 p=11811 u=root n=ansible | TASK [k8s : Set and cache join_token fact] *************************************
+2025-01-03 17:55:41,510 p=11811 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 17:55:41,523 p=11811 u=root n=ansible | TASK [k8s : Cache join_token] **************************************************
+2025-01-03 17:55:41,548 p=11811 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 17:55:41,558 p=11811 u=root n=ansible | TASK [k8s : Set and cache cert_hash fact] **************************************
+2025-01-03 17:55:43,348 p=11811 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 17:55:43,356 p=11811 u=root n=ansible | TASK [k8s : Cache cert_hash] ***************************************************
+2025-01-03 17:55:43,379 p=11811 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 17:55:43,385 p=11811 u=root n=ansible | TASK [k8s : Set and cache cert_key fact] ***************************************
+2025-01-03 17:55:44,922 p=11811 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 17:55:44,934 p=11811 u=root n=ansible | TASK [k8s : Cache cert_key] ****************************************************
+2025-01-03 17:55:44,964 p=11811 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 17:55:44,972 p=11811 u=root n=ansible | TASK [k8s : Restart kubelet] ***************************************************
+2025-01-03 17:55:46,670 p=11811 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 17:55:46,682 p=11811 u=root n=ansible | PLAY [Sync actions] ************************************************************
+2025-01-03 17:55:46,692 p=11811 u=root n=ansible | TASK [Gathering Facts] *********************************************************
+2025-01-03 17:55:49,119 p=11811 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 17:55:49,123 p=11811 u=root n=ansible | ok: [192.168.57.15]
+2025-01-03 17:55:49,191 p=11811 u=root n=ansible | ok: [192.168.57.14]
+2025-01-03 17:55:49,373 p=11811 u=root n=ansible | ok: [192.168.57.17]
+2025-01-03 17:55:49,387 p=11811 u=root n=ansible | ok: [192.168.57.16]
+2025-01-03 17:55:51,497 p=11811 u=root n=ansible | ok: [192.168.57.18]
+2025-01-03 17:55:51,519 p=11811 u=root n=ansible | TASK [Sync facts] **************************************************************
+2025-01-03 17:55:51,601 p=11811 u=root n=ansible | TASK [k8s : Set join_token fact] ***********************************************
+2025-01-03 17:55:51,660 p=11811 u=root n=ansible | skipping: [192.168.57.13]
+2025-01-03 17:55:51,689 p=11811 u=root n=ansible | ok: [192.168.57.14]
+2025-01-03 17:55:51,700 p=11811 u=root n=ansible | ok: [192.168.57.15]
+2025-01-03 17:55:51,715 p=11811 u=root n=ansible | ok: [192.168.57.16]
+2025-01-03 17:55:51,718 p=11811 u=root n=ansible | ok: [192.168.57.17]
+2025-01-03 17:55:51,734 p=11811 u=root n=ansible | ok: [192.168.57.18]
+2025-01-03 17:55:51,740 p=11811 u=root n=ansible | TASK [k8s : Set cert_hash fact] ************************************************
+2025-01-03 17:55:51,791 p=11811 u=root n=ansible | skipping: [192.168.57.13]
+2025-01-03 17:55:51,829 p=11811 u=root n=ansible | ok: [192.168.57.14]
+2025-01-03 17:55:51,832 p=11811 u=root n=ansible | ok: [192.168.57.15]
+2025-01-03 17:55:51,844 p=11811 u=root n=ansible | ok: [192.168.57.16]
+2025-01-03 17:55:51,848 p=11811 u=root n=ansible | ok: [192.168.57.17]
+2025-01-03 17:55:51,866 p=11811 u=root n=ansible | ok: [192.168.57.18]
+2025-01-03 17:55:51,873 p=11811 u=root n=ansible | TASK [k8s : Set cert_key fact] *************************************************
+2025-01-03 17:55:51,900 p=11811 u=root n=ansible | skipping: [192.168.57.13]
+2025-01-03 17:55:51,971 p=11811 u=root n=ansible | ok: [192.168.57.16]
+2025-01-03 17:55:51,973 p=11811 u=root n=ansible | ok: [192.168.57.15]
+2025-01-03 17:55:51,976 p=11811 u=root n=ansible | ok: [192.168.57.14]
+2025-01-03 17:55:51,983 p=11811 u=root n=ansible | ok: [192.168.57.17]
+2025-01-03 17:55:51,995 p=11811 u=root n=ansible | ok: [192.168.57.18]
+2025-01-03 17:55:52,014 p=11811 u=root n=ansible | PLAY [Join to cluster] *********************************************************
+2025-01-03 17:55:52,025 p=11811 u=root n=ansible | TASK [Gathering Facts] *********************************************************
+2025-01-03 17:55:54,131 p=11811 u=root n=ansible | ok: [192.168.57.17]
+2025-01-03 17:55:54,137 p=11811 u=root n=ansible | ok: [192.168.57.16]
+2025-01-03 17:55:54,159 p=11811 u=root n=ansible | ok: [192.168.57.15]
+2025-01-03 17:55:54,181 p=11811 u=root n=ansible | ok: [192.168.57.14]
+2025-01-03 17:55:54,284 p=11811 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 17:55:56,159 p=11811 u=root n=ansible | ok: [192.168.57.18]
+2025-01-03 17:55:56,176 p=11811 u=root n=ansible | TASK [Deploy k8s cluster] ******************************************************
+2025-01-03 17:55:56,309 p=11811 u=root n=ansible | TASK [k8s : Include vars if file exists] ***************************************
+2025-01-03 17:55:56,348 p=12653 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/default.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2025-01-03 17:55:56,362 p=12653 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/22.04.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2025-01-03 17:55:56,366 p=12654 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/default.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2025-01-03 17:55:56,370 p=11811 u=root n=ansible | ok: [192.168.57.13] => (item=linux/default.yml)
+2025-01-03 17:55:56,373 p=12654 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/22.04.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2025-01-03 17:55:56,378 p=11811 u=root n=ansible | ok: [192.168.57.13] => (item=linux/Ubuntu/default.yml)
+2025-01-03 17:55:56,378 p=11811 u=root n=ansible | ok: [192.168.57.13] => (item=linux/Ubuntu/22.04.yml)
+2025-01-03 17:55:56,378 p=11811 u=root n=ansible | ok: [192.168.57.14] => (item=linux/default.yml)
+2025-01-03 17:55:56,379 p=12655 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/default.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2025-01-03 17:55:56,390 p=11811 u=root n=ansible | ok: [192.168.57.14] => (item=linux/Ubuntu/default.yml)
+2025-01-03 17:55:56,391 p=12655 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/22.04.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2025-01-03 17:55:56,391 p=11811 u=root n=ansible | ok: [192.168.57.14] => (item=linux/Ubuntu/22.04.yml)
+2025-01-03 17:55:56,393 p=11811 u=root n=ansible | ok: [192.168.57.15] => (item=linux/default.yml)
+2025-01-03 17:55:56,394 p=11811 u=root n=ansible | ok: [192.168.57.15] => (item=linux/Ubuntu/default.yml)
+2025-01-03 17:55:56,394 p=11811 u=root n=ansible | ok: [192.168.57.16] => (item=linux/default.yml)
+2025-01-03 17:55:56,396 p=11811 u=root n=ansible | ok: [192.168.57.15] => (item=linux/Ubuntu/22.04.yml)
+2025-01-03 17:55:56,400 p=12657 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/default.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2025-01-03 17:55:56,406 p=11811 u=root n=ansible | ok: [192.168.57.16] => (item=linux/Ubuntu/default.yml)
+2025-01-03 17:55:56,412 p=12657 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/22.04.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2025-01-03 17:55:56,418 p=11811 u=root n=ansible | ok: [192.168.57.16] => (item=linux/Ubuntu/22.04.yml)
+2025-01-03 17:55:56,418 p=11811 u=root n=ansible | ok: [192.168.57.18] => (item=linux/default.yml)
+2025-01-03 17:55:56,419 p=12662 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/default.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2025-01-03 17:55:56,420 p=12659 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/default.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2025-01-03 17:55:56,421 p=11811 u=root n=ansible | ok: [192.168.57.17] => (item=linux/default.yml)
+2025-01-03 17:55:56,425 p=11811 u=root n=ansible | ok: [192.168.57.18] => (item=linux/Ubuntu/default.yml)
+2025-01-03 17:55:56,427 p=11811 u=root n=ansible | ok: [192.168.57.17] => (item=linux/Ubuntu/default.yml)
+2025-01-03 17:55:56,428 p=12662 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/22.04.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2025-01-03 17:55:56,431 p=12659 u=root n=ansible | [WARNING]: While constructing a mapping from
+/vagrant/ansible/playbooks/roles/k8s/vars/linux/Ubuntu/22.04.yml, line 3,
+column 1, found a duplicate dict key (k8s_version). Using last defined value
+only.
+
+2025-01-03 17:55:56,431 p=11811 u=root n=ansible | ok: [192.168.57.18] => (item=linux/Ubuntu/22.04.yml)
+2025-01-03 17:55:56,435 p=11811 u=root n=ansible | ok: [192.168.57.17] => (item=linux/Ubuntu/22.04.yml)
+2025-01-03 17:55:56,443 p=11811 u=root n=ansible | TASK [k8s : Check if the OS is Ubuntu] *****************************************
+2025-01-03 17:55:56,499 p=11811 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 17:55:56,512 p=11811 u=root n=ansible | ok: [192.168.57.14]
+2025-01-03 17:55:56,521 p=11811 u=root n=ansible | ok: [192.168.57.15]
+2025-01-03 17:55:56,522 p=11811 u=root n=ansible | ok: [192.168.57.16]
+2025-01-03 17:55:56,525 p=11811 u=root n=ansible | ok: [192.168.57.17]
+2025-01-03 17:55:56,535 p=11811 u=root n=ansible | ok: [192.168.57.18]
+2025-01-03 17:55:56,541 p=11811 u=root n=ansible | TASK [k8s : Include Ubuntu tasks] **********************************************
+2025-01-03 17:55:56,645 p=11811 u=root n=ansible | included: /vagrant/ansible/playbooks/roles/k8s/tasks/linux/Ubuntu/main.yml for 192.168.57.13, 192.168.57.14, 192.168.57.15, 192.168.57.16, 192.168.57.17, 192.168.57.18
+2025-01-03 17:55:56,688 p=11811 u=root n=ansible | TASK [k8s : Ensure GPG package is installed] ***********************************
+2025-01-03 17:56:00,428 p=11811 u=root n=ansible | ok: [192.168.57.15]
+2025-01-03 17:56:00,522 p=11811 u=root n=ansible | ok: [192.168.57.17]
+2025-01-03 17:56:00,819 p=11811 u=root n=ansible | ok: [192.168.57.14]
+2025-01-03 17:56:00,860 p=11811 u=root n=ansible | ok: [192.168.57.16]
+2025-01-03 17:56:03,453 p=11811 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 17:56:03,774 p=11811 u=root n=ansible | ok: [192.168.57.18]
+2025-01-03 17:56:03,786 p=11811 u=root n=ansible | TASK [k8s : Ensure /etc/apt/keyrings directory exists] *************************
+2025-01-03 17:56:05,339 p=11811 u=root n=ansible | ok: [192.168.57.17]
+2025-01-03 17:56:05,355 p=11811 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 17:56:05,372 p=11811 u=root n=ansible | ok: [192.168.57.16]
+2025-01-03 17:56:05,377 p=11811 u=root n=ansible | ok: [192.168.57.15]
+2025-01-03 17:56:05,378 p=11811 u=root n=ansible | ok: [192.168.57.14]
+2025-01-03 17:56:07,338 p=11811 u=root n=ansible | ok: [192.168.57.18]
+2025-01-03 17:56:07,354 p=11811 u=root n=ansible | TASK [k8s : Add Docker GPG key] ************************************************
+2025-01-03 17:56:09,552 p=11811 u=root n=ansible | changed: [192.168.57.17]
+2025-01-03 17:56:09,555 p=11811 u=root n=ansible | changed: [192.168.57.14]
+2025-01-03 17:56:09,609 p=11811 u=root n=ansible | changed: [192.168.57.15]
+2025-01-03 17:56:09,668 p=11811 u=root n=ansible | changed: [192.168.57.16]
+2025-01-03 17:56:09,843 p=11811 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 17:56:11,710 p=11811 u=root n=ansible | changed: [192.168.57.18]
+2025-01-03 17:56:11,722 p=11811 u=root n=ansible | TASK [k8s : Add Docker repository] *********************************************
+2025-01-03 17:56:13,415 p=11811 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 17:56:20,076 p=11811 u=root n=ansible | changed: [192.168.57.14]
+2025-01-03 17:56:20,202 p=11811 u=root n=ansible | changed: [192.168.57.17]
+2025-01-03 17:56:20,329 p=11811 u=root n=ansible | changed: [192.168.57.16]
+2025-01-03 17:56:20,832 p=11811 u=root n=ansible | changed: [192.168.57.15]
+2025-01-03 17:56:21,618 p=11811 u=root n=ansible | changed: [192.168.57.18]
+2025-01-03 17:56:21,629 p=11811 u=root n=ansible | TASK [k8s : Download Kubernetes GPG key and save it as a keyring] **************
+2025-01-03 17:56:23,455 p=11811 u=root n=ansible | changed: [192.168.57.14]
+2025-01-03 17:56:23,456 p=11811 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 17:56:23,469 p=11811 u=root n=ansible | changed: [192.168.57.15]
+2025-01-03 17:56:23,493 p=11811 u=root n=ansible | changed: [192.168.57.17]
+2025-01-03 17:56:23,576 p=11811 u=root n=ansible | changed: [192.168.57.16]
+2025-01-03 17:56:25,334 p=11811 u=root n=ansible | changed: [192.168.57.18]
+2025-01-03 17:56:25,342 p=11811 u=root n=ansible | TASK [k8s : Convert GPG key to keyring format] *********************************
+2025-01-03 17:56:26,799 p=11811 u=root n=ansible | changed: [192.168.57.14]
+2025-01-03 17:56:26,831 p=11811 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 17:56:26,843 p=11811 u=root n=ansible | changed: [192.168.57.16]
+2025-01-03 17:56:26,880 p=11811 u=root n=ansible | changed: [192.168.57.15]
+2025-01-03 17:56:26,990 p=11811 u=root n=ansible | changed: [192.168.57.17]
+2025-01-03 17:56:28,417 p=11811 u=root n=ansible | changed: [192.168.57.18]
+2025-01-03 17:56:28,427 p=11811 u=root n=ansible | TASK [k8s : Add Kubernetes repository to APT sources] **************************
+2025-01-03 17:56:30,840 p=11811 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 17:56:31,041 p=11811 u=root n=ansible | changed: [192.168.57.15]
+2025-01-03 17:56:31,200 p=11811 u=root n=ansible | changed: [192.168.57.14]
+2025-01-03 17:56:31,210 p=11811 u=root n=ansible | changed: [192.168.57.16]
+2025-01-03 17:56:31,569 p=11811 u=root n=ansible | changed: [192.168.57.17]
+2025-01-03 17:56:33,531 p=11811 u=root n=ansible | changed: [192.168.57.18]
+2025-01-03 17:56:33,539 p=11811 u=root n=ansible | TASK [k8s : Download Helm GPG key and save it as a keyring] ********************
+2025-01-03 17:56:35,247 p=11811 u=root n=ansible | changed: [192.168.57.14]
+2025-01-03 17:56:35,265 p=11811 u=root n=ansible | changed: [192.168.57.15]
+2025-01-03 17:56:35,345 p=11811 u=root n=ansible | changed: [192.168.57.17]
+2025-01-03 17:56:35,389 p=11811 u=root n=ansible | changed: [192.168.57.16]
+2025-01-03 17:56:35,419 p=11811 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 17:56:36,881 p=11811 u=root n=ansible | changed: [192.168.57.18]
+2025-01-03 17:56:36,895 p=11811 u=root n=ansible | TASK [k8s : Convert Helm GPG key to keyring format] ****************************
+2025-01-03 17:56:38,338 p=11811 u=root n=ansible | changed: [192.168.57.15]
+2025-01-03 17:56:38,352 p=11811 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 17:56:38,380 p=11811 u=root n=ansible | changed: [192.168.57.14]
+2025-01-03 17:56:38,435 p=11811 u=root n=ansible | changed: [192.168.57.16]
+2025-01-03 17:56:38,545 p=11811 u=root n=ansible | changed: [192.168.57.17]
+2025-01-03 17:56:39,973 p=11811 u=root n=ansible | changed: [192.168.57.18]
+2025-01-03 17:56:39,983 p=11811 u=root n=ansible | TASK [k8s : Add Helm repository to APT sources] ********************************
+2025-01-03 17:56:42,644 p=11811 u=root n=ansible | changed: [192.168.57.15]
+2025-01-03 17:56:42,658 p=11811 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 17:56:42,667 p=11811 u=root n=ansible | changed: [192.168.57.14]
+2025-01-03 17:56:42,822 p=11811 u=root n=ansible | changed: [192.168.57.17]
+2025-01-03 17:56:42,945 p=11811 u=root n=ansible | changed: [192.168.57.16]
+2025-01-03 17:56:45,549 p=11811 u=root n=ansible | changed: [192.168.57.18]
+2025-01-03 17:56:45,560 p=11811 u=root n=ansible | TASK [k8s : Install packages] **************************************************
+2025-01-03 17:56:49,859 p=11811 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 17:57:23,485 p=11811 u=root n=ansible | changed: [192.168.57.15]
+2025-01-03 17:57:25,270 p=11811 u=root n=ansible | changed: [192.168.57.17]
+2025-01-03 17:57:25,496 p=11811 u=root n=ansible | changed: [192.168.57.14]
+2025-01-03 17:57:25,771 p=11811 u=root n=ansible | changed: [192.168.57.16]
+2025-01-03 17:57:26,504 p=11811 u=root n=ansible | changed: [192.168.57.18]
+2025-01-03 17:57:26,516 p=11811 u=root n=ansible | TASK [k8s : Hold the kubelet, kubeadm, and kubectl packages] *******************
+2025-01-03 17:57:30,850 p=11811 u=root n=ansible | changed: [192.168.57.14] => (item=kubelet)
+2025-01-03 17:57:30,852 p=11811 u=root n=ansible | changed: [192.168.57.16] => (item=kubelet)
+2025-01-03 17:57:30,853 p=11811 u=root n=ansible | changed: [192.168.57.15] => (item=kubelet)
+2025-01-03 17:57:30,854 p=11811 u=root n=ansible | changed: [192.168.57.13] => (item=kubelet)
+2025-01-03 17:57:30,855 p=11811 u=root n=ansible | changed: [192.168.57.17] => (item=kubelet)
+2025-01-03 17:57:30,855 p=11811 u=root n=ansible | changed: [192.168.57.14] => (item=kubeadm)
+2025-01-03 17:57:30,856 p=11811 u=root n=ansible | changed: [192.168.57.16] => (item=kubeadm)
+2025-01-03 17:57:30,857 p=11811 u=root n=ansible | changed: [192.168.57.15] => (item=kubeadm)
+2025-01-03 17:57:30,858 p=11811 u=root n=ansible | changed: [192.168.57.17] => (item=kubeadm)
+2025-01-03 17:57:30,858 p=11811 u=root n=ansible | changed: [192.168.57.13] => (item=kubeadm)
+2025-01-03 17:57:30,859 p=11811 u=root n=ansible | changed: [192.168.57.14] => (item=kubectl)
+2025-01-03 17:57:30,936 p=11811 u=root n=ansible | changed: [192.168.57.16] => (item=kubectl)
+2025-01-03 17:57:30,970 p=11811 u=root n=ansible | changed: [192.168.57.15] => (item=kubectl)
+2025-01-03 17:57:31,152 p=11811 u=root n=ansible | changed: [192.168.57.17] => (item=kubectl)
+2025-01-03 17:57:31,165 p=11811 u=root n=ansible | changed: [192.168.57.13] => (item=kubectl)
+2025-01-03 17:57:32,404 p=11811 u=root n=ansible | changed: [192.168.57.18] => (item=kubelet)
+2025-01-03 17:57:34,016 p=11811 u=root n=ansible | changed: [192.168.57.18] => (item=kubeadm)
+2025-01-03 17:57:35,677 p=11811 u=root n=ansible | changed: [192.168.57.18] => (item=kubectl)
+2025-01-03 17:57:35,695 p=11811 u=root n=ansible | TASK [k8s : Stop apparmor service] *********************************************
+2025-01-03 17:57:37,302 p=11811 u=root n=ansible | changed: [192.168.57.14]
+2025-01-03 17:57:37,360 p=11811 u=root n=ansible | changed: [192.168.57.16]
+2025-01-03 17:57:37,368 p=11811 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 17:57:37,380 p=11811 u=root n=ansible | changed: [192.168.57.15]
+2025-01-03 17:57:37,405 p=11811 u=root n=ansible | changed: [192.168.57.17]
+2025-01-03 17:57:38,986 p=11811 u=root n=ansible | changed: [192.168.57.18]
+2025-01-03 17:57:38,996 p=11811 u=root n=ansible | TASK [k8s : Disable apparmor service] ******************************************
+2025-01-03 17:57:41,312 p=11811 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 17:57:41,343 p=11811 u=root n=ansible | changed: [192.168.57.17]
+2025-01-03 17:57:41,387 p=11811 u=root n=ansible | changed: [192.168.57.15]
+2025-01-03 17:57:41,532 p=11811 u=root n=ansible | changed: [192.168.57.14]
+2025-01-03 17:57:41,750 p=11811 u=root n=ansible | changed: [192.168.57.16]
+2025-01-03 17:57:43,758 p=11811 u=root n=ansible | changed: [192.168.57.18]
+2025-01-03 17:57:43,769 p=11811 u=root n=ansible | TASK [k8s : Render containerd/config.toml template] ****************************
+2025-01-03 17:57:46,078 p=11811 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 17:57:46,328 p=11811 u=root n=ansible | changed: [192.168.57.14]
+2025-01-03 17:57:46,497 p=11811 u=root n=ansible | changed: [192.168.57.17]
+2025-01-03 17:57:46,518 p=11811 u=root n=ansible | changed: [192.168.57.15]
+2025-01-03 17:57:46,533 p=11811 u=root n=ansible | changed: [192.168.57.16]
+2025-01-03 17:57:48,944 p=11811 u=root n=ansible | changed: [192.168.57.18]
+2025-01-03 17:57:48,953 p=11811 u=root n=ansible | RUNNING HANDLER [k8s : Start containerd] ***************************************
+2025-01-03 17:57:50,505 p=11811 u=root n=ansible | ok: [192.168.57.15]
+2025-01-03 17:57:50,576 p=11811 u=root n=ansible | ok: [192.168.57.18]
+2025-01-03 17:57:50,621 p=11811 u=root n=ansible | ok: [192.168.57.16]
+2025-01-03 17:57:50,630 p=11811 u=root n=ansible | ok: [192.168.57.14]
+2025-01-03 17:57:50,733 p=11811 u=root n=ansible | ok: [192.168.57.17]
+2025-01-03 17:57:50,734 p=11811 u=root n=ansible | RUNNING HANDLER [k8s : Restart containerd] *************************************
+2025-01-03 17:57:52,490 p=11811 u=root n=ansible | changed: [192.168.57.16]
+2025-01-03 17:57:52,592 p=11811 u=root n=ansible | changed: [192.168.57.17]
+2025-01-03 17:57:52,594 p=11811 u=root n=ansible | changed: [192.168.57.15]
+2025-01-03 17:57:52,598 p=11811 u=root n=ansible | changed: [192.168.57.14]
+2025-01-03 17:57:52,898 p=11811 u=root n=ansible | changed: [192.168.57.18]
+2025-01-03 17:57:52,909 p=11811 u=root n=ansible | TASK [k8s : Stop the UFW service] **********************************************
+2025-01-03 17:57:54,601 p=11811 u=root n=ansible | changed: [192.168.57.14]
+2025-01-03 17:57:54,602 p=11811 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 17:57:54,615 p=11811 u=root n=ansible | changed: [192.168.57.17]
+2025-01-03 17:57:54,649 p=11811 u=root n=ansible | changed: [192.168.57.16]
+2025-01-03 17:57:54,683 p=11811 u=root n=ansible | changed: [192.168.57.15]
+2025-01-03 17:57:56,349 p=11811 u=root n=ansible | changed: [192.168.57.18]
+2025-01-03 17:57:56,363 p=11811 u=root n=ansible | TASK [k8s : Disable the UFW service] *******************************************
+2025-01-03 17:57:58,079 p=11811 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 17:57:58,691 p=11811 u=root n=ansible | changed: [192.168.57.17]
+2025-01-03 17:57:58,748 p=11811 u=root n=ansible | changed: [192.168.57.14]
+2025-01-03 17:57:58,750 p=11811 u=root n=ansible | changed: [192.168.57.16]
+2025-01-03 17:57:59,011 p=11811 u=root n=ansible | changed: [192.168.57.15]
+2025-01-03 17:58:00,344 p=11811 u=root n=ansible | changed: [192.168.57.18]
+2025-01-03 17:58:00,355 p=11811 u=root n=ansible | TASK [k8s : Ensure swap is turned off] *****************************************
+2025-01-03 17:58:01,842 p=11811 u=root n=ansible | ok: [192.168.57.16]
+2025-01-03 17:58:01,844 p=11811 u=root n=ansible | ok: [192.168.57.14]
+2025-01-03 17:58:01,884 p=11811 u=root n=ansible | ok: [192.168.57.15]
+2025-01-03 17:58:01,897 p=11811 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 17:58:01,934 p=11811 u=root n=ansible | ok: [192.168.57.17]
+2025-01-03 17:58:03,328 p=11811 u=root n=ansible | ok: [192.168.57.18]
+2025-01-03 17:58:03,337 p=11811 u=root n=ansible | TASK [k8s : Ensure swap is disabled in /etc/fstab] *****************************
+2025-01-03 17:58:04,778 p=11811 u=root n=ansible | ok: [192.168.57.14]
+2025-01-03 17:58:04,784 p=11811 u=root n=ansible | ok: [192.168.57.16]
+2025-01-03 17:58:04,825 p=11811 u=root n=ansible | ok: [192.168.57.15]
+2025-01-03 17:58:04,869 p=11811 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 17:58:04,941 p=11811 u=root n=ansible | ok: [192.168.57.17]
+2025-01-03 17:58:06,277 p=11811 u=root n=ansible | ok: [192.168.57.18]
+2025-01-03 17:58:06,292 p=11811 u=root n=ansible | TASK [k8s : Load the br_netfilter module] **************************************
+2025-01-03 17:58:07,772 p=11811 u=root n=ansible | changed: [192.168.57.16]
+2025-01-03 17:58:07,813 p=11811 u=root n=ansible | changed: [192.168.57.14]
+2025-01-03 17:58:07,837 p=11811 u=root n=ansible | changed: [192.168.57.15]
+2025-01-03 17:58:07,854 p=11811 u=root n=ansible | changed: [192.168.57.17]
+2025-01-03 17:58:07,930 p=11811 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 17:58:09,305 p=11811 u=root n=ansible | changed: [192.168.57.18]
+2025-01-03 17:58:09,320 p=11811 u=root n=ansible | TASK [k8s : Load the overlay module] *******************************************
+2025-01-03 17:58:10,830 p=11811 u=root n=ansible | ok: [192.168.57.14]
+2025-01-03 17:58:10,860 p=11811 u=root n=ansible | ok: [192.168.57.16]
+2025-01-03 17:58:10,881 p=11811 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 17:58:10,892 p=11811 u=root n=ansible | ok: [192.168.57.15]
+2025-01-03 17:58:10,908 p=11811 u=root n=ansible | ok: [192.168.57.17]
+2025-01-03 17:58:12,359 p=11811 u=root n=ansible | ok: [192.168.57.18]
+2025-01-03 17:58:12,369 p=11811 u=root n=ansible | TASK [k8s : Load the rbd module] ***********************************************
+2025-01-03 17:58:13,829 p=11811 u=root n=ansible | changed: [192.168.57.16]
+2025-01-03 17:58:13,862 p=11811 u=root n=ansible | changed: [192.168.57.14]
+2025-01-03 17:58:13,871 p=11811 u=root n=ansible | changed: [192.168.57.15]
+2025-01-03 17:58:13,881 p=11811 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 17:58:14,007 p=11811 u=root n=ansible | changed: [192.168.57.17]
+2025-01-03 17:58:15,464 p=11811 u=root n=ansible | changed: [192.168.57.18]
+2025-01-03 17:58:15,475 p=11811 u=root n=ansible | TASK [k8s : Persist br_netfilter module in /etc/modules-load.d/k8s.conf] *******
+2025-01-03 17:58:17,788 p=11811 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 17:58:18,106 p=11811 u=root n=ansible | changed: [192.168.57.14]
+2025-01-03 17:58:18,178 p=11811 u=root n=ansible | changed: [192.168.57.16]
+2025-01-03 17:58:18,178 p=11811 u=root n=ansible | changed: [192.168.57.15]
+2025-01-03 17:58:18,218 p=11811 u=root n=ansible | changed: [192.168.57.17]
+2025-01-03 17:58:20,538 p=11811 u=root n=ansible | changed: [192.168.57.18]
+2025-01-03 17:58:20,552 p=11811 u=root n=ansible | TASK [k8s : Set sysctl parameters for Kubernetes networking] *******************
+2025-01-03 17:58:25,021 p=11811 u=root n=ansible | changed: [192.168.57.14] => (item={'key': 'net.ipv4.ip_forward', 'value': '1'})
+2025-01-03 17:58:25,023 p=11811 u=root n=ansible | changed: [192.168.57.17] => (item={'key': 'net.ipv4.ip_forward', 'value': '1'})
+2025-01-03 17:58:25,023 p=11811 u=root n=ansible | ok: [192.168.57.13] => (item={'key': 'net.ipv4.ip_forward', 'value': '1'})
+2025-01-03 17:58:25,024 p=11811 u=root n=ansible | changed: [192.168.57.15] => (item={'key': 'net.ipv4.ip_forward', 'value': '1'})
+2025-01-03 17:58:25,024 p=11811 u=root n=ansible | changed: [192.168.57.16] => (item={'key': 'net.ipv4.ip_forward', 'value': '1'})
+2025-01-03 17:58:25,025 p=11811 u=root n=ansible | changed: [192.168.57.17] => (item={'key': 'net.bridge.bridge-nf-call-ip6tables', 'value': '1'})
+2025-01-03 17:58:25,025 p=11811 u=root n=ansible | changed: [192.168.57.16] => (item={'key': 'net.bridge.bridge-nf-call-ip6tables', 'value': '1'})
+2025-01-03 17:58:25,025 p=11811 u=root n=ansible | ok: [192.168.57.13] => (item={'key': 'net.bridge.bridge-nf-call-ip6tables', 'value': '1'})
+2025-01-03 17:58:25,026 p=11811 u=root n=ansible | changed: [192.168.57.14] => (item={'key': 'net.bridge.bridge-nf-call-ip6tables', 'value': '1'})
+2025-01-03 17:58:25,026 p=11811 u=root n=ansible | changed: [192.168.57.15] => (item={'key': 'net.bridge.bridge-nf-call-ip6tables', 'value': '1'})
+2025-01-03 17:58:25,026 p=11811 u=root n=ansible | changed: [192.168.57.17] => (item={'key': 'net.bridge.bridge-nf-call-iptables', 'value': '1'})
+2025-01-03 17:58:25,045 p=11811 u=root n=ansible | changed: [192.168.57.16] => (item={'key': 'net.bridge.bridge-nf-call-iptables', 'value': '1'})
+2025-01-03 17:58:25,135 p=11811 u=root n=ansible | changed: [192.168.57.14] => (item={'key': 'net.bridge.bridge-nf-call-iptables', 'value': '1'})
+2025-01-03 17:58:25,216 p=11811 u=root n=ansible | ok: [192.168.57.13] => (item={'key': 'net.bridge.bridge-nf-call-iptables', 'value': '1'})
+2025-01-03 17:58:25,484 p=11811 u=root n=ansible | changed: [192.168.57.15] => (item={'key': 'net.bridge.bridge-nf-call-iptables', 'value': '1'})
+2025-01-03 17:58:26,535 p=11811 u=root n=ansible | changed: [192.168.57.18] => (item={'key': 'net.ipv4.ip_forward', 'value': '1'})
+2025-01-03 17:58:28,314 p=11811 u=root n=ansible | changed: [192.168.57.18] => (item={'key': 'net.bridge.bridge-nf-call-ip6tables', 'value': '1'})
+2025-01-03 17:58:29,969 p=11811 u=root n=ansible | changed: [192.168.57.18] => (item={'key': 'net.bridge.bridge-nf-call-iptables', 'value': '1'})
+2025-01-03 17:58:29,982 p=11811 u=root n=ansible | TASK [k8s : Add NAT masquerade rule for interface enp0s8] **********************
+2025-01-03 17:58:31,432 p=11811 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 17:58:31,533 p=11811 u=root n=ansible | changed: [192.168.57.15]
+2025-01-03 17:58:31,774 p=11811 u=root n=ansible | changed: [192.168.57.16]
+2025-01-03 17:58:31,878 p=11811 u=root n=ansible | changed: [192.168.57.17]
+2025-01-03 17:58:31,885 p=11811 u=root n=ansible | changed: [192.168.57.14]
+2025-01-03 17:58:33,057 p=11811 u=root n=ansible | changed: [192.168.57.18]
+2025-01-03 17:58:33,073 p=11811 u=root n=ansible | TASK [k8s : Ensure kubelet service is enabled and started] *********************
+2025-01-03 17:58:34,698 p=11811 u=root n=ansible | changed: [192.168.57.17]
+2025-01-03 17:58:34,714 p=11811 u=root n=ansible | changed: [192.168.57.15]
+2025-01-03 17:58:34,720 p=11811 u=root n=ansible | changed: [192.168.57.14]
+2025-01-03 17:58:34,737 p=11811 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 17:58:34,780 p=11811 u=root n=ansible | changed: [192.168.57.16]
+2025-01-03 17:58:36,494 p=11811 u=root n=ansible | changed: [192.168.57.18]
+2025-01-03 17:58:36,508 p=11811 u=root n=ansible | TASK [k8s : Set controller nodes facts] ****************************************
+2025-01-03 17:58:36,605 p=11811 u=root n=ansible | ok: [192.168.57.15]
+2025-01-03 17:58:36,635 p=11811 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 17:58:36,642 p=11811 u=root n=ansible | ok: [192.168.57.14]
+2025-01-03 17:58:36,643 p=11811 u=root n=ansible | ok: [192.168.57.16]
+2025-01-03 17:58:36,669 p=11811 u=root n=ansible | ok: [192.168.57.17]
+2025-01-03 17:58:36,686 p=11811 u=root n=ansible | ok: [192.168.57.18]
+2025-01-03 17:58:36,693 p=11811 u=root n=ansible | TASK [k8s : Set computer node facts] *******************************************
+2025-01-03 17:58:36,796 p=11811 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 17:58:36,830 p=11811 u=root n=ansible | ok: [192.168.57.14]
+2025-01-03 17:58:36,848 p=11811 u=root n=ansible | ok: [192.168.57.15]
+2025-01-03 17:58:36,862 p=11811 u=root n=ansible | ok: [192.168.57.16]
+2025-01-03 17:58:36,875 p=11811 u=root n=ansible | ok: [192.168.57.17]
+2025-01-03 17:58:36,898 p=11811 u=root n=ansible | ok: [192.168.57.18]
+2025-01-03 17:58:36,909 p=11811 u=root n=ansible | TASK [k8s : Determine the IP address for the target interface] *****************
+2025-01-03 17:58:36,944 p=11811 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 17:58:36,967 p=11811 u=root n=ansible | ok: [192.168.57.14]
+2025-01-03 17:58:36,990 p=11811 u=root n=ansible | ok: [192.168.57.15]
+2025-01-03 17:58:36,993 p=11811 u=root n=ansible | ok: [192.168.57.16]
+2025-01-03 17:58:36,994 p=11811 u=root n=ansible | ok: [192.168.57.17]
+2025-01-03 17:58:37,009 p=11811 u=root n=ansible | ok: [192.168.57.18]
+2025-01-03 17:58:37,020 p=11811 u=root n=ansible | TASK [k8s : Check if the admin file exists] ************************************
+2025-01-03 17:58:38,651 p=11811 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 17:58:38,669 p=11811 u=root n=ansible | ok: [192.168.57.15]
+2025-01-03 17:58:38,675 p=11811 u=root n=ansible | ok: [192.168.57.14]
+2025-01-03 17:58:38,689 p=11811 u=root n=ansible | ok: [192.168.57.17]
+2025-01-03 17:58:38,694 p=11811 u=root n=ansible | ok: [192.168.57.16]
+2025-01-03 17:58:40,117 p=11811 u=root n=ansible | ok: [192.168.57.18]
+2025-01-03 17:58:40,133 p=11811 u=root n=ansible | TASK [k8s : Run join controllers to cluster] ***********************************
+2025-01-03 17:58:40,159 p=11811 u=root n=ansible | skipping: [192.168.57.13]
+2025-01-03 17:58:40,204 p=11811 u=root n=ansible | skipping: [192.168.57.16]
+2025-01-03 17:58:40,231 p=11811 u=root n=ansible | skipping: [192.168.57.17]
+2025-01-03 17:58:40,243 p=11811 u=root n=ansible | skipping: [192.168.57.18]
+2025-01-03 17:59:05,343 p=11811 u=root n=ansible | changed: [192.168.57.15]
+2025-01-03 17:59:11,754 p=11811 u=root n=ansible | changed: [192.168.57.14]
+2025-01-03 17:59:11,767 p=11811 u=root n=ansible | TASK [k8s : Run join compute to cluster] ***************************************
+2025-01-03 17:59:11,822 p=11811 u=root n=ansible | skipping: [192.168.57.13]
+2025-01-03 17:59:11,851 p=11811 u=root n=ansible | skipping: [192.168.57.14]
+2025-01-03 17:59:11,880 p=11811 u=root n=ansible | skipping: [192.168.57.15]
+2025-01-03 17:59:15,545 p=11811 u=root n=ansible | changed: [192.168.57.17]
+2025-01-03 17:59:16,054 p=11811 u=root n=ansible | changed: [192.168.57.16]
+2025-01-03 17:59:16,525 p=11811 u=root n=ansible | changed: [192.168.57.18]
+2025-01-03 17:59:16,545 p=11811 u=root n=ansible | TASK [k8s : Run kubeadm init if and only if bootstrap facts not present] *******
+2025-01-03 17:59:16,579 p=11811 u=root n=ansible | skipping: [192.168.57.13]
+2025-01-03 17:59:16,607 p=11811 u=root n=ansible | skipping: [192.168.57.14]
+2025-01-03 17:59:16,659 p=11811 u=root n=ansible | skipping: [192.168.57.15]
+2025-01-03 17:59:16,686 p=11811 u=root n=ansible | skipping: [192.168.57.16]
+2025-01-03 17:59:16,688 p=11811 u=root n=ansible | skipping: [192.168.57.17]
+2025-01-03 17:59:16,699 p=11811 u=root n=ansible | skipping: [192.168.57.18]
+2025-01-03 17:59:16,713 p=11811 u=root n=ansible | TASK [k8s : Render kubeadm-flags.env template] *********************************
+2025-01-03 17:59:21,363 p=11811 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 17:59:21,710 p=11811 u=root n=ansible | changed: [192.168.57.17]
+2025-01-03 17:59:21,818 p=11811 u=root n=ansible | changed: [192.168.57.16]
+2025-01-03 17:59:23,152 p=11811 u=root n=ansible | changed: [192.168.57.14]
+2025-01-03 17:59:23,451 p=11811 u=root n=ansible | changed: [192.168.57.15]
+2025-01-03 17:59:26,255 p=11811 u=root n=ansible | changed: [192.168.57.18]
+2025-01-03 17:59:26,276 p=11811 u=root n=ansible | RUNNING HANDLER [k8s : Restart kubelet] ****************************************
+2025-01-03 17:59:29,869 p=11811 u=root n=ansible | changed: [192.168.57.16]
+2025-01-03 17:59:30,126 p=11811 u=root n=ansible | changed: [192.168.57.17]
+2025-01-03 17:59:30,229 p=11811 u=root n=ansible | changed: [192.168.57.18]
+2025-01-03 17:59:30,586 p=11811 u=root n=ansible | changed: [192.168.57.14]
+2025-01-03 17:59:31,194 p=11811 u=root n=ansible | changed: [192.168.57.15]
+2025-01-03 17:59:31,208 p=11811 u=root n=ansible | TASK [k8s : Add KUBECONFIG to root's bashrc] ***********************************
+2025-01-03 17:59:31,309 p=11811 u=root n=ansible | skipping: [192.168.57.16]
+2025-01-03 17:59:31,318 p=11811 u=root n=ansible | skipping: [192.168.57.17]
+2025-01-03 17:59:31,342 p=11811 u=root n=ansible | skipping: [192.168.57.18]
+2025-01-03 17:59:33,098 p=11811 u=root n=ansible | ok: [192.168.57.13]
+2025-01-03 17:59:33,109 p=11811 u=root n=ansible | changed: [192.168.57.15]
+2025-01-03 17:59:33,134 p=11811 u=root n=ansible | changed: [192.168.57.14]
+2025-01-03 17:59:33,145 p=11811 u=root n=ansible | TASK [k8s : Ensure /opt/k8s_deploy/plugins directory exists with correct permissions] ***
+2025-01-03 17:59:33,199 p=11811 u=root n=ansible | skipping: [192.168.57.13]
+2025-01-03 17:59:33,223 p=11811 u=root n=ansible | skipping: [192.168.57.14]
+2025-01-03 17:59:33,251 p=11811 u=root n=ansible | skipping: [192.168.57.15]
+2025-01-03 17:59:33,274 p=11811 u=root n=ansible | skipping: [192.168.57.16]
+2025-01-03 17:59:33,276 p=11811 u=root n=ansible | skipping: [192.168.57.17]
+2025-01-03 17:59:33,284 p=11811 u=root n=ansible | skipping: [192.168.57.18]
+2025-01-03 17:59:33,299 p=11811 u=root n=ansible | TASK [k8s : Render all plugin template files to /opt/k8s_deploy/plugins] *******
+2025-01-03 17:59:33,634 p=11811 u=root n=ansible | skipping: [192.168.57.13] => (item=05_rook-ceph-common.yml.j2) 
+2025-01-03 17:59:33,641 p=11811 u=root n=ansible | skipping: [192.168.57.13] => (item=10-rook-ceph-storageclass.yml.j2) 
+2025-01-03 17:59:33,649 p=11811 u=root n=ansible | skipping: [192.168.57.14] => (item=05_rook-ceph-common.yml.j2) 
+2025-01-03 17:59:33,658 p=11811 u=root n=ansible | skipping: [192.168.57.14] => (item=10-rook-ceph-storageclass.yml.j2) 
+2025-01-03 17:59:33,659 p=11811 u=root n=ansible | skipping: [192.168.57.13] => (item=02_calico-resources.yml.j2) 
+2025-01-03 17:59:33,660 p=11811 u=root n=ansible | skipping: [192.168.57.15] => (item=05_rook-ceph-common.yml.j2) 
+2025-01-03 17:59:33,661 p=11811 u=root n=ansible | skipping: [192.168.57.13] => (item=06_rook-ceph-operator.yml.j2) 
+2025-01-03 17:59:33,665 p=11811 u=root n=ansible | skipping: [192.168.57.14] => (item=02_calico-resources.yml.j2) 
+2025-01-03 17:59:33,666 p=11811 u=root n=ansible | skipping: [192.168.57.15] => (item=10-rook-ceph-storageclass.yml.j2) 
+2025-01-03 17:59:33,669 p=11811 u=root n=ansible | skipping: [192.168.57.13] => (item=03_ingress-nginx.yml.j2) 
+2025-01-03 17:59:33,673 p=11811 u=root n=ansible | skipping: [192.168.57.13] => (item=08_rook-ceph-dashboard-ingress.yml.j2) 
+2025-01-03 17:59:33,674 p=11811 u=root n=ansible | skipping: [192.168.57.14] => (item=06_rook-ceph-operator.yml.j2) 
+2025-01-03 17:59:33,677 p=11811 u=root n=ansible | skipping: [192.168.57.15] => (item=02_calico-resources.yml.j2) 
+2025-01-03 17:59:33,903 p=11811 u=root n=ansible | skipping: [192.168.57.16] => (item=05_rook-ceph-common.yml.j2) 
+2025-01-03 17:59:33,917 p=11811 u=root n=ansible | skipping: [192.168.57.16] => (item=10-rook-ceph-storageclass.yml.j2) 
+2025-01-03 17:59:33,919 p=11811 u=root n=ansible | skipping: [192.168.57.13] => (item=04_rook-ceph-crds.yml.j2) 
+2025-01-03 17:59:33,924 p=11811 u=root n=ansible | skipping: [192.168.57.14] => (item=03_ingress-nginx.yml.j2) 
+2025-01-03 17:59:33,931 p=11811 u=root n=ansible | skipping: [192.168.57.15] => (item=06_rook-ceph-operator.yml.j2) 
+2025-01-03 17:59:33,934 p=11811 u=root n=ansible | skipping: [192.168.57.17] => (item=05_rook-ceph-common.yml.j2) 
+2025-01-03 17:59:33,937 p=11811 u=root n=ansible | skipping: [192.168.57.16] => (item=02_calico-resources.yml.j2) 
+2025-01-03 17:59:33,940 p=11811 u=root n=ansible | skipping: [192.168.57.13] => (item=07_rook-ceph-cluster.yml.j2) 
+2025-01-03 17:59:33,944 p=11811 u=root n=ansible | skipping: [192.168.57.14] => (item=08_rook-ceph-dashboard-ingress.yml.j2) 
+2025-01-03 17:59:33,945 p=11811 u=root n=ansible | skipping: [192.168.57.15] => (item=03_ingress-nginx.yml.j2) 
+2025-01-03 17:59:33,946 p=11811 u=root n=ansible | skipping: [192.168.57.17] => (item=10-rook-ceph-storageclass.yml.j2) 
+2025-01-03 17:59:33,951 p=11811 u=root n=ansible | skipping: [192.168.57.16] => (item=06_rook-ceph-operator.yml.j2) 
+2025-01-03 17:59:33,957 p=11811 u=root n=ansible | skipping: [192.168.57.17] => (item=02_calico-resources.yml.j2) 
+2025-01-03 17:59:33,969 p=11811 u=root n=ansible | skipping: [192.168.57.15] => (item=08_rook-ceph-dashboard-ingress.yml.j2) 
+2025-01-03 17:59:33,977 p=11811 u=root n=ansible | skipping: [192.168.57.16] => (item=03_ingress-nginx.yml.j2) 
+2025-01-03 17:59:33,979 p=11811 u=root n=ansible | skipping: [192.168.57.14] => (item=04_rook-ceph-crds.yml.j2) 
+2025-01-03 17:59:33,981 p=11811 u=root n=ansible | skipping: [192.168.57.13] => (item=09_rook-ceph-pvc.yml.j2) 
+2025-01-03 17:59:33,985 p=11811 u=root n=ansible | skipping: [192.168.57.17] => (item=06_rook-ceph-operator.yml.j2) 
+2025-01-03 17:59:33,987 p=11811 u=root n=ansible | skipping: [192.168.57.15] => (item=04_rook-ceph-crds.yml.j2) 
+2025-01-03 17:59:33,988 p=11811 u=root n=ansible | skipping: [192.168.57.13] => (item=01_tigera-operator.yml.j2) 
+2025-01-03 17:59:33,988 p=11811 u=root n=ansible | skipping: [192.168.57.16] => (item=08_rook-ceph-dashboard-ingress.yml.j2) 
+2025-01-03 17:59:33,990 p=11811 u=root n=ansible | skipping: [192.168.57.17] => (item=03_ingress-nginx.yml.j2) 
+2025-01-03 17:59:33,991 p=11811 u=root n=ansible | skipping: [192.168.57.14] => (item=07_rook-ceph-cluster.yml.j2) 
+2025-01-03 17:59:33,992 p=11811 u=root n=ansible | skipping: [192.168.57.17] => (item=08_rook-ceph-dashboard-ingress.yml.j2) 
+2025-01-03 17:59:33,997 p=11811 u=root n=ansible | skipping: [192.168.57.15] => (item=07_rook-ceph-cluster.yml.j2) 
+2025-01-03 17:59:34,000 p=11811 u=root n=ansible | skipping: [192.168.57.16] => (item=04_rook-ceph-crds.yml.j2) 
+2025-01-03 17:59:34,006 p=11811 u=root n=ansible | skipping: [192.168.57.16] => (item=07_rook-ceph-cluster.yml.j2) 
+2025-01-03 17:59:34,009 p=11811 u=root n=ansible | skipping: [192.168.57.14] => (item=09_rook-ceph-pvc.yml.j2) 
+2025-01-03 17:59:34,014 p=11811 u=root n=ansible | skipping: [192.168.57.13] => (item=11-rook-ceph-tools.yml.j2) 
+2025-01-03 17:59:34,015 p=11811 u=root n=ansible | skipping: [192.168.57.17] => (item=04_rook-ceph-crds.yml.j2) 
+2025-01-03 17:59:34,030 p=11811 u=root n=ansible | skipping: [192.168.57.14] => (item=01_tigera-operator.yml.j2) 
+2025-01-03 17:59:34,033 p=11811 u=root n=ansible | skipping: [192.168.57.16] => (item=09_rook-ceph-pvc.yml.j2) 
+2025-01-03 17:59:34,034 p=11811 u=root n=ansible | skipping: [192.168.57.15] => (item=09_rook-ceph-pvc.yml.j2) 
+2025-01-03 17:59:34,039 p=11811 u=root n=ansible | skipping: [192.168.57.16] => (item=01_tigera-operator.yml.j2) 
+2025-01-03 17:59:34,041 p=11811 u=root n=ansible | skipping: [192.168.57.17] => (item=07_rook-ceph-cluster.yml.j2) 
+2025-01-03 17:59:34,043 p=11811 u=root n=ansible | skipping: [192.168.57.14] => (item=11-rook-ceph-tools.yml.j2) 
+2025-01-03 17:59:34,044 p=11811 u=root n=ansible | skipping: [192.168.57.16] => (item=11-rook-ceph-tools.yml.j2) 
+2025-01-03 17:59:34,046 p=11811 u=root n=ansible | skipping: [192.168.57.15] => (item=01_tigera-operator.yml.j2) 
+2025-01-03 17:59:34,047 p=11811 u=root n=ansible | skipping: [192.168.57.17] => (item=09_rook-ceph-pvc.yml.j2) 
+2025-01-03 17:59:34,048 p=11811 u=root n=ansible | skipping: [192.168.57.18] => (item=05_rook-ceph-common.yml.j2) 
+2025-01-03 17:59:34,049 p=11811 u=root n=ansible | skipping: [192.168.57.18] => (item=10-rook-ceph-storageclass.yml.j2) 
+2025-01-03 17:59:34,050 p=11811 u=root n=ansible | skipping: [192.168.57.18] => (item=02_calico-resources.yml.j2) 
+2025-01-03 17:59:34,051 p=11811 u=root n=ansible | skipping: [192.168.57.18] => (item=06_rook-ceph-operator.yml.j2) 
+2025-01-03 17:59:34,052 p=11811 u=root n=ansible | skipping: [192.168.57.18] => (item=03_ingress-nginx.yml.j2) 
+2025-01-03 17:59:34,053 p=11811 u=root n=ansible | skipping: [192.168.57.17] => (item=01_tigera-operator.yml.j2) 
+2025-01-03 17:59:34,054 p=11811 u=root n=ansible | skipping: [192.168.57.18] => (item=08_rook-ceph-dashboard-ingress.yml.j2) 
+2025-01-03 17:59:34,055 p=11811 u=root n=ansible | skipping: [192.168.57.15] => (item=11-rook-ceph-tools.yml.j2) 
+2025-01-03 17:59:34,056 p=11811 u=root n=ansible | skipping: [192.168.57.18] => (item=04_rook-ceph-crds.yml.j2) 
+2025-01-03 17:59:34,057 p=11811 u=root n=ansible | skipping: [192.168.57.17] => (item=11-rook-ceph-tools.yml.j2) 
+2025-01-03 17:59:34,058 p=11811 u=root n=ansible | skipping: [192.168.57.18] => (item=07_rook-ceph-cluster.yml.j2) 
+2025-01-03 17:59:34,059 p=11811 u=root n=ansible | skipping: [192.168.57.18] => (item=09_rook-ceph-pvc.yml.j2) 
+2025-01-03 17:59:34,060 p=11811 u=root n=ansible | skipping: [192.168.57.18] => (item=01_tigera-operator.yml.j2) 
+2025-01-03 17:59:34,062 p=11811 u=root n=ansible | skipping: [192.168.57.18] => (item=11-rook-ceph-tools.yml.j2) 
+2025-01-03 17:59:34,080 p=11811 u=root n=ansible | TASK [k8s : Apply all YAML files in /opt/k8s_deploy/plugins using kubectl] *****
+2025-01-03 17:59:34,120 p=11811 u=root n=ansible | skipping: [192.168.57.13]
+2025-01-03 17:59:34,149 p=11811 u=root n=ansible | skipping: [192.168.57.14]
+2025-01-03 17:59:34,172 p=11811 u=root n=ansible | skipping: [192.168.57.15]
+2025-01-03 17:59:34,195 p=11811 u=root n=ansible | skipping: [192.168.57.16]
+2025-01-03 17:59:34,197 p=11811 u=root n=ansible | skipping: [192.168.57.17]
+2025-01-03 17:59:34,218 p=11811 u=root n=ansible | skipping: [192.168.57.18]
+2025-01-03 17:59:34,240 p=11811 u=root n=ansible | TASK [k8s : Set and cache join_token fact] *************************************
+2025-01-03 17:59:34,277 p=11811 u=root n=ansible | skipping: [192.168.57.13]
+2025-01-03 17:59:34,305 p=11811 u=root n=ansible | skipping: [192.168.57.14]
+2025-01-03 17:59:34,357 p=11811 u=root n=ansible | skipping: [192.168.57.15]
+2025-01-03 17:59:34,362 p=11811 u=root n=ansible | skipping: [192.168.57.16]
+2025-01-03 17:59:34,367 p=11811 u=root n=ansible | skipping: [192.168.57.17]
+2025-01-03 17:59:34,377 p=11811 u=root n=ansible | skipping: [192.168.57.18]
+2025-01-03 17:59:34,387 p=11811 u=root n=ansible | TASK [k8s : Cache join_token] **************************************************
+2025-01-03 17:59:34,432 p=11811 u=root n=ansible | skipping: [192.168.57.13]
+2025-01-03 17:59:34,463 p=11811 u=root n=ansible | skipping: [192.168.57.14]
+2025-01-03 17:59:34,485 p=11811 u=root n=ansible | skipping: [192.168.57.15]
+2025-01-03 17:59:34,538 p=11811 u=root n=ansible | skipping: [192.168.57.16]
+2025-01-03 17:59:34,545 p=11811 u=root n=ansible | skipping: [192.168.57.17]
+2025-01-03 17:59:34,553 p=11811 u=root n=ansible | skipping: [192.168.57.18]
+2025-01-03 17:59:34,563 p=11811 u=root n=ansible | TASK [k8s : Set and cache cert_hash fact] **************************************
+2025-01-03 17:59:34,631 p=11811 u=root n=ansible | skipping: [192.168.57.13]
+2025-01-03 17:59:34,654 p=11811 u=root n=ansible | skipping: [192.168.57.14]
+2025-01-03 17:59:34,667 p=11811 u=root n=ansible | skipping: [192.168.57.15]
+2025-01-03 17:59:34,688 p=11811 u=root n=ansible | skipping: [192.168.57.16]
+2025-01-03 17:59:34,689 p=11811 u=root n=ansible | skipping: [192.168.57.17]
+2025-01-03 17:59:34,726 p=11811 u=root n=ansible | skipping: [192.168.57.18]
+2025-01-03 17:59:34,770 p=11811 u=root n=ansible | TASK [k8s : Cache cert_hash] ***************************************************
+2025-01-03 17:59:34,813 p=11811 u=root n=ansible | skipping: [192.168.57.13]
+2025-01-03 17:59:34,839 p=11811 u=root n=ansible | skipping: [192.168.57.14]
+2025-01-03 17:59:34,859 p=11811 u=root n=ansible | skipping: [192.168.57.15]
+2025-01-03 17:59:34,885 p=11811 u=root n=ansible | skipping: [192.168.57.16]
+2025-01-03 17:59:34,930 p=11811 u=root n=ansible | skipping: [192.168.57.17]
+2025-01-03 17:59:34,950 p=11811 u=root n=ansible | skipping: [192.168.57.18]
+2025-01-03 17:59:34,970 p=11811 u=root n=ansible | TASK [k8s : Set and cache cert_key fact] ***************************************
+2025-01-03 17:59:34,997 p=11811 u=root n=ansible | skipping: [192.168.57.13]
+2025-01-03 17:59:35,025 p=11811 u=root n=ansible | skipping: [192.168.57.14]
+2025-01-03 17:59:35,079 p=11811 u=root n=ansible | skipping: [192.168.57.15]
+2025-01-03 17:59:35,096 p=11811 u=root n=ansible | skipping: [192.168.57.16]
+2025-01-03 17:59:35,105 p=11811 u=root n=ansible | skipping: [192.168.57.17]
+2025-01-03 17:59:35,119 p=11811 u=root n=ansible | skipping: [192.168.57.18]
+2025-01-03 17:59:35,134 p=11811 u=root n=ansible | TASK [k8s : Cache cert_key] ****************************************************
+2025-01-03 17:59:35,189 p=11811 u=root n=ansible | skipping: [192.168.57.13]
+2025-01-03 17:59:35,217 p=11811 u=root n=ansible | skipping: [192.168.57.14]
+2025-01-03 17:59:35,247 p=11811 u=root n=ansible | skipping: [192.168.57.15]
+2025-01-03 17:59:35,281 p=11811 u=root n=ansible | skipping: [192.168.57.16]
+2025-01-03 17:59:35,298 p=11811 u=root n=ansible | skipping: [192.168.57.17]
+2025-01-03 17:59:35,310 p=11811 u=root n=ansible | skipping: [192.168.57.18]
+2025-01-03 17:59:35,324 p=11811 u=root n=ansible | TASK [k8s : Restart kubelet] ***************************************************
+2025-01-03 17:59:38,636 p=11811 u=root n=ansible | changed: [192.168.57.13]
+2025-01-03 17:59:39,131 p=11811 u=root n=ansible | changed: [192.168.57.15]
+2025-01-03 17:59:39,136 p=11811 u=root n=ansible | changed: [192.168.57.14]
+2025-01-03 17:59:39,617 p=11811 u=root n=ansible | changed: [192.168.57.17]
+2025-01-03 17:59:39,785 p=11811 u=root n=ansible | changed: [192.168.57.16]
+2025-01-03 17:59:42,119 p=11811 u=root n=ansible | changed: [192.168.57.18]
+2025-01-03 17:59:42,139 p=11811 u=root n=ansible | PLAY RECAP *********************************************************************
+2025-01-03 17:59:42,140 p=11811 u=root n=ansible | 192.168.57.13              : ok=91   changed=34   unreachable=0    failed=0    skipped=17   rescued=0    ignored=0   
+2025-01-03 17:59:42,141 p=11811 u=root n=ansible | 192.168.57.14              : ok=46   changed=27   unreachable=0    failed=0    skipped=11   rescued=0    ignored=0   
+2025-01-03 17:59:42,142 p=11811 u=root n=ansible | 192.168.57.15              : ok=46   changed=27   unreachable=0    failed=0    skipped=11   rescued=0    ignored=0   
+2025-01-03 17:59:42,142 p=11811 u=root n=ansible | 192.168.57.16              : ok=45   changed=26   unreachable=0    failed=0    skipped=12   rescued=0    ignored=0   
+2025-01-03 17:59:42,143 p=11811 u=root n=ansible | 192.168.57.17              : ok=45   changed=26   unreachable=0    failed=0    skipped=12   rescued=0    ignored=0   
+2025-01-03 17:59:42,143 p=11811 u=root n=ansible | 192.168.57.18              : ok=45   changed=26   unreachable=0    failed=0    skipped=12   rescued=0    ignored=0   
