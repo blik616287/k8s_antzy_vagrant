@@ -22,6 +22,22 @@ spec:
     requests:
       storage: 1Gi
 ---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: openldap
+data:
+  LDAP_ORGANISATION: {{ ldap_org | default(ldap_org) }}
+  LDAP_DOMAIN: {{ ldap_domain | default(ldap_domain) }}
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: openldap
+type: Opaque
+data:
+  LDAP_ADMIN_PASSWORD: {{ ldap_admin_pass | default(ldap_admin_pass) }}
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
