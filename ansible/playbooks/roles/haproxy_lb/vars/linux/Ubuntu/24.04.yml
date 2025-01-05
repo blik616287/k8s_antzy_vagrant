@@ -1,0 +1,9 @@
+---
+
+install_packages: true
+packages:
+  - net-tools
+  - haproxy
+  - keepalived
+
+...

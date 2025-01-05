@@ -15,17 +15,16 @@ vrrp_instance VI_1 {
     interface {{ listen_nic }}
 {% if inventory_hostname == first_host %}
     state MASTER
-    priority 150
 {% else %}
     state BACKUP
-    priority 100
 {% endif %}
+    priority {{ 500 - (hosts.index(inventory_hostname) * 10) }}
     advert_int 1
     virtual_router_id 111
-    virtual_ipaddress { 
+    virtual_ipaddress {
         {{ lb_vip }}/32 dev {{ listen_nic }}
     }
-    track_script { 
-        chk_haproxy 
+    track_script {
+        chk_haproxy
     }
 }
